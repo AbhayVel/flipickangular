@@ -9,8 +9,7 @@
       "projectType": "application",
       "prefix": "app",
       "schematics": {
-        "@schematics/angular:component": {
-          "styleext": "scss"
+        "@schematics/angular:component": {         
         }
       },
       "architect": {
@@ -161,8 +160,7 @@
   },
   "defaultProject": "argon-dashboard-angular",
   "schematics": {
-    "@schematics/angular:component": {
-      "styleext": "scss"
+    "@schematics/angular:component": {      
     }
   },
   "cli": {

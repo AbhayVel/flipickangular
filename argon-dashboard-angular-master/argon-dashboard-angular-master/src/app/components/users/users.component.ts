@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { sort } from 'src/app/utilities/utility';
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -55,20 +55,19 @@ export class UsersComponent implements OnInit {
   orderBy:number = -1;
   sortData(columnName:string , sortType:string){
     debugger;
-    this.orderBy = this.orderBy*-1;
-
-    this.users.sort((a,b) =>{
+    this.orderBy = this.orderBy * -1;
+    sort(this.users, columnName, this.orderBy, sortType);
+    /*this.users.sort((a,b) =>{
       if(sortType == 'num' || sortType =='cs'){
         if(a[columnName] !==null && b[columnName] !=null){
           return a[columnName] > b[columnName] ? -1*this.orderBy : 1*this.orderBy;
-        }        
+        }
       }else if(sortType == "ci"){
         if(a[columnName] !==null && b[columnName] !=null){
           return a[columnName].toLowerCase() > b[columnName].toLowerCase() ? -1 * this.orderBy : 1 * this.orderBy;
         }
       }
-      
-    })
+    })*/
   }
 
   ngOnInit(): void {

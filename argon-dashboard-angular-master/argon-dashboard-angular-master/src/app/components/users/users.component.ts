@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SortModel } from 'src/app/models/sort-model';
 import { sort } from 'src/app/utilities/utility';
 
 @Component({
@@ -12,6 +13,7 @@ export class UsersComponent implements OnInit {
 
   users: Array<any>=[
 {
+  id: 1,
   icon: "../assets/img/theme/bootstrap.jpg",
   project: "Argon Design System",
   budget: "2500",
@@ -20,6 +22,7 @@ export class UsersComponent implements OnInit {
   completion : 60
 },
 {
+  id: 2,
   icon: "../assets/img/theme/bootstrap.jpg",
   project: "de Now UI Kit PRO",
   budget: "1500",
@@ -28,6 +31,7 @@ export class UsersComponent implements OnInit {
   completion : 70
 },
 {
+  id: 3,
   icon: "../assets/img/theme/bootstrap.jpg",
   project: "ZZ Design System",
   budget: "3500",
@@ -36,6 +40,7 @@ export class UsersComponent implements OnInit {
   completion : 90
 },
 {
+  id: 4,
   icon: "../assets/img/theme/bootstrap.jpg",
   project: "ke Design System",
   budget: "4500",
@@ -48,11 +53,18 @@ export class UsersComponent implements OnInit {
   ]
 
 
+  sortObj: SortModel={
+    orderBy: -1,
+    columnName:'id',
+    sortType: 'num'
+  }
 
-  orderBy: number=-1;
+
   sortData(columnName: string, sortType: string){
-    this.orderBy =this.orderBy*-1;
-    sort(this.users, columnName,this.orderBy, sortType);
+    this.sortObj.orderBy =this.sortObj.orderBy*-1;
+    this.sortObj.columnName=columnName ;
+    this.sortObj.sortType=sortType;
+    //sort(this.users, columnName,this.orderBy, sortType);
 
   //   this.users.sort((a,b)=>{  //callback function
   //     if(sortType=='num' || sortType=='cs'){

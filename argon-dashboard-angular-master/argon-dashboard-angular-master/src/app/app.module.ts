@@ -12,6 +12,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
+import { ConcatPipe } from './pipes/concat.pipe';
+import { OtherPipe } from './pipes/other.pipe';
+import { StatusMasterPipe } from './pipes/status-master.pipe';
+import { SortComponent } from './pipes/sort/sort.component';
+import { SortingPipe } from './pipes/sorting.pipe';
 
 
 @NgModule({
@@ -27,7 +32,10 @@ import { ComponentsModule } from './components/components.module';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+    SortComponent,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

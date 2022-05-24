@@ -113,14 +113,14 @@
               </tr>
             </thead>
             <tbody>
-              <tr  *ngFor="let u of users">
+              <tr  *ngFor="let u of users | sorting:sortObj">
                 <th scope="row">
                   <div class="media align-items-center">
                     <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
                       <img alt="Image placeholder" [src]="u.icon">
                     </a>
                     <div class="media-body">
-                      <span class="mb-0 text-sm">{{u.project}}</span>
+                      <span class="mb-0 text-sm">{{u.project  | concat:u.id | uppercase}}</span>
                     </div>
                   </div>
                 </th>
@@ -129,7 +129,7 @@
                 </td>
                 <td>
                   <span class="badge badge-dot mr-4">
-                    <i class="bg-warning"></i> {{u.status}}
+                    <i class="bg-warning"></i> {{u.status | statusMaster | uppercase}}
                   </span>
                 </td>
                 <td>

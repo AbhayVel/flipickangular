@@ -6,6 +6,10 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UsersComponent } from './users/users.component';
+import { OtherPipe } from '../pipes/other.pipe';
+import { ConcatPipe } from '../pipes/concat.pipe';
+import { StatusMasterPipe } from '../pipes/status-master.pipe';
+import { SortingPipe } from '../pipes/sorting.pipe';
 
 @NgModule({
   imports: [
@@ -17,7 +21,11 @@ import { UsersComponent } from './users/users.component';
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-    UsersComponent
+    UsersComponent,
+    OtherPipe,
+    ConcatPipe,
+    StatusMasterPipe,
+    SortingPipe
   ],
   exports: [
     FooterComponent,

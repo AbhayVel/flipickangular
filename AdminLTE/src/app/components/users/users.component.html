@@ -1,43 +1,49 @@
     <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-12">
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">DataTable with minimal features & hover style</h3>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                  <table id="example2" class="table table-bordered table-hover">
-                    <thead>
-                    <tr>
-                      <th (click)="sortData('renderEngine')">Rendering engine</th>
-                      <th (click)="sortData('browser')">Browser</th>
-                      <th (click)="sortData('platForms')">Platform(s)</th>
-                      <th (click)="sortData('engineVersion')">Engine version</th>
-                      <th (click)="sortData('cssGrade')">CSS grade</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr *ngFor="let b of browsers">
-                      <td>{{b.renderEnging}}</td>
-                      <td>{{b.browser}}</td>
-                      <td>{{b.platForms}}</td>
-                      <td>{{b.engineVersion}}</td>
-                      <td>{{b.cssGrade}}</td>
-                    </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <!-- /.card-body -->
+    <section class="content mt-2">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Sorting Example</h3>
               </div>
-              <!-- /.card -->
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th></th>
+                    <th (click)="sortData('firstName')">First Name</th>
+                    <th (click)="sortData('lastName')">Last Name</th>
+                    <th (click)="sortData('email')">Email</th>
+                    <th (click)="sortData('address')">Address</th>
+                    <th (click)="sortData('dob')">DOB</th>
+                    <th (click)="sortData('completion')">Completion</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let u of userRecords">
+                    <td><img alt="Image placeholder" style="height:40px;" [src]="u.icon"></td>
+                    <td>{{u.firstName}}</td>
+                    <td>{{u.lastName}}</td>
+                    <td>{{u.email}}</td>
+                    <td>{{u.address}}</td>
+                    <td>{{u.dob}}</td>
+                    <td>{{u.completion}}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
             </div>
-            <!-- /.col -->
+            <!-- /.card -->
           </div>
-          <!-- /.row -->
+          <!-- /.col -->
         </div>
-        <!-- /.container-fluid -->
-      </section>
-      <!-- /.content -->
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+
+ 

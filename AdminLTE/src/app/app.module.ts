@@ -9,6 +9,14 @@ import { PageContentWrapperComponent } from './components/layout/page-content-wr
 import { PageFooterComponent } from './components/layout/page-footer/page-footer.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UsersComponent } from './components/users/users.component';
+import { ConcatPipe } from './pipe/concat.pipe';
+import { BrowserComponent } from './components/browser/browser.component';
+import { InbuiltpipeComponent } from './components/pipeexample/inbuiltpipe.component';
+import { CustompipeComponent } from './components/pipeexample/custompipe.component';
+import { FilterPipe } from './pipe/filter.pipe';
+import { FormsModule } from '@angular/forms';
+import { FilterimpurePipe } from './pipe/filterimpure.pipe';
+
 
 @NgModule({
   declarations: [
@@ -18,11 +26,18 @@ import { UsersComponent } from './components/users/users.component';
     PageContentWrapperComponent,
     PageFooterComponent,
     DashboardComponent,
-    UsersComponent
+    UsersComponent,
+    ConcatPipe,
+    BrowserComponent,
+    InbuiltpipeComponent,
+    CustompipeComponent,
+    FilterPipe,
+    FilterimpurePipe 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

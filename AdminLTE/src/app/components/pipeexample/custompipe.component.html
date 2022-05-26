@@ -1,0 +1,78 @@
+    <!-- Main content -->
+    <!--https://indepth.dev/tutorials/angular/angular-pipes-complete-guide-->
+    <section class="content mt-2">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">Pure Pipe</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                 <div class="row">
+                     <div class="col-12">
+                        A pure pipe is only called when Angular detects a change in the value or the parameters passed to a pipe
+                     </div>
+                 </div>
+                 <div class="row mt-3">
+                     <div class="col-12">
+                        <input type="text"   [(ngModel)]="searchTerm"  placeholder="Enter name" >
+                        <button (click)="changeProperty()">change by Property</button>
+                        <button (click)="changeReference()">change by Reference</button>
+                        <hr>
+                        <ul>
+                            <li *ngFor="let user of users | filter:searchTerm">{{user.name | uppercase}}</li>
+                        </ul>
+                     </div>
+                     <div class="col-12">
+                        Pure pipe<br/>
+                        Is fast<br/>
+                        Angular executes a pure pipe only when it detects a pure change to the input value<br/>
+                        A pure change is either a change to a primitive input value (String, Number, Boolean) or a changed object reference (Array, Date, Object)
+                        A pure pipe is not executed if the input to the pipe is an object and only the property values of the object change but not the reference<br/>
+                        Why are Pure pipes fast <br/>
+                        An input for a pipe can either be a value type (String, Number, Boolean etc) or a reference type (like Array, Date, Object etc.)<br/>
+                        If the input to the pure pipe is a value type. Since value types store data directly in the memory slot comparing if a value type value has changed is very quick.<br/>
+                        On the other hand, if the input to the pure pipe is a reference type, it is executed only if the reference of the input object has changed. Checking if an object reference has changed is much faster than checking if each of the object individual property values have changed.
+                     </div>
+                 </div>               
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">ImPure Pipe</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                 <div class="row">
+                     <div class="col-12">
+                        An impure pipe is called for every change detection cycle no matter whether the value or parameter(s) changes.
+                     </div>
+                 </div>
+                 <div class="row mt-3">
+                     <div class="col-12">
+
+                     </div>
+                 </div>                 
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col -->
+          </div>
+        </div>
+        <!-- /.container-fluid -->
+
+
+    </section>
+    <!-- /.content -->

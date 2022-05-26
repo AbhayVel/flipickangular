@@ -1,0 +1,43 @@
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">DataTable with minimal features & hover style</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <table id="example2" class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                      <th (click)="sortData('renderEngine')">Rendering engine</th>
+                      <th (click)="sortData('browser')">Browser</th>
+                      <th (click)="sortData('platForms')">Platform(s)</th>
+                      <th (click)="sortData('engineVersion')">Engine version</th>
+                      <th (click)="sortData('cssGrade')">CSS grade</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let b of browsers">
+                      <td>{{b.renderEnging | concat:b.id}}</td>
+                      <td>{{b.browser}}</td>
+                      <td>{{b.platForms}}</td>
+                      <td>{{b.engineVersion}}</td>
+                      <td>{{b.cssGrade}}</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->

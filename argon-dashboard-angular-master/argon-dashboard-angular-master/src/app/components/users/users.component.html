@@ -103,63 +103,24 @@
         <div class="table-responsive">
           <table class="table align-items-center table-flush">
             <thead class="thead-light">
+              <tr >
+                <th *ngFor="let c of columns">
+                  <span *ngIf="c.isSorting" (click)="sortData('{{c.name}}','{{c.type}}')">{{c.displayName}}</span>
+                  <span *ngIf="!c.isSorting">{{c.displayName}}</span>
+                </th>                 
+              </tr>
               <tr>
-                <th (click)="sortData('project', 'cs')" scope="col">Project</th>
-                <th (click)="sortData('budget','num')" scope="col">Budget</th>
-                <th scope="col">Status</th>
-                <th scope="col">Users</th>
-                <th scope="col">Completion</th>
-                <th scope="col"></th>
+                <th *ngFor="let c2 of columns">
+                  <input *ngIf="c2.isFiltering" [attr.columnName]="c2.name"   (input)="filterData('{{c2.name}}', $event)" type="text" />
+                </th>
               </tr>
             </thead>
+
             <tbody>
               <tr  *ngFor="let u of users | sorting:sortObj">
-                <th scope="row">
-                  <div class="media align-items-center">
-                    <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
-                      <img alt="Image placeholder" [src]="u.icon">
-                    </a>
-                    <div class="media-body">
-                      <span class="mb-0 text-sm">{{u.project  | concat:u.id | uppercase}}</span>
-                    </div>
-                  </div>
-                </th>
-                <td  [innerHTML]="u.budget">
-
+                <td *ngFor="let c1 of columns" [innerHTML]="u[c1.name]">
                 </td>
-                <td>
-                  <span class="badge badge-dot mr-4">
-                    <i class="bg-warning"></i> {{u.status | statusMaster | uppercase}}
-                  </span>
-                </td>
-                <td>
-                  <div class="avatar-group">
-                    {{u.users}}
-                  </div>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="mr-2">{{u.completion}}%</span>
-                    <div>
-                      <div class="progress">
-                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="{{u.completion}}" aria-valuemin="0" aria-valuemax="100" style="width: {{u.completion}}%;"></div>
-                      </div>
-                    </div>
-                  </div>
-                </td>
-                <td class="text-right">
-                  <div ngbDropdown placement="bottom-right">
-                    <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
-                      <i class="fas fa-ellipsis-v"></i>
-                    </a>
-                    <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
-                      <a class="dropdown-item" href="javascript:void(0)">Action</a>
-                      <a class="dropdown-item" href="javascript:void(0)">Another action</a>
-                      <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
-                    </div>
-                  </div>
-                </td>
-
+                </tr>
             </tbody>
           </table>
         </div>

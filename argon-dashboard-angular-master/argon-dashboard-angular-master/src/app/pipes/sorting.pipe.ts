@@ -9,7 +9,7 @@ import { sort } from '../utilities/utility';
 export class SortingPipe implements PipeTransform {
 
   transform(list: Array<any>,sortObj:SortModel): unknown {
-      return sort(list,sortObj.columnName,sortObj.orderBy,sortObj.sortType);
+      return sort(list,sortObj.columnName,sortObj.orderBy,sortObj.sortType, sortObj.condition);
   }
 }
 

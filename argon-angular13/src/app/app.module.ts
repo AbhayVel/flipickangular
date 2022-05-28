@@ -13,6 +13,7 @@ import { OtherPipe } from './pipes/other.pipe';
 import { ConcatPipe } from './pipes/concat.pipe';
 import { StatusMasterPipe } from './pipes/status-master.pipe';
 import { SortingPipe } from './pipes/sorting.pipe';
+import { LibraryModule } from './feature/library/library.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { SortingPipe } from './pipes/sorting.pipe';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LibraryModule
   ],
   providers: [Title],
   bootstrap: [AppComponent]

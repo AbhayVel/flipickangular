@@ -20,7 +20,8 @@ export class StatusMasterPipe implements PipeTransform {
     }
   ]
 
-  transform(value: number){
+  transform(value: number) {
+    debugger;
    let index=   this.status.findIndex((e)=>{
         return e.id==value;
       });

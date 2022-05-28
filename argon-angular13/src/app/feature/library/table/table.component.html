@@ -1,0 +1,52 @@
+<div class="table-responsive">
+  <table class="table align-items-center table-flush">
+    <thead class="thead-light">
+      <tr>
+        <th *ngFor="let c of columns">
+          <div *ngIf="c.isSorting">
+            <span [attr.columnName]="c.name" [attr.sortType]="c.type" (click)="sortData($event)">{{c.displayName}}</span>
+          </div>
+
+          <span *ngIf="!c.isSorting">{{c.displayName}}</span>
+        </th>
+      </tr>
+      <tr>
+        <th *ngFor="let c2 of columns">
+
+          <div *ngIf="c2.filter.isFiltering && c2.filter.fitertype=='input'">
+            <input [attr.columnName]="c2.name" (input)="filterData($event)" type="text" />
+          </div>
+
+          <div *ngIf="c2.filter.isFiltering && c2.filter.fitertype=='range'">
+            <input [attr.columnName]="c2.filter.filterFrom" (blur)="filterData( $event)" type="text" />
+            <input [attr.columnName]="c2.filter.filterTo" (blur)="filterData($event)" type="text" />
+          </div>
+
+          <div *ngIf="c2.filter.isFiltering && c2.filter.fitertype=='template'">
+            
+
+            <ng-container [ngTemplateOutlet]="template[c2.filter.fiterName]" [ngTemplateOutletContext]="{GridChanges:  GridChanges.bind(this)}"></ng-container>
+
+          </div>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let u of filterObject.rows">
+        <td *ngFor="let c1 of columns">
+          <div *ngIf="c1.html">
+            <ng-container [ngTemplateOutlet]="template[c1.htmlName]"  [ngTemplateOutletContext]="{data: u}"></ng-container>
+
+          </div>
+          <div *ngIf="!c1.html" [innerHTML]="u[c1.name]"></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!--<div *ngTemplateOutlet="template['Action']"></div>-->
+</div>
+<div class="card-footer py-4">
+  <qdn-paging [filterObject]="this.filterObject" (pageChange)="pChange($event)"></qdn-paging>
+</div>

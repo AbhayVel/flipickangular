@@ -1,0 +1,159 @@
+/* You can add global styles to this file, and also import other style files */
+*,*::before,*::after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+html{font-size:14px;margin:0;padding:0;min-height:100vh;height:100%}
+body{font-family:var(--ff-primary),sans-serif;font-size:1rem;font-weight:400;line-height:1.5;margin:0;padding:0;height:100%;min-height:100vh;color:var(--body-text-color);background-color:var(--body-bg);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;scroll-behavior:smooth}
+a{display:inline-block;color:var(--anchor-clr);text-decoration:none}
+a:focus,a:hover{display:inline-block;color:var(--anchor-clr-hover);text-decoration:none}
+button{font-size:1rem;border:0;background-color:transparent;outline:0;cursor:pointer}
+img,video,svg{max-width:100%;height:auto;vertical-align:middle}
+input,textarea{font-family:var(--ff-primary);font-size:1rem}
+input::-ms-clear,textarea::-ms-clear{display:none}
+input[type="password"]{letter-spacing:.5em}
+select{-moz-appearance:none;-webkit-appearance:none}
+select::-ms-expand{display:none}
+input:-webkit-autofill,input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,textarea:-webkit-autofill:focus,
+select:-webkit-autofill,select:-webkit-autofill:hover,
+select:-webkit-autofill:focus
+{font-family:var(--ff-primary);font-size:1rem;border:0;-webkit-text-fill-color:var(--body-text-color);transition:background-color 5000s ease-in-out 0}
+.form-group>span{display:inline-block;margin-bottom:5px}
+
+/* =============== Global Style =============== */
+.no-scroll{overflow:hidden}
+.disabled{opacity:.5;cursor:not-allowed;pointer-events:none}
+select.form-control{-webkit-appearance:none;-moz-appearance:none;appearance:none;border-radius:4px !important;font-size:14px;background:url('assets/images/selection_big_arrow.svg') no-repeat right top #fff;background-size:25px 100%;padding:0 25px 1px 9px !important;cursor:pointer;height:31px}
+.btn-container .btn+.btn{margin-left:10px}
+
+/* =============== Icon Style =============== */
+.icon-block{display:inline-block;height:1em;width:1em;line-height:1;flex-shrink:0;max-width:initial;background-repeat:no-repeat;background-position:center center;background-size:contain}
+
+/* =============== Layout style =============== */
+.layout-wrapper{height:100%}
+.layout-wrapper .leftnav{position:fixed;left:0;top:0;bottom:0;background-color:var(--leftpanel-bg);width:var(--leftpanel-width);overflow:auto;z-index:10}
+.layout-wrapper .wrapper{height:100%;margin-left:var(--leftpanel-width)}
+
+/* --------------- Sidebar style --------------- */
+.layout-wrapper .leftnav.leftnavhover{width:var(--leftpanel-open-width);transition:width .3s ease;box-shadow:0 0 50px rgba(0,0,0,0.3)}
+.homeclass .leftnav{position:fixed;height:100%}
+.layout-wrapper .leftnav::-webkit-scrollbar{width:0}
+.leftnav .logo{text-align:center;height:60px}
+.leftnav .logo a{display:block;position:relative;width:100%;height:100%}
+.leftnav .logo a:hover{background:0}
+.leftnavhover .large_logo{display:block;position:relative;height:100%}
+.logo .small_logo{display:block;position:relative;width:100%;height:100%}
+.logo .large_logo{display:none}
+.logo img{max-width:65%;max-height:65%;width:auto;height:auto;position:absolute;top:0;left:0;right:0;bottom:0;margin:auto}
+.leftnavhover .logo .small_logo{display:none}
+.leftnavhover .logo .large_logo{display:block;position:relative;height:100%}
+.leftnav .nav>a{display:flex;align-items:center;width:100%;text-decoration:none;background-color:var(--leftpanel-anchorcolor);margin-bottom:1px}
+.leftnavhover .nav>a:hover{background-color:var(--leftpanel-anchorcolor-hover)}
+.leftnav .nav .nav-link{flex:0 0 auto;width:55px;height:48px;padding:0;background-repeat:no-repeat;background-position:center center;background-size:contain}
+.leftnav .LeftNavText{display:none;flex:1 0 0;width:100%;max-width:100%}
+.leftnavhover .LeftNavText{display:block;color:var(--leftpanel-linkcolor);font-weight:bold;text-overflow:ellipsis;white-space:nowrap;overflow:hidden}
+.leftnavhover .nav>a:hover .LeftNavText{color:var(--leftpanel-linkcolor-hover)}
+
+.leftnav .nav>a .nav-link.Organizanav{background-image:url('assets/images/siderbar-icon/icon-nav-organization.svg')}.leftnav .nav>a.Organizanavactive{background-color:var(--leftpanel-anchorcolor-hover)}.leftnav .nav>a:hover .nav-link.Organizanav,.leftnav .nav>a.Organizanavactive .nav-link.Organizanav{background-image:url('assets/images/siderbar-icon/icon-nav-organization-selected.svg')}.leftnavhover .nav>a.Organizanavactive .LeftNavText{color:var(--leftpanel-linkcolor-hover)}
+.leftnav .nav>a .nav-link.Institutenav{background-image:url('assets/images/siderbar-icon/icon-nav-instituteManagement.svg')}.leftnav .nav>a.Institutenavactive{background-color:var(--leftpanel-anchorcolor-hover)}.leftnav .nav>a:hover .nav-link.Institutenav,.leftnav .nav>a.Institutenavactive .nav-link.Institutenav{background-image:url('assets/images/siderbar-icon/icon-nav-instituteManagement-selected.svg')}.leftnavhover .nav>a.Institutenavactive .LeftNavText{color:var(--leftpanel-linkcolor-hover)}
+.leftnav .nav>a .nav-link.Instructnav{background-image:url('assets/images/siderbar-icon/icon-nav-instructor.svg')}.leftnav .nav>a.Instructnavactive{background-color:var(--leftpanel-anchorcolor-hover)}.leftnav .nav>a:hover .nav-link.Instructnav,.leftnav .nav>a.Instructnavactive .nav-link.Instructnav{background-image:url('assets/images/siderbar-icon/icon-nav-instructor-selected.svg')}.leftnavhover .nav>a.Instructnavactive .LeftNavText{color:var(--leftpanel-linkcolor-hover)}
+.leftnav .nav>a .nav-link.Coursenav{background-image:url('assets/images/siderbar-icon/icon-nav-courses.svg')}.leftnav .nav>a.Coursenavactive{background-color:var(--leftpanel-anchorcolor-hover)}.leftnav .nav>a:hover .nav-link.Coursenav,.leftnav .nav>a.Coursenavactive .nav-link.Coursenav{background-image:url('assets/images/siderbar-icon/icon-nav-courses-seleted.svg')}.leftnavhover .nav>a.Instructnavactive .LeftNavText{color:var(--leftpanel-linkcolor-hover)}
+.leftnav .nav>a .nav-link.Studentnav{background-image:url('assets/images/siderbar-icon/icon-nav-student.svg')}.leftnav .nav>a.Studentnavactive{background-color:var(--leftpanel-anchorcolor-hover)}.leftnav .nav>a:hover .nav-link.Studentnav,.leftnav .nav>a.Studentnavactive .nav-link.Studentnav{background-image:url('assets/images/siderbar-icon/icon-nav-student-selected.svg')}.leftnavhover .nav>a.Studentnavactive .LeftNavText{color:var(--leftpanel-linkcolor-hover)}
+.leftnav .nav>a .nav-link.Reportsnav{background-image:url('assets/images/siderbar-icon/icon-nav-reports.svg')}.leftnav .nav>a.Reportsnavactive{background-color:var(--leftpanel-anchorcolor-hover)}.leftnav .nav>a:hover .nav-link.Reportsnav,.leftnav .nav>a.Reportsnavactive .nav-link.Reportsnav{background-image:url('assets/images/siderbar-icon/icon-nav-reports-selected.svg')}.leftnavhover .nav>a.Reportsnavactive .LeftNavText{color:var(--leftpanel-linkcolor-hover)}
+.leftnav .nav>a .nav-link.Settingsnav{background-image:url('assets/images/siderbar-icon/icon-nav-settings.svg')}.leftnav .nav>a.SettingsnavActive{background-color:var(--leftpanel-anchorcolor-hover)}.leftnav .nav>a:hover .nav-link.Settingsnav,.leftnav .nav>a.SettingsnavActive .nav-link.Settingsnav{background-image:url('assets/images/siderbar-icon/icon-nav-settings-seletced.svg')}.leftnavhover .nav>a.SettingsnavActive .LeftNavText{color:var(--leftpanel-linkcolor-hover)}
+.leftnav .nav>a .nav-link.surveyformsnav{background-image:url('assets/images/siderbar-icon/icon-surveyForms-nav.svg')}.leftnav .nav>a.surveyformsnavactive{background-color:var(--leftpanel-anchorcolor-hover)}.leftnav .nav>a:hover .nav-link.surveyformsnav,.leftnav .nav>a.surveyformsnavactive .nav-link.surveyformsnav{background-image:url('assets/images/siderbar-icon/icon-surveyForms-nav-selected.svg')}.leftnavhover .nav>a.surveyformsnavactive .LeftNavText{color:var(--leftpanel-linkcolor-hover)}
+.leftnav .nav>a .nav-link.Qbanknav{background-image:url('assets/images/siderbar-icon/icon-nav-question-bank.svg')}.leftnav .nav>a.Qbanknavactive{background-color:var(--leftpanel-anchorcolor-hover)}.leftnav .nav>a:hover .nav-link.Qbanknav,.leftnav .nav>a.Qbanknavactive .nav-link.Qbanknav{background-image:url('assets/images/siderbar-icon/icon-nav-question-bank-selected.svg')}.leftnavhover .nav>a.Qbanknavactive .LeftNavText{color:var(--leftpanel-linkcolor-hover)}
+.leftnav .nav>a .nav-link.QBankWorkflownav{background-image:url('assets/images/siderbar-icon/icon-nav-quitionbank-workflow.svg')}.leftnav .nav>a.QBankWorkflownavActive{background-color:var(--leftpanel-anchorcolor-hover)}.leftnav .nav>a:hover .nav-link.QBankWorkflownav,.leftnav .nav>a.QBankWorkflownavActive .nav-link.QBankWorkflownav{background-image:url('assets/images/siderbar-icon/icon-nav-quitionbank-workflow-selected.svg')}.leftnavhover .nav>a.QBankWorkflownavActive .LeftNavText{color:var(--leftpanel-linkcolor-hover)}
+.leftnav .nav>a .nav-link.Assetmanagementnav{background-image:url('assets/images/siderbar-icon/icon-nav-assetManagement.svg')}.leftnav .nav>a.Assetmanagementnavactive{background-color:var(--leftpanel-anchorcolor-hover)}.leftnav .nav>a:hover .nav-link.Assetmanagementnav,.leftnav .nav>a.Assetmanagementnavactive .nav-link.Assetmanagementnav{background-image:url('assets/images/siderbar-icon/icon-nav-assetManagement-selected.svg')}.leftnavhover .nav>a.Assetmanagementnavactive .LeftNavText{color:var(--leftpanel-linkcolor-hover)}
+.leftnav .nav>a .nav-link.AssetAuthoringWorkflownav{background-image:url('assets/images/siderbar-icon/icon-nav-assetAuthoringWorkflow.svg')}.leftnav .nav>a.AssetAuthoringWorkflowactive{background-color:var(--leftpanel-anchorcolor-hover)}.leftnav .nav>a:hover .nav-link.AssetAuthoringWorkflownav,.leftnav .nav>a.AssetAuthoringWorkflowactive .nav-link.AssetAuthoringWorkflownav{background-image:url('assets/images/siderbar-icon/icon-nav-assetAuthoringWorkflow-selected.svg')}.leftnavhover .nav>a.AssetAuthoringWorkflowactive .LeftNavText{color:var(--leftpanel-linkcolor-hover)}
+.leftnav .nav>a .nav-link.Certificationnav{background-image:url('assets/images/siderbar-icon/icon-nav-certification.svg')}.leftnav .nav>a.Certificationnavactive{background-color:var(--leftpanel-anchorcolor-hover)}.leftnav .nav>a:hover .nav-link.Certificationnav,.leftnav .nav>a.Certificationnavactive .nav-link.Certificationnav{background-image:url('assets/images/siderbar-icon/icon-nav-certification-selected.svg')}.leftnavhover .nav>a.Certificationnavactive .LeftNavText{color:var(--leftpanel-linkcolor-hover)}
+.leftnav .nav>a .nav-link.servicesnav{background-image:url('assets/images/siderbar-icon/icon-nav-services.svg')}.leftnav .nav>a.servicesnavactive{background-color:var(--leftpanel-anchorcolor-hover)}.leftnav .nav>a:hover .nav-link.servicesnav,.leftnav .nav>a.servicesnavactive .nav-link.servicesnav{background-image:url('assets/images/siderbar-icon/icon-nav-services-selected.svg')}.leftnavhover .nav>a.servicesnavactive .LeftNavText{color:var(--leftpanel-linkcolor-hover)}
+.leftnav .nav>a .nav-link.ReportBuildernav{background-image:url('assets/images/siderbar-icon/icon-nav-report-builder.svg')}.leftnav .nav>a.ReportBuilderActive{background-color:var(--leftpanel-anchorcolor-hover)}.leftnav .nav>a:hover .nav-link.ReportBuildernav,.leftnav .nav>a.ReportBuilderActive .nav-link.ReportBuildernav{background-image:url('assets/images/siderbar-icon/icon-nav-report-builder-selected.svg')}.leftnavhover .nav>a.ReportBuilderActive .LeftNavText{color:var(--leftpanel-linkcolor-hover)}
+.leftnav .nav>a .nav-link.switchtoscorecardnav{background-image:url('assets/images/siderbar-icon/icon-nav-reports.svg')}.leftnav .nav>a.switchtoscorecardnavActive{background-color:var(--leftpanel-anchorcolor-hover)}.leftnav .nav>a:hover .nav-link.switchtoscorecardnav,.leftnav .nav>a.switchtoscorecardnavActive .nav-link.switchtoscorecardnav{background-image:url('assets/images/siderbar-icon/icon-nav-reports-selected.svg')}.leftnavhover .nav>a.switchtoscorecardnavActive .LeftNavText{color:var(--leftpanel-linkcolor-hover)}
+.leftnav .nav>a .nav-link.InheritUtilitynav{background-image:url('assets/images/siderbar-icon/icon-nav-inheritUtility.svg')}.leftnav .nav>a.InheritUtilityActive{background-color:var(--leftpanel-anchorcolor-hover)}.leftnav .nav>a:hover .nav-link.InheritUtilitynav,.leftnav .nav>a.InheritUtilityActive .nav-link.InheritUtilitynav{background-image:url('assets/images/siderbar-icon/icon-nav-inheritUtility-selected.svg')}.leftnavhover .nav>a.InheritUtilityActive .LeftNavText{color:var(--leftpanel-linkcolor-hover)}
+.leftnav .nav>a .nav-link.licenseCourseMetaMasterNav{background-image:url('assets/images/siderbar-icon/icon-nav-LicenseCourseMetaMaster.svg')}.leftnav .nav>a.licenseCourseMetaMasterNavActive{background-color:var(--leftpanel-anchorcolor-hover)}.leftnav .nav>a:hover .nav-link.licenseCourseMetaMasterNav,.leftnav .nav>a.licenseCourseMetaMasterNavActive .nav-link.licenseCourseMetaMasterNav{background-image:url('assets/images/siderbar-icon/icon-nav-LicenseCourseMetaMaster-selected.svg')}.leftnavhover .nav>a.licenseCourseMetaMasterNavActive .LeftNavText{color:var(--leftpanel-linkcolor-hover)}
+.leftnav .nav>a .nav-link.collegebatchnav{background-image:url('assets/images/siderbar-icon/icon-nav-user-group.svg')}.leftnav .nav>a.collegebatchnavactive{background-color:var(--leftpanel-anchorcolor-hover)}.leftnav .nav>a:hover .nav-link.collegebatchnav,.leftnav .nav>a.collegebatchnavactive .nav-link.collegebatchnav{background-image:url('assets/images/siderbar-icon/icon-nav-user-group-selected.svg')}.leftnavhover .nav>a.collegebatchnavactive .LeftNavText{color:var(--leftpanel-linkcolor-hover)}
+.leftnav .nav>a .nav-link.Eventnav{background-image:url('assets/images/siderbar-icon/icon-nav-events.svg')}.leftnav .nav>a.EventnavActive{background-color:var(--leftpanel-anchorcolor-hover)}.leftnav .nav>a:hover .nav-link.Eventnav,.leftnav .nav>a.EventnavActive .nav-link.Eventnav{background-image:url('assets/images/siderbar-icon/icon-nav-events-selected.svg')}.leftnavhover .nav>a.EventnavActive .LeftNavText{color:var(--leftpanel-linkcolor-hover)}
+.leftnav .nav>a .nav-link.Communitynav{background-image:url('assets/images/siderbar-icon/icon-nav-community.svg')}.leftnav .nav>a.CommunitynavActive{background-color:var(--leftpanel-anchorcolor-hover)}.leftnav .nav>a:hover .nav-link.Communitynav,.leftnav .nav>a.CommunitynavActive .nav-link.Communitynav{background-image:url('assets/images/siderbar-icon/icon-nav-community-seletced.svg')}.leftnavhover .nav>a.CommunitynavActive .LeftNavText{color:var(--leftpanel-linkcolor-hover)}
+.leftnav .nav>a .nav-link.Logoutnav{background-image:url('assets/images/siderbar-icon/icon-nav-logout.svg')}.leftnav .nav>a:hover .nav-link.Logoutnav{background-image:url('assets/images/siderbar-icon/icon-nav-logout-selected.svg')}
+/* --------------- Sidebar style End --------------- */
+
+/* --------------- Content Warpper style  --------------- */
+.page-header .page-header-title{font-size:24px;font-weight:700;color:var(--page-title-clr);margin:0;padding:0}
+.page-header .icon-logout{display:block;font-size:0;color:transparent;width:24px;height:24px;background-image:url('assets/images/common-icons/icon-page-header-logout.svg');background-repeat:no-repeat;background-position:center center;background-size:contain}
+.content-wrapper{padding:0 30px}
+.content-wrapper .content-header{padding:20px 0}
+.content-header .content-header-title{font-size:24px;font-weight:700;color:var(--page-title-clr);margin:0;padding:0}
+.content-header .breadcrumb{margin:0;padding:0;background-color:transparent;flex-wrap:nowrap}
+.content-header .breadcrumb>li{font-size:24px;font-weight:700;color:var(--breadcrumb-clr);line-height:normal}
+.breadcrumb>li+li:before{content:'/';margin-left:10px}
+.content-header .breadcrumb>li.active{color:var(--breadcrumb-active-clr)}
+.content-header .breadcrumb>li.active:before{color:var(--breadcrumb-clr)}
+/* --------------- Content Warpper style End --------------- */
+/* =============== Layout style End =============== */
+
+.form-group>span{display:inline-block;margin-bottom:5px}
+.table>:not(:first-child){border-top:0}.mt-19px{margin-top:19px !important}
+.btn-close{width:11px !important;height:11px !important;
+    background:url("assets/images/close_icon-white.svg") no-repeat;
+    z-index:10;float:right;position:absolute;right:14px;top:4px;
+    background-color:transparent;border:1px solid #e1e1e1;
+    background-position:center center;border-radius:3px;border:0;font-size:0}
+
+/* =============== Dash Board Start =============== */
+.admin-card-wrapper{display:grid;grid-gap:20px;grid-template-columns:repeat(2,1fr)}
+.admin-card-wrapper .admin-card{position:relative;border-radius:4px;overflow:hidden;padding:15px;height:128px;box-shadow:0 0 1px rgba(0,0,0,.125),0 1px 3px rgba(0,0,0,.2);transition:box-shadow .3s ease}
+.admin-card-wrapper .admin-card:hover{box-shadow:0 0 5px rgba(0,0,0,.23),0 3px 5px rgba(0,0,0,.3)}
+.admin-card-wrapper .admin-card.user-info-box{background-repeat:no-repeat;background-position:right bottom;background-size:30%;background-image:url("./assets/images/dashboard-icons/icon-account-selected.svg");cursor:default}
+.admin-card.user-info-box .card-title-top{font-size:14px;color:var(--card-title-color)}
+.admin-card.user-info-box .card-count{display:block;font-size:35px;font-weight:700;color:var(--card-count-color)}
+.admin-card.link-card{display:flex;flex-direction:column;justify-content:space-between}
+.admin-card.link-card .icon{display:inline-block;width:35px;height:35px;background-repeat:no-repeat;background-position:center center;background-size:contain}
+.admin-card.link-card .card-title{font-size:14px;font-weight:500;display:flex;justify-content:flex-end;margin:0}
+.bg-white{background-color:#fff}
+.bg-yellow{background-color:#f19e09}.admin-card.link-card.bg-yellow .icon{background-image:url("./assets/images/dashboard-icons/icon-card-organization.svg")}
+.bg-skyblue{background-color:#2c8bca}.admin-card.link-card.bg-skyblue .icon{background-image:url("./assets/images/dashboard-icons/icon-card-institute-management.svg")}
+.bg-purple{background-color:#682875}.admin-card.link-card.bg-purple .icon{background-image:url("./assets/images/dashboard-icons/icon-card-instructor.svg")}
+.bg-green{background-color:#70a94f}.admin-card.link-card.bg-green .icon{background-image:url('./assets/images/dashboard-icons/icon-card-course.svg')}
+.bg-red{background-color:#0199d6}.admin-card.link-card.bg-red .icon{background-image:url('./assets/images/dashboard-icons/icon-card-student.svg')}
+.bg-mintGreen{background-color:#1a3768}.admin-card.link-card.bg-red .icon{background-image:url('./assets/images/dashboard-icons/icon-card-student.svg')}
+.admin-card.link-card.surveyforms{background-color:#f3b120}.admin-card.link-card.surveyforms .icon{background-image:url('./assets/images/dashboard-icons/icon-survey-form.svg')}
+.bg-qubankblue{background-color:#a8989c}
+.bg-certification{background-color:#99289d}.admin-card.link-card.bg-certification .icon{background-image:url('./assets/images/dashboard-icons/icon-card-institute-management.svg')}
+.admin-card.link-card.QBankWorkflow{background-color:#5982a6}.admin-card.link-card.QBankWorkflow .icon{background-image:url('./assets/images/dashboard-icons/icon-card-questionBankWorkflow.svg')}
+.admin-card.link-card.Assetmanagement{background-color:#ed7625}.admin-card.link-card.Assetmanagement .icon{background-image:url('./assets/images/dashboard-icons/icon-card-lomangament.svg')}
+.admin-card.link-card.AssetAuthoringWorkflow{background-color:#5982a6}.admin-card.link-card.AssetAuthoringWorkflow .icon{background-image:url('./assets/images/dashboard-icons/icon-card-assetAuthoringWorkflow.svg')}
+.bg-certification{background-color:#682875}.admin-card.link-card.bg-certification .icon{background-image:url('./assets/images/dashboard-icons/icon-card-certificate.svg')}
+.bg-services{background-color:#e64783}.admin-card.link-card.bg-services .icon{background-image:url('./assets/images/dashboard-icons/icon-card-services.svg')}
+.bg-ReportBuilder{background-color:#0199d6}.admin-card.link-card.bg-ReportBuilder .icon{background-image:url('./assets/images/dashboard-icons/icon-card-reportbuilder.svg')}
+.bg-switchtoscorecard{background-color:#545e67}.admin-card.link-card.bg-switchtoscorecard .icon{background-image:url('./assets/images/dashboard-icons/icon-card-report.svg')}
+.bg-licenseCourseMetaMaster{background-color:#5f3bbf}.admin-card.link-card.bg-licenseCourseMetaMaster .icon{background-image:url('./assets/images/dashboard-icons/icon-card-licenseCourseMetaMaster.svg')}
+.EventTileCss{background-color:#ff4e3e}.admin-card.link-card.EventTileCss .icon{background-image:url('./assets/images/dashboard-icons/icon-card-events.svg')}
+.bg-community{background-color:#0090a8}.admin-card.link-card.bg-community .icon{background-image:url('./assets/images/dashboard-icons/icon-card-community.svg')}
+.h4,h4{font-size:14px;color:#fff}a{display:inline-block;color:var(--anchor-clr);text-decoration:none}
+/* =============== Dash Board End =============== */
+
+/* =============== Login Page Start =============== */
+label{display:block;margin-top:10px}
+.alert{padding:.2rem .2rem}
+.card-container .card{max-width:400px !important;padding:40px 40px}
+.card{background-color:#f7f7f7;padding:20px 25px 30px;margin:0 auto 25px;margin-top:50px;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;-moz-box-shadow:0 2px 2px rgba(0,0,0,0.3);-webkit-box-shadow:0 2px 2px rgba(0,0,0,0.3);box-shadow:0 2px 2px rgba(0,0,0,0.3)}
+.profile-img-card{width:96px;height:96px;margin:0 auto 10px;display:block;-moz-border-radius:50%;-webkit-border-radius:50%;border-radius:50%}
+.field-error{border:1px solid red}
+
+.login-Page{background-color:var(--login-bg-color)}
+.login-Page .mainlogin-container{max-width:330px;min-height:100vh;margin-left:auto;margin-right:auto;display:flex;flex-direction:column;justify-content:center}
+.login-Page .mainlogin-container .form-container .form-header{text-align:center;padding:10px 10px 30px}
+.login-Page .form-header img{display:inline-block;max-width:50%;height:auto;max-height:50px}
+.login-Page .form-container .form-body{position:relative;background-color:#fff;box-shadow:0 0 20px 0 rgba(0,0,0,0.1);overflow:hidden}
+.login-Page .form-body form{padding:0;background-color:#fff}
+.login-Page .form-body .form-wrapper{padding:25px 40px 5px 40px}
+.login-Page .form-wrapper .form-group{position:relative;margin-bottom:25px}
+.login-Page .form-wrapper .form-group label{font-size:12px;font-weight:700;line-height:1.5;letter-spacing:.083em;color:var(--login-form-label-color);text-transform:uppercase;margin-bottom:5px}
+.login-Page .form-wrapper .form-control{font-size:16px;font-weight:400;line-height:1.5;color:var(--body-text-color);background-color:transparent;border:0;border-bottom:1px solid #ebedf5;border-radius:0;height:auto;padding:5px 0}
+.login-Page .form-wrapper .form-group .label.label-danger{position:absolute;left:0;bottom:-20px;width:100%;font-size:80%;color:#dc3545}
+.login-Page .form-body .instructorbtn{padding:0}
+.login-Page .form-body .instructorbtn .logInbtn{display:inline-block;font-size:16px;font-weight:700;color:var(--login-btn-text-color);text-align:left;text-transform:uppercase;letter-spacing:.0625em;padding:20px 40px;border-radius:0;background-color:var(--login-btn-bg-color);width:100%;background-image:url('./assets/images/icon-arrow-right-white.svg');background-repeat:no-repeat;background-position:right 40px center;background-size:6px}
+.login-Page .form-body .instructorbtn .logInbtn:hover{background-color:var(--login-btn-bg-hover-color)}
+.icon-logout{display:block;font-size:0;color:transparent;width:24px;height:24px;background-image:url('./assets/images/common-icons/icon-page-header-logout.svg');background-repeat:no-repeat;background-position:center center;background-size:contain}
+/* =============== Login Page End =============== */
+   

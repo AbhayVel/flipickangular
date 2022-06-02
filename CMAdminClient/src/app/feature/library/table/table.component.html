@@ -1,0 +1,41 @@
+<div class="row mt-2">
+    <div class="table-responsive">
+      <table class="table tablebg table-bordered table-instituteReport">
+        <thead>
+          <tr>
+            <th *ngFor="let c of columns">
+                <span *ngIf="c.isSorting" [attr.columnName]="c.name" [attr.sortType]="c.type" (click)="sortData($event)">{{c.displayName}}</span>
+                <span *ngIf="!c.isSorting" >{{c.displayName}}</span>
+            </th>
+          </tr>
+          <tr>
+            <th *ngFor="let c2 of columns">
+               <div *ngIf="c2.filter.isFiltering && c2.filter.filterType=='input'">
+                    <input  [attr.columnName]="c2.name" (input)="filterData($event)" type="text" />               
+                </div>
+                <div *ngIf="c2.filter.isFiltering && c2.filter.filterType=='range'">
+                    <input *ngIf="c2.filter.isFiltering" [attr.columnName]="c2.filter.filterFrom" (blur)="filterData($event)" type="text" />  
+                    <input *ngIf="c2.filter.isFiltering" [attr.columnName]="c2.filter.filterTo" (blur)="filterData($event)" type="text" />               
+                </div>
+                <div *ngIf="c2.filter.isFiltering && c2.filter.fitertype=='template'">
+                    <ng-container [ngTemplateOutlet]="template[c2.filter.fiterName]" [ngTemplateOutletContext]="{GridChanges:  GridChanges.bind(this)}"></ng-container>      
+                </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let p of filterObject.rows" >
+            <td *ngFor="let c1 of columns">
+              <div *ngIf="c1.html">
+                <ng-container [ngTemplateOutlet]="template[c1.htmlName]"  [ngTemplateOutletContext]="{data: p}"></ng-container>
+              </div>
+              <div *ngIf="!c1.html"  [innerHtml]="p[c1.name]"></div>              
+            </td>          
+          </tr>
+        </tbody>
+      </table>
+     
+    </div>
+  </div>
+<cmadmin-paging [filterObject] ="this.filterObject" (pageChange)="pChange($event)"></cmadmin-paging>

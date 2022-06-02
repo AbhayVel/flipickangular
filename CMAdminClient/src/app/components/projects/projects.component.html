@@ -1,0 +1,26 @@
+<div class="d-flex align-items-center content-header" id="dvTopBar" >
+    <div class="content-header-title-wrap">
+        <h1 class="content-header-title">Projects</h1>
+    </div>
+  </div>
+
+<cmadmin-table [filterObject]="filterObject" [sortObj]="sortObj" [columns]="columns">
+ 
+  <ng-template cmadminTable name="status" let-GridChanges="GridChanges">
+
+    <select (change)="statusChange(GridChanges, $event)">
+      <option value=""></option>
+      <option value="1">Pending</option>
+      <option value="2">Completed</option>
+      <option value="3">Inprogress</option>
+      <option value="4">Other</option>
+    </select>
+  </ng-template>
+
+<ng-template  cmadminTable name="Action" let-data="data" >
+  <button type="button" class="btn btn-primary" (click)="projectEdit(data)">Edit</button>
+</ng-template>
+<ng-template cmadminTable name="Status" let-data="data">
+  <span>{{data.status |  statusMaster}}</span>
+</ng-template>
+</cmadmin-table>

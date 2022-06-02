@@ -19,8 +19,10 @@
               </select>
             </ng-template>
             <ng-template qdnTable name="Action" let-data="data">
+             
+              <button type="button" class="btn btn-primary" (click)="userEditP(data)">Edit P</button>
 
-              <button type="button" class="btn btn-primary" (click)="userEdit(data)">Edit</button>
+              <button type="button" class="btn btn-primary" (click)="userEditR(data)">Edit R</button>
 
             </ng-template>
 
@@ -50,3 +52,10 @@
         </div>
     </div>          
 </div>
+
+<qdn-popup  #popup [isShowPopup]="popupConfig.isShowPopup" (CloseEvent)="close($event)"  >
+
+  <qdn-user-edit-popup  [project]="project"></qdn-user-edit-popup>
+</qdn-popup>
+
+<!--<qdn-popup [config]="popupConfig" #popup [isShowPopup]="popupConfig.isShowPopup" (CloseEvent)="close($event)"></qdn-popup>-->

@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SortModel } from 'src/app/models/sort-model';
 import { filterFun, sort } from 'src/app/utilities/utility';
+import { PopupComponent } from '../../feature/library/popup/popup.component';
+import { PopUpConfig, PopUpConfigFactory } from '../../feature/library/popup/PopUpConfig';
+import { Project } from '../../models/Project';
 import { ConcatPipe } from '../../pipes/concat.pipe';
 
 @Component({
@@ -10,8 +13,9 @@ import { ConcatPipe } from '../../pipes/concat.pipe';
 })
 export class UsersComponent implements OnInit {
 
+  @ViewChild('popup') popup?: PopupComponent;
   constructor() { }
-
+  project: Project = new Project()
   users: Array<any>=[
       {
         id: 1,
@@ -378,10 +382,28 @@ export class UsersComponent implements OnInit {
     GridChanges(this.filterObject, this.sortObj);
   }
   userDelete(obj: any) {
-    debugger;
+     
   }
-  userEdit(obj: any) {
-    debugger;
+  close($event: boolean) {
+   
+  }
+
+  popupConfig: PopUpConfig = PopUpConfigFactory.getPopUpConfig({
+    header: 'Project Edit'
+  });
+
+   
+  userEditP(obj: any) {
+    this.popupConfig.isShowPopup = true;
+
+  //  this.popupConfig = { ...this.popupConfig };
+
+    this.popup?.open(this.popupConfig);
+    this.project = obj;
+  }
+
+  userEditR(obj: any) {
+   
   }
   ngOnInit(): void {
     this.users.forEach((e) => {

@@ -30,7 +30,7 @@ export class TableComponent implements OnInit, AfterContentInit {
     }
 
   ngOnInit(): void {
-    debugger;
+   
     this.GridChanges(this.filterObject, this.sortObj);
   }
 

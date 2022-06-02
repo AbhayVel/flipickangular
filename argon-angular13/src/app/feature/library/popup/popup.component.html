@@ -1,0 +1,19 @@
+<div class="modal" [class.popup-show]="config.isShowPopup" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content p-left"  [class.p-center]="config.isShowLeft">
+      <div class="modal-header">
+        <h5 class="modal-title">{{config.header}}</h5>
+        <button type="button" class="close" data-dismiss="modal" (click)="close()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <ng-content></ng-content>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" (click)="close()" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

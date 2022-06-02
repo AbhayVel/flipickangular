@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PagingComponent } from './paging/paging.component';
 import { TableComponent } from './table/table.component';
 import { TableDirective } from './table.directive';
+import { PopupComponent } from './popup/popup.component';
 
 
 
@@ -10,7 +11,8 @@ import { TableDirective } from './table.directive';
   declarations: [
     PagingComponent,
     TableComponent,
-    TableDirective
+    TableDirective,
+    PopupComponent
   ],
   imports: [
     CommonModule
@@ -18,7 +20,8 @@ import { TableDirective } from './table.directive';
   exports: [
     PagingComponent,
     TableComponent,
-    TableDirective
+    TableDirective,
+    PopupComponent
   ]
 })
 export class LibraryModule { }

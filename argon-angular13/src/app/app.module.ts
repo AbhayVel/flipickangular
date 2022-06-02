@@ -8,12 +8,14 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { FooterComponent } from './layouts/footer/footer.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { SidebarComponent } from './layouts/sidebar/sidebar.component';
-import { TablesComponent } from './components/tables/tables.component';
 import { OtherPipe } from './pipes/other.pipe';
 import { ConcatPipe } from './pipes/concat.pipe';
 import { StatusMasterPipe } from './pipes/status-master.pipe';
 import { SortingPipe } from './pipes/sorting.pipe';
 import { LibraryModule } from './feature/library/library.module';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { OrganizationsComponent } from './components/organizations/organizations.component';
+import { EmployeesComponent } from './components/employees/employees.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +26,13 @@ import { LibraryModule } from './feature/library/library.module';
     NavbarComponent,
     SidebarComponent,
     FooterComponent,
-    TablesComponent,
     OtherPipe,
     ConcatPipe,
     StatusMasterPipe,
-    SortingPipe
+    SortingPipe,
+    ProjectsComponent,
+    OrganizationsComponent,
+    EmployeesComponent
   ],
   imports: [
     BrowserModule,

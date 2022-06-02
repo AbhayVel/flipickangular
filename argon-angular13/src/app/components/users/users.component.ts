@@ -316,7 +316,7 @@ export class UsersComponent implements OnInit {
       isSorting: true,
       filter: {
         isFiltering: true,
-        fitertype: 'input',
+        filterType: 'input',
       
       }
     },
@@ -327,7 +327,7 @@ export class UsersComponent implements OnInit {
       isSorting: true,
       filter: {
         isFiltering: true,
-        fitertype: 'range',
+        filterType: 'range',
         filterFrom: 'budgetFrom',
         filterTo: 'budgetTo'
       }
@@ -341,7 +341,7 @@ export class UsersComponent implements OnInit {
       isSorting: true,
       filter: {
         isFiltering: true,
-        fitertype: 'template',
+        filterType: 'template',
         fiterName: 'status'
       }
     },
@@ -354,7 +354,7 @@ export class UsersComponent implements OnInit {
       isSorting: false,
       filter: {
         isFiltering: false,
-        fitertype: 'input'
+        filterType: 'input'
       },
     },
      {
@@ -366,7 +366,7 @@ export class UsersComponent implements OnInit {
       isSorting: false,
       filter: {
         isFiltering: false,
-        fitertype: 'input'
+        filterType: 'input'
        }
 
     },

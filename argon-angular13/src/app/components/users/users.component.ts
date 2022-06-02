@@ -16,42 +16,42 @@ export class UsersComponent implements OnInit {
   @ViewChild('popup') popup?: PopupComponent;
   constructor() { }
   project: Project = new Project()
-  users: Array<any>=[
-      {
-        id: 1,
-        icon: "../assets/img/small-logos/logo-spotify.svg",
-        project: "Argon Design System",
-        budget: 2500,
-        status: 1,
-        users: "av",
-        completion : 60
-      },
-      {
-        id: 2,
-        icon: "../assets/img/small-logos/logo-invision.svg",
-        project: "de Now UI Kit PRO",
-        budget: 7500,
-        status: 2,
-        users: "av",
-        completion : 70
-      },
-      {
-        id: 3,
-        icon: "../assets/img/small-logos/logo-jira.svg",
-        project: "ZZ Design System",
-        budget: 3500,
-        status: 3,
-        users: "av",
-        completion : 90
-      },
-      {
-        id: 4,
-        icon: "../assets/img/theme/bootstrap.jpg",
-        project: "ke Design System",
-        budget: 4500,
-        status: 4,
-        users: "av",
-        completion : 35
+  users: Array<any> = [
+    {
+      id: 1,
+      icon: "../assets/img/small-logos/logo-spotify.svg",
+      project: "Argon Design System",
+      budget: 2500,
+      status: 1,
+      users: "av",
+      completion: 60
+    },
+    {
+      id: 2,
+      icon: "../assets/img/small-logos/logo-invision.svg",
+      project: "de Now UI Kit PRO",
+      budget: 7500,
+      status: 2,
+      users: "av",
+      completion: 70
+    },
+    {
+      id: 3,
+      icon: "../assets/img/small-logos/logo-jira.svg",
+      project: "ZZ Design System",
+      budget: 3500,
+      status: 3,
+      users: "av",
+      completion: 90
+    },
+    {
+      id: 4,
+      icon: "../assets/img/theme/bootstrap.jpg",
+      project: "ke Design System",
+      budget: 4500,
+      status: 4,
+      users: "av",
+      completion: 35
     },
     {
       id: 4,
@@ -305,9 +305,9 @@ export class UsersComponent implements OnInit {
     pageSize: 5
   }
 
-  sortObj: SortModel={
+  sortObj: SortModel = {
     orderBy: -1,
-    columnName:'id',
+    columnName: 'id',
     sortType: 'num',
     condition: null
   }
@@ -320,8 +320,8 @@ export class UsersComponent implements OnInit {
       isSorting: true,
       filter: {
         isFiltering: true,
-        fitertype: 'input',
-      
+        filterType: 'input',
+
       }
     },
     {
@@ -331,7 +331,7 @@ export class UsersComponent implements OnInit {
       isSorting: true,
       filter: {
         isFiltering: true,
-        fitertype: 'range',
+        filterType: 'range',
         filterFrom: 'budgetFrom',
         filterTo: 'budgetTo'
       }
@@ -345,7 +345,7 @@ export class UsersComponent implements OnInit {
       isSorting: true,
       filter: {
         isFiltering: true,
-        fitertype: 'template',
+        filterType: 'template',
         fiterName: 'status'
       }
     },
@@ -358,10 +358,10 @@ export class UsersComponent implements OnInit {
       isSorting: false,
       filter: {
         isFiltering: false,
-        fitertype: 'input'
+        filterType: 'input'
       },
     },
-     {
+    {
       name: 'id',
       displayName: 'Delete',
       html: true,
@@ -370,8 +370,8 @@ export class UsersComponent implements OnInit {
       isSorting: false,
       filter: {
         isFiltering: false,
-        fitertype: 'input'
-       }
+        filterType: 'input'
+      }
 
     },
   ]
@@ -382,28 +382,28 @@ export class UsersComponent implements OnInit {
     GridChanges(this.filterObject, this.sortObj);
   }
   userDelete(obj: any) {
-     
+
   }
   close($event: boolean) {
-   
+
   }
 
   popupConfig: PopUpConfig = PopUpConfigFactory.getPopUpConfig({
     header: 'Project Edit'
   });
 
-   
+
   userEditP(obj: any) {
     this.popupConfig.isShowPopup = true;
 
-  //  this.popupConfig = { ...this.popupConfig };
+    //  this.popupConfig = { ...this.popupConfig };
 
     this.popup?.open(this.popupConfig);
     this.project = obj;
   }
 
   userEditR(obj: any) {
-   
+
   }
   ngOnInit(): void {
     this.users.forEach((e) => {
@@ -411,7 +411,7 @@ export class UsersComponent implements OnInit {
     })
 
     this.filterObject.data = this.users;
-    this.filterObject.rows = this.users;    
+    this.filterObject.rows = this.users;
   }
 
 }

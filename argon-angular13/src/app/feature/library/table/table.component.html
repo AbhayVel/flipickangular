@@ -13,16 +13,16 @@
       <tr>
         <th *ngFor="let c2 of columns">
 
-          <div *ngIf="c2.filter.isFiltering && c2.filter.fitertype=='input'">
+          <div *ngIf="c2.filter.isFiltering && c2.filter.filterType=='input'">
             <input [attr.columnName]="c2.name" (input)="filterData($event)" type="text" />
           </div>
 
-          <div *ngIf="c2.filter.isFiltering && c2.filter.fitertype=='range'">
+          <div *ngIf="c2.filter.isFiltering && c2.filter.filterType=='range'">
             <input [attr.columnName]="c2.filter.filterFrom" (blur)="filterData( $event)" type="text" />
             <input [attr.columnName]="c2.filter.filterTo" (blur)="filterData($event)" type="text" />
           </div>
 
-          <div *ngIf="c2.filter.isFiltering && c2.filter.fitertype=='template'">
+          <div *ngIf="c2.filter.isFiltering && c2.filter.filterType=='template'">
             
 
             <ng-container [ngTemplateOutlet]="template[c2.filter.fiterName]" [ngTemplateOutletContext]="{GridChanges:  GridChanges.bind(this)}"></ng-container>

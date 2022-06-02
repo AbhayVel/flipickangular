@@ -10,7 +10,7 @@
   <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link active" routerLinkActive="active" [routerLink]="['/dashboard']">
+        <a class="nav-link active" routerLinkActive="active" [routerLink]="['dashboard']">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
           </div>
@@ -18,7 +18,23 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" [routerLink]="['/users']">
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['organizations']">
+          <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+          </div>
+          <span class="nav-link-text ms-1">Organizations</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['projects']">
+          <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+          </div>
+          <span class="nav-link-text ms-1">Projects</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['users']">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
           </div>
@@ -26,11 +42,11 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" [routerLink]="['/tables']">
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['employees']">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+            <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
           </div>
-          <span class="nav-link-text ms-1">Tables</span>
+          <span class="nav-link-text ms-1">Emploayee</span>
         </a>
       </li>
     </ul>

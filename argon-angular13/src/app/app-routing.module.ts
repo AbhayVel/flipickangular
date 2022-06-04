@@ -11,6 +11,7 @@ import { UsersComponent } from './components/users/users.component';
 import { PksalesComponent } from './components/pksales/pksales.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { VkcompComponent } from './vkcomp/vkcomp.component';
+import { DepartmentMJ } from './models/DepartmentsMJ';
 
 
 const routes: Routes =
@@ -28,6 +29,7 @@ const routes: Routes =
         { path: 'organizations', component: OrganizationsComponent, data: { title: 'Organizations' } },
         { path: 'employees', component: EmployeesComponent, data: { title: 'Employees' } },
         { path: 'salse', component: PksalesComponent, data: { title: 'Salse' } },
+        { path: 'departmentMJ', component: DepartmentsMJComponent, data: { title: 'departmentMJ' } },
         { path: '', redirectTo: '/dashboard', pathMatch: 'full', data: { title: 'Dashboard' } },
       ]
     },

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DepartmentsMJComponent } from './components/departments-mj/departments-mj.component';
 import { EmployeesComponent } from './components/employees/employees.component';
 import { OrganizationsComponent } from './components/organizations/organizations.component';
 import { ProjectsComponent } from './components/projects/projects.component';
@@ -18,6 +19,7 @@ const routes: Routes =
       { path: 'projects', component: ProjectsComponent, data: {title: 'Projects'} },  
       { path: 'organizations', component: OrganizationsComponent, data: {title: 'Organizations'} },   
       { path: 'employees', component: EmployeesComponent, data: {title: 'Employees'} },  
+      { path: 'departmentsmj', component: DepartmentsMJComponent, data: {title: 'departmentsmj'} },  
       { path: '', redirectTo: '/dashboard', pathMatch: 'full', data: {title: 'Dashboard'} },    
     ]
   }, 

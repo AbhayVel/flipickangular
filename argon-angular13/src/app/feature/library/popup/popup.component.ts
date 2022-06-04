@@ -36,6 +36,7 @@ export class PopupComponent implements OnInit, OnChanges {
     }
 
   public open(config: PopUpConfig) {
+    debugger;
     this.config = config;
     setTimeout(() => {
       this.config.isShowLeft = true;

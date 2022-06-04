@@ -24,6 +24,7 @@ import { PksalesComponent } from './components/pksales/pksales.component';
 
 import { MkuserComponent } from './components/mkuser/mkuser.component';
 import { SbCoursesComponent } from './components/sb-courses/sb-courses.component';
+import { MkUserEditPopupComponent } from './components/mk-user-edit-popup/mk-user-edit-popup.component';
 
 
 
@@ -49,7 +50,8 @@ import { SbCoursesComponent } from './components/sb-courses/sb-courses.component
     PksalesComponent,
 
     MkuserComponent,
-    SbCoursesComponent
+    SbCoursesComponent,
+    MkUserEditPopupComponent
 
   ],
   imports: [

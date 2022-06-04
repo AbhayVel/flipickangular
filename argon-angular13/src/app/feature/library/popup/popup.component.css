@@ -16,3 +16,7 @@
   z-index: 900;
 }
 
+.modal{
+    background-color: rgba(0,0,0,0.5);
+    z-index: 99999;
+}

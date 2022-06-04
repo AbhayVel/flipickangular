@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EmployeesComponent } from './components/employees/employees.component';
+import { MkuserComponent } from './components/mkuser/mkuser.component';
 import { OrganizationsComponent } from './components/organizations/organizations.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { UsersComponent } from './components/users/users.component';
@@ -15,6 +16,7 @@ const routes: Routes =
     children: [
       { path: 'dashboard', component: DashboardComponent, data: {title: 'Dashboard'} }, 
       { path: 'users', component: UsersComponent, data: {title: 'Users'} }, 
+      { path: 'mkuser', component: MkuserComponent, data: {title: 'mkuser'} }, 
       { path: 'projects', component: ProjectsComponent, data: {title: 'Projects'} },  
       { path: 'organizations', component: OrganizationsComponent, data: {title: 'Organizations'} },   
       { path: 'employees', component: EmployeesComponent, data: {title: 'Employees'} },  

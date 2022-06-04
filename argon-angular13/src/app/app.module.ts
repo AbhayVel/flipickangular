@@ -19,6 +19,7 @@ import { UserEditPopupComponent } from './components/user-edit-popup/user-edit-p
 import { ProjectsComponent } from './components/projects/projects.component';
 import { OrganizationsComponent } from './components/organizations/organizations.component';
 import { EmployeesComponent } from './components/employees/employees.component';
+import { FirstService } from './services/first.service';
 
 
 @NgModule({
@@ -47,7 +48,7 @@ import { EmployeesComponent } from './components/employees/employees.component';
     AppRoutingModule,
     LibraryModule
   ],
-  providers: [Title],
+  providers: [Title, FirstService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,6 +5,8 @@ import { PopupComponent } from '../../feature/library/popup/popup.component';
 import { PopUpConfig, PopUpConfigFactory } from '../../feature/library/popup/PopUpConfig';
 import { Project } from '../../models/Project';
 import { ConcatPipe } from '../../pipes/concat.pipe';
+import { FirstService } from '../../services/first.service';
+import { SecondService } from '../../services/second.service';
 
 @Component({
   selector: 'app-users',
@@ -14,7 +16,12 @@ import { ConcatPipe } from '../../pipes/concat.pipe';
 export class UsersComponent implements OnInit {
 
   @ViewChild('popup') popup?: PopupComponent;
-  constructor() { }
+  fs?: FirstService;
+ // mm?: SecondService;
+  constructor(fs: FirstService,private mm: SecondService) {
+    this.fs = fs;
+    //this.mm = mm;
+  }
   project: Project = new Project()
   users: Array<any> = [
     {
@@ -382,7 +389,7 @@ export class UsersComponent implements OnInit {
     GridChanges(this.filterObject, this.sortObj);
   }
   userDelete(obj: any) {
-
+    
   }
   close($event: boolean) {
 
@@ -396,6 +403,8 @@ export class UsersComponent implements OnInit {
   userEditP(obj: any) {
     this.popupConfig.isShowPopup = true;
 
+  //  let user: UsersComponent = new UsersComponent();
+
     //  this.popupConfig = { ...this.popupConfig };
 
     this.popup?.open(this.popupConfig);
@@ -403,7 +412,7 @@ export class UsersComponent implements OnInit {
   }
 
   userEditR(obj: any) {
-
+    
   }
   ngOnInit(): void {
     this.users.forEach((e) => {

@@ -22,6 +22,9 @@ import { EmployeesComponent } from './components/employees/employees.component';
 import { FirstService } from './services/first.service';
 import { PksalesComponent } from './components/pksales/pksales.component';
 
+import { MkuserComponent } from './components/mkuser/mkuser.component';
+import { SbCoursesComponent } from './components/sb-courses/sb-courses.component';
+
 
 
 @NgModule({
@@ -44,6 +47,9 @@ import { PksalesComponent } from './components/pksales/pksales.component';
     OrganizationsComponent,
     EmployeesComponent,
     PksalesComponent,
+
+    MkuserComponent,
+    SbCoursesComponent
 
   ],
   imports: [

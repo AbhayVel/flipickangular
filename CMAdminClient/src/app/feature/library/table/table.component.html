@@ -1,3 +1,5 @@
+<cmadmin-paging [filterObject] ="this.filterObject" (pageChange)="pChange($event)" (pageSizeChange)="pageSizeChange($event)"></cmadmin-paging>
+
 <div class="row mt-2">
     <div class="table-responsive">
       <table class="table tablebg table-bordered table-instituteReport">
@@ -5,17 +7,18 @@
           <tr>
             <th *ngFor="let c of columns">
                 <span *ngIf="c.isSorting" [attr.columnName]="c.name" [attr.sortType]="c.type" (click)="sortData($event)">{{c.displayName}}</span>
-                <span *ngIf="!c.isSorting" >{{c.displayName}}</span>
+                <span *ngIf="!c.isSorting">{{c.displayName}}</span>
+                <span *ngIf="c.isSorting && colmnName == c.name"  [attr.class]="this.sortObj.orderBy === -1? 'arrow-up': 'arrow-down'" [attr.columnName]="c.name" [attr.sortType]="c.type" (click)="sortData($event)"></span>
             </th>
           </tr>
-          <tr>
+          <tr *ngIf="filterObject.isShowInlineFilter == true">
             <th *ngFor="let c2 of columns">
                <div *ngIf="c2.filter.isFiltering && c2.filter.filterType=='input'">
-                    <input  [attr.columnName]="c2.name" (input)="filterData($event)" type="text" />               
+                    <input  [attr.columnName]="c2.name" (input)="filterData($event)" type="text" class="form-control" />               
                 </div>
                 <div *ngIf="c2.filter.isFiltering && c2.filter.filterType=='range'">
-                    <input *ngIf="c2.filter.isFiltering" [attr.columnName]="c2.filter.filterFrom" (blur)="filterData($event)" type="text" />  
-                    <input *ngIf="c2.filter.isFiltering" [attr.columnName]="c2.filter.filterTo" (blur)="filterData($event)" type="text" />               
+                    <input *ngIf="c2.filter.isFiltering" [attr.columnName]="c2.filter.filterFrom" (blur)="filterData($event)" type="text" class="form-control"/>  
+                    <input *ngIf="c2.filter.isFiltering" [attr.columnName]="c2.filter.filterTo" (blur)="filterData($event)" type="text" class="form-control" />               
                 </div>
                 <div *ngIf="c2.filter.isFiltering && c2.filter.fitertype=='template'">
                     <ng-container [ngTemplateOutlet]="template[c2.filter.fiterName]" [ngTemplateOutletContext]="{GridChanges:  GridChanges.bind(this)}"></ng-container>      
@@ -25,8 +28,8 @@
         </thead>
         <tbody>
           <tr
-            *ngFor="let p of filterObject.rows" >
-            <td *ngFor="let c1 of columns">
+            *ngFor="let p of filterObject.rows; let i = index" >
+            <td *ngFor="let c1 of columns">      
               <div *ngIf="c1.html">
                 <ng-container [ngTemplateOutlet]="template[c1.htmlName]"  [ngTemplateOutletContext]="{data: p}"></ng-container>
               </div>
@@ -37,5 +40,5 @@
       </table>
      
     </div>
-  </div>
-<cmadmin-paging [filterObject] ="this.filterObject" (pageChange)="pChange($event)"></cmadmin-paging>
+</div>
+

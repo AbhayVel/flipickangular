@@ -15,6 +15,8 @@ import { OtherPipe } from './pipes/other.pipe';
 import { SortingPipe } from './pipes/sorting.pipe';
 import { StatusMasterPipe } from './pipes/status-master.pipe';
 import { LibraryModule } from './feature/library/library.module';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -35,7 +37,10 @@ import { LibraryModule } from './feature/library/library.module';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     LibraryModule
   ],
   providers: [Title],

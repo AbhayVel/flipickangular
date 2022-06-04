@@ -1,6 +1,6 @@
 import { AfterContentInit, Component, ContentChildren, Input, OnInit, QueryList } from '@angular/core';
 import { SortModel } from 'src/app/models/sort-model';
-import { filterFunction, sort } from 'src/app/utilities/utility';
+import { filterFunction, getAccessListFunction, sort } from 'src/app/utilities/utility';
 import { TableDirective } from '../table.directive';
 
 @Component({
@@ -10,55 +10,93 @@ import { TableDirective } from '../table.directive';
 })
 export class TableComponent implements OnInit, AfterContentInit {
 
+  colmnName: string = '';
   @ContentChildren(TableDirective) childs?: QueryList<TableDirective>;
   template: any = {};
   constructor() { }
   
   ngAfterContentInit(): void {
    this.childs?.forEach((e)=> {
-     if(e.name){
+      if(e.name){
       this.template[e.name] = e.temp;
      }
-   }
+    }
    )
   }
 
-  ngOnInit(): void {this.GridChanges(this.filterObject,this.sortObj); }
+  ngOnInit(): void { }
   @Input() filterObject: any;
   @Input() sortObj: SortModel = new SortModel();
   @Input() columns: Array<any> = []; 
 
-   GridChanges(filterObject: any, sortObj: any)
+  GridChanges(filterObject: any, sortObj: any)
   {
-    console.log(JSON.stringify(this.columns))
-    debugger;
-    filterFunction( this.filterObject);
+    //console.log(JSON.stringify(this.columns)) 
+    filterFunction(this.filterObject);
     sort(this.filterObject.data, this.sortObj.columnName,this.sortObj.orderBy,this.sortObj.sortType,this.sortObj.condition);
-    let numberOfRecord = this.filterObject.rows.length;
-    let pages = Math.ceil(numberOfRecord / this.filterObject.pageSize);
-    if(this.filterObject.currentPage > pages)
+    // default to first page
+    this.filterObject.currentPage = this.filterObject.currentPage || 1;
+
+    // default page size is 5
+     var defaultPageSize = 5;
+    // calculate total pages
+    var totalPages = Math.ceil(this.filterObject.rows.length / this.filterObject.pageSize);
+    if (this.filterObject.currentPage > totalPages) 
     {
       this.filterObject.currentPage = 1;
     }
-    let startIndex = (this.filterObject.currentPage - 1) * this.filterObject.pageSize;
-    let endIndex = startIndex +  this.filterObject.pageSize -1;
-    const paging = [];
-    for(let i=1; i<= pages; i++)
+    var startPage = 1;  var endPage;
+    if (totalPages <=  defaultPageSize) 
     {
-      paging.push(i);
+      // less than 5 total pages so show all
+      startPage = 1;
+      endPage = totalPages;            
+    } 
+    else 
+    {
+      // more than 5 total pages so calculate start and end pages
+      if (this.filterObject.currentPage <= 3) 
+      {
+        startPage = 1;
+        endPage = defaultPageSize;            
+      } 
+      else if (this.filterObject.currentPage + 2 >= totalPages) 
+      {
+         startPage = totalPages - 4;
+         endPage = totalPages;
+      } 
+      else 
+      {
+        startPage = this.filterObject.currentPage - 2;
+        endPage = this.filterObject.currentPage + 2;
+      }
     }
-    this.filterObject.paging = paging;
-    this.filterObject.rows = this.filterObject.rows.slice(startIndex,endIndex);    
+    // calculate start and end item indexes
+    var startIndex = (this.filterObject.currentPage - 1) * this.filterObject.pageSize;
+    var endIndex = Math.min(startIndex + parseInt(this.filterObject.pageSize) - 1, this.filterObject.rows.length - 1);
+    // create an array of pages to ng-repeat in the pager control
+    var pages = [...Array((endPage + 1) - startPage).keys()].map(i => startPage + i);
+    this.filterObject.paging = pages;  
+    this.filterObject.totalPages  = totalPages;
+    this.filterObject.totalRecordsText = this.filterObject.rows.length + " Records Found"; 
+    this.filterObject.pagingAccessList = getAccessListFunction(this.filterObject); 
+    this.filterObject.selectedPageAccess = this.filterObject.currentPage;
+    this.filterObject.rows = this.filterObject.rows.slice(startIndex,endIndex + 1); 
   }
 
   pChange(p: number)
   {
     this.GridChanges(this.filterObject,this.sortObj);
+  }  
+  pageSizeChange(p: number)
+  {
+    this.filterObject.pageSize =p;
+    this.GridChanges(this.filterObject,this.sortObj);
   }
-
   sortData(eve: any)
   {
     let columnName = eve.target.getAttribute("columnName");
+    this.colmnName = columnName;
     let sortType = eve.target.getAttribute("sortType");
     this.sortObj.orderBy = this.sortObj.orderBy*-1;
     this.sortObj.columnName = columnName;
@@ -67,8 +105,8 @@ export class TableComponent implements OnInit, AfterContentInit {
   }
   filterData(eve: any)
   {
-   
-    console.log(eve.target.value);
+    debugger;
+    //console.log(eve.target.value);
     let value = eve.target.value;
     let columnName = eve.target.getAttribute("columnName");
     this.filterObject.filter[columnName].value = value;

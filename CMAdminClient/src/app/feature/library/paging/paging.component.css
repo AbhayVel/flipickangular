@@ -1,0 +1,38 @@
+.my-pagination 
+{
+    border: 1px solid #DDDDDD;
+    border-radius: 3px;
+    border-collapse: inherit;
+    display: block;
+    background: var(--pager-bg);
+    background-color: #fff;
+    overflow: hidden;
+    padding: 0px !important;
+    height: 30px !important;
+    width: 100%;
+    text-align: center;
+}
+.my-pagination li a {
+    padding: 5px 10px 5px 10px;
+    height: 28px !important;
+    color: #682875;
+    display: block;
+}
+
+.my-pagination .current {
+    background: var(--page-link);
+    color: #fff !important; 
+    padding: 5px 10px 5px 10px;
+  }
+  .my-pagination li {
+    border-right: 1px solid #ddd !important;
+  }
+  .my-pagination ::ng-deep .ngx-pagination {
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+
+.my-pagination ::ng-deep .ngx-pagination .pagination-next {
+    border-right: none !important;
+}

@@ -156,4 +156,22 @@ label{display:block;margin-top:10px}
 .login-Page .form-body .instructorbtn .logInbtn:hover{background-color:var(--login-btn-bg-hover-color)}
 .icon-logout{display:block;font-size:0;color:transparent;width:24px;height:24px;background-image:url('./assets/images/common-icons/icon-page-header-logout.svg');background-repeat:no-repeat;background-position:center center;background-size:contain}
 /* =============== Login Page End =============== */
-   
+
+.arrow-up 
+{
+    width:20px !important;
+    height:15px !important;
+    background:url("assets/images/arrow-up.svg") no-repeat;
+    position: absolute;
+    margin-left: 5px;
+    margin-top: 2px;
+}
+.arrow-down 
+{
+    width:20px !important;
+    height:15px !important;
+    background:url("assets/images/arrow-down.svg") no-repeat;
+    position: absolute;
+    margin-left: 5px;
+    margin-top: 2px;
+}

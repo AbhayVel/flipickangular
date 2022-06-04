@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
+import { Observable, of, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+import { HttpClient, HttpHeaders, HttpErrorResponse, HttpEvent } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { ColumnsDetails } from '../models/table-template-model';
-
+const apiUrl = `${environment.apiUrl}`;
    
 @Injectable({
   providedIn: 'root',
@@ -9,120 +13,23 @@ import { ColumnsDetails } from '../models/table-template-model';
 
 export class OrganizationService {
  
-  constructor(public router: Router) {}
+    headers = new HttpHeaders().set('Content-Type', 'application/json');
+   
+    constructor(private http: HttpClient, public router: Router) {}
+    
+    getOrganizations(): Observable<any> {
+      return this.http.get<any>(apiUrl + "api/Organization", { headers: this.headers}); 
+   }
+    getOrganizationColumns(): Observable<any> {
+      return this.http.get<any>(apiUrl + "api/Organization/GetOrganizationColumns", { headers: this.headers});
+    }
+  
+    getOrganizationsData(params: any): Observable<any> {
+      return this.http.get<any>(apiUrl + "api/Organization/GetOrganizationRows", { headers: this.headers, params: params });
+    
+    }
 
-  organizationsData1: Array<any> = [
-            {
-                groupID: 4,
-                groupName: "HBI",
-                totalInstitute: "7",
-                instructorCount: "12",
-                studentCnt: "4",
-                trialStudentCnt: "0",
-                paidStudentCnt: "4",
-                row: "1",
-                totalRowCount: "397"
-            },
-            {
-                groupID: 16,
-                groupName: "Altru Health System",
-                totalInstitute: "0",
-                instructorCount: "0",
-                studentCnt: "0",
-                trialStudentCnt: "0",
-                paidStudentCnt: "0",
-                row: "2",
-                totalRowCount: "397"
-            },
-            {
-                groupID: 19,
-                groupName: "Benefis Health System",
-                totalInstitute: "0",
-                instructorCount: "0",
-                studentCnt: "0",
-                trialStudentCnt: "0",
-                paidStudentCnt: "0",
-                row: "3",
-                totalRowCount: "397"
-            },
-            {
-                groupID: 20,
-                groupName: "Avita Health System",
-                totalInstitute: "0",
-                instructorCount: "0",
-                studentCnt: "0",
-                trialStudentCnt: "0",
-                paidStudentCnt: "0",
-                row: "4",
-                totalRowCount: "397"
-            },
-            {
-                groupID: 29,
-                groupName: "Charles Cole Memorial Hospital",
-                totalInstitute: "0",
-                instructorCount: "0",
-                studentCnt: "0",
-                trialStudentCnt: "0",
-                paidStudentCnt: "0",
-                row: "5",
-                totalRowCount: "397"
-            },
-            {
-                groupID: 32,
-                groupName: "Coulee Medical Center",
-                totalInstitute: "0",
-                instructorCount: "0",
-                studentCnt: "0",
-                trialStudentCnt: "0",
-                paidStudentCnt: "0",
-                row: "6",
-                totalRowCount: "397"
-            },
-            {
-                groupID: 34,
-                groupName: "Cuyuna Regional Medical Center",
-                totalInstitute: "0",
-                instructorCount: "0",
-                studentCnt: "0",
-                trialStudentCnt: "0",
-                paidStudentCnt: "0",
-                row: "7",
-                totalRowCount: "397"
-            },
-            {
-                groupID: 35,
-                groupName: "Children's Healthcare of Atlanta",
-                totalInstitute: "0",
-                instructorCount: "0",
-                studentCnt: "0",
-                trialStudentCnt: "0",
-                paidStudentCnt: "0",
-                row: "8",
-                totalRowCount: "397"
-            },
-            {
-                groupID: 36,
-                groupName: "Cincinnati Children's Hospital Medical Center",
-                totalInstitute: "0",
-                instructorCount: "0",
-                studentCnt: "0",
-                trialStudentCnt: "0",
-                paidStudentCnt: "0",
-                row: "9",
-                totalRowCount: "397"
-            },
-            {
-                groupID: 40,
-                groupName: "Divine Savior Healthcare",
-                totalInstitute: "0",
-                instructorCount: "0",
-                studentCnt: "0",
-                trialStudentCnt: "0",
-                paidStudentCnt: "0",
-                row: "10",
-                totalRowCount: "397"
-            }
-        ]
+    
 
     organizationsData: Array<any> = [
         {
@@ -205,7 +112,7 @@ export class OrganizationService {
     ]
   
   
-  Columns =[
+  Columns: Array<ColumnsDetails>=[
             {
               name: "srNo",
               displayName: "Sr. No.",
@@ -240,7 +147,7 @@ export class OrganizationService {
               htmlName: "",
               type: "num",
               isSorting: false,
-              filter: { isFiltering: true, filterType: "range", filterName: "instructorLabelConfig", filterFrom: "", filterTo: ""}
+              filter: { isFiltering: true, filterType: "range", filterName: "instructorLabelConfig", filterFrom: "instructorLabelConfigFrom", filterTo: "instructorLabelConfigTo"}
             },
             {
               name: "subScribeStudentLabelConfig",

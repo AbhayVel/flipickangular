@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PagingComponent } from './paging/paging.component';
 import { TableComponent } from './table/table.component';
 import { TableDirective } from './table.directive';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -14,7 +15,8 @@ import { TableDirective } from './table.directive';
     TableDirective
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     PagingComponent,

@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { SortModel } from 'src/app/models/sort-model';
-import { filterFun, sort } from 'src/app/utilities/utility';
 import { Project } from '../../models/Project';
-import { ConcatPipe } from '../../pipes/concat.pipe';
+import { PopupComponent } from '../../feature/library/popup/popup.component';
+import { PopUpConfig, PopUpConfigFactory } from '../../feature/library/popup/PopUpConfig'
 
 @Component({
   selector: 'qdn-pksales',
@@ -11,6 +11,7 @@ import { ConcatPipe } from '../../pipes/concat.pipe';
 })
 export class PksalesComponent implements OnInit {
 
+  @ViewChild('popup') popup?: PopupComponent;
   constructor() { }
 
   project: Project = new Project()
@@ -242,13 +243,27 @@ export class PksalesComponent implements OnInit {
     GridChanges(this.filterObject, this.sortObj);
   }
 
+  popupConfig: PopUpConfig = PopUpConfigFactory.getPopUpConfig({
+    header: 'Project Edit'
+  });
+
   userDelete(obj: any) {
+    this.popupConfig.isShowPopup = true;
+
+    this.popup?.open(this.popupConfig);
+  }
+
+  close($event: boolean) {
 
   }
 
-  userEditR(obj: any) {
+  userEdit(obj: any) {
+    this.popupConfig.isShowPopup = true;
 
+    this.popup?.open(this.popupConfig);
+    this.project = obj;
   }
+
 
   ngOnInit(): void {
     this.users.forEach((e) => {

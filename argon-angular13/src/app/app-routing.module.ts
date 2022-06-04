@@ -5,6 +5,7 @@ import { EmployeesComponent } from './components/employees/employees.component';
 import { OrganizationsComponent } from './components/organizations/organizations.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { UsersComponent } from './components/users/users.component';
+import { PksalesComponent } from './components/pksales/pksales.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
 const routes: Routes = 
@@ -18,6 +19,7 @@ const routes: Routes =
       { path: 'projects', component: ProjectsComponent, data: {title: 'Projects'} },  
       { path: 'organizations', component: OrganizationsComponent, data: {title: 'Organizations'} },   
       { path: 'employees', component: EmployeesComponent, data: {title: 'Employees'} },  
+      { path: 'salse', component: PksalesComponent, data: {title: 'Salse'} },
       { path: '', redirectTo: '/dashboard', pathMatch: 'full', data: {title: 'Dashboard'} },    
     ]
   }, 

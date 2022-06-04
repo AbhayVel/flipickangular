@@ -25,13 +25,24 @@
                 <button type="button" class="btn btn-primary" (click)="userEditR(data)">Edit R</button>
   
               </ng-template>
+              <ng-template qdnTable name="Delete" let-data="data">
+
+                <button type="button" class="btn btn-primary" (click)="userDelete(data)">Delete</button>
+  
+              </ng-template>
+  
+              <ng-template qdnTable name="Status" let-data="data">
+  
+                <span>{{data.status |  statusMaster}}</span>
+  
+              </ng-template>
           </qdn-table>
         </div>
       </div>
     </div>
     <qdn-popup  #popup [isShowPopup]="popupConfig.isShowPopup" (CloseEvent)="close($event)"  >
-
-        <qdn-user-edit-popup  [project]="project"></qdn-user-edit-popup>
+        <qdn-mk-user-edit-popup [oMkUser]="oMkUser"></qdn-mk-user-edit-popup>
+        <!-- <qdn-user-edit-popup  []="project"></qdn-user-edit-popup> -->
       </qdn-popup>        
 </div>
 

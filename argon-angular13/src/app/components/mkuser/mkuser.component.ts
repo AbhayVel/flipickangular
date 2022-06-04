@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { PopupComponent } from 'src/app/feature/library/popup/popup.component';
+import { mkUser } from 'src/app/models/mkUser';
 import { SortModel } from 'src/app/models/sort-model';
 
 import { PopUpConfig, PopUpConfigFactory } from '../../feature/library/popup/PopUpConfig';
@@ -12,7 +14,7 @@ import { Project } from '../../models/Project';
 })
 export class MkuserComponent implements OnInit {
 
-  // @ViewChild('popup') popup?: PopupComponent;
+  @ViewChild('popup') popup?: PopupComponent;
   // fs?: FirstService;
  
   // constructor(fs: FirstService,private mm: SecondService) {
@@ -20,7 +22,7 @@ export class MkuserComponent implements OnInit {
     
   // }
   
-  project: Project = new Project()
+  oMkUser: mkUser = new mkUser()
   mkUsers: Array<any> = [
     {
       id: 1,
@@ -406,8 +408,8 @@ export class MkuserComponent implements OnInit {
 
     //  this.popupConfig = { ...this.popupConfig };
 
-    //this.popup?.open(this.popupConfig);
-    //this.project = obj;
+    this.popup?.open(this.popupConfig);
+    this.oMkUser = obj;
   }
 
   userEditR(obj: any) {

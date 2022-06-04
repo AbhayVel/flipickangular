@@ -21,8 +21,12 @@ import { OrganizationsComponent } from './components/organizations/organizations
 import { EmployeesComponent } from './components/employees/employees.component';
 import { FirstService } from './services/first.service';
 
+import { MkuserComponent } from './components/mkuser/mkuser.component';
+import { SbCoursesComponent } from './components/sb-courses/sb-courses.component';
+import { MkUserEditPopupComponent } from './components/mk-user-edit-popup/mk-user-edit-popup.component';
 import { DepartmentsMJComponent } from './components/departments-mj/departments-mj.component';
 import { DeparmentmjeditpopupComponent } from './components/deparmentmjeditpopup/deparmentmjeditpopup.component';
+import { PksalesComponent } from './components/pksales/pksales.component';
 
 
 
@@ -45,8 +49,14 @@ import { DeparmentmjeditpopupComponent } from './components/deparmentmjeditpopup
     ProjectsComponent,
     OrganizationsComponent,
     EmployeesComponent,
+    PksalesComponent,
+
+    MkuserComponent,
+    SbCoursesComponent,
+    MkUserEditPopupComponent,
     DepartmentsMJComponent,
     DeparmentmjeditpopupComponent
+
   ],
   imports: [
     BrowserModule,

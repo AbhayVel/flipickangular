@@ -6,6 +6,7 @@ import { OrganizationsComponent } from './components/organizations/organizations
 import { ProjectsComponent } from './components/projects/projects.component';
 import { UsersComponent } from './components/users/users.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { VkcompComponent } from './vkcomp/vkcomp.component';
 
 const routes: Routes = 
 [   
@@ -13,6 +14,7 @@ const routes: Routes =
     path: '',
     component: AdminLayoutComponent,
     children: [
+      { path: 'vkcomp', component: VkcompComponent, data: {title: 'Mylist'} },
       { path: 'dashboard', component: DashboardComponent, data: {title: 'Dashboard'} }, 
       { path: 'users', component: UsersComponent, data: {title: 'Users'} }, 
       { path: 'projects', component: ProjectsComponent, data: {title: 'Projects'} },  

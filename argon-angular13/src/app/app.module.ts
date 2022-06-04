@@ -20,6 +20,7 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { OrganizationsComponent } from './components/organizations/organizations.component';
 import { EmployeesComponent } from './components/employees/employees.component';
 import { FirstService } from './services/first.service';
+import { VkcompComponent } from './vkcomp/vkcomp.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { FirstService } from './services/first.service';
 
     ProjectsComponent,
     OrganizationsComponent,
-    EmployeesComponent
+    EmployeesComponent,
+    VkcompComponent
 
   ],
   imports: [

@@ -21,7 +21,7 @@ export class PopupComponent implements OnInit, OnChanges {
     setTimeout(() => {
       this.config.isShowPopup = false;
       this.CloseEvent.next(false);
-    }, 5000)
+    }, 100)
   }
   constructor() { }
     ngOnChanges(changes: any): void {

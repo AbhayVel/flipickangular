@@ -22,6 +22,14 @@ import { EmployeesComponent } from './components/employees/employees.component';
 import { FirstService } from './services/first.service';
 import { VkcompComponent } from './vkcomp/vkcomp.component';
 
+import { MkuserComponent } from './components/mkuser/mkuser.component';
+import { SbCoursesComponent } from './components/sb-courses/sb-courses.component';
+import { MkUserEditPopupComponent } from './components/mk-user-edit-popup/mk-user-edit-popup.component';
+import { DepartmentsMJComponent } from './components/departments-mj/departments-mj.component';
+import { DeparmentmjeditpopupComponent } from './components/deparmentmjeditpopup/deparmentmjeditpopup.component';
+import { PksalesComponent } from './components/pksales/pksales.component';
+
+
 
 @NgModule({
   declarations: [
@@ -42,7 +50,14 @@ import { VkcompComponent } from './vkcomp/vkcomp.component';
     ProjectsComponent,
     OrganizationsComponent,
     EmployeesComponent,
-    VkcompComponent
+    VkcompComponent,
+    PksalesComponent,
+
+    MkuserComponent,
+    SbCoursesComponent,
+    MkUserEditPopupComponent,
+    DepartmentsMJComponent,
+    DeparmentmjeditpopupComponent
 
   ],
   imports: [

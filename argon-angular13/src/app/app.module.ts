@@ -30,6 +30,8 @@ import { DeparmentmjeditpopupComponent } from './components/deparmentmjeditpopup
 import { PksalesComponent } from './components/pksales/pksales.component';
 import { KjCourseComponent } from './components/kj-course/kj-course.component';
 import { KjAuthorComponent } from './components/kj-author/kj-author.component';
+import { KjCompanyComponent } from './components/kj-company/kj-company.component';
+import { KjEventComponent } from './components/kj-event/kj-event.component';
 
 
 
@@ -61,7 +63,9 @@ import { KjAuthorComponent } from './components/kj-author/kj-author.component';
     DepartmentsMJComponent,
     DeparmentmjeditpopupComponent,
     KjCourseComponent,
-    KjAuthorComponent
+    KjAuthorComponent,
+    KjCompanyComponent,
+    KjEventComponent
 
   ],
   imports: [

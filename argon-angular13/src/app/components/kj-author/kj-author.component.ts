@@ -131,7 +131,7 @@ filterObject: any = {
   },
   paging: [],
   currentPage: 1,
-  pageSize: 10
+  pageSize: 5
 }
   
 sortObj: SortModel={

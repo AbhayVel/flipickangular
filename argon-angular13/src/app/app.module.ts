@@ -28,6 +28,8 @@ import { MkUserEditPopupComponent } from './components/mk-user-edit-popup/mk-use
 import { DepartmentsMJComponent } from './components/departments-mj/departments-mj.component';
 import { DeparmentmjeditpopupComponent } from './components/deparmentmjeditpopup/deparmentmjeditpopup.component';
 import { PksalesComponent } from './components/pksales/pksales.component';
+import { KjCourseComponent } from './components/kj-course/kj-course.component';
+import { KjAuthorComponent } from './components/kj-author/kj-author.component';
 
 
 
@@ -57,7 +59,9 @@ import { PksalesComponent } from './components/pksales/pksales.component';
     SbCoursesComponent,
     MkUserEditPopupComponent,
     DepartmentsMJComponent,
-    DeparmentmjeditpopupComponent
+    DeparmentmjeditpopupComponent,
+    KjCourseComponent,
+    KjAuthorComponent
 
   ],
   imports: [

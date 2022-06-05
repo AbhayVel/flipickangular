@@ -12,6 +12,8 @@ import { PksalesComponent } from './components/pksales/pksales.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { VkcompComponent } from './vkcomp/vkcomp.component';
 import { DepartmentMJ } from './models/DepartmentsMJ';
+import { KjCourseComponent } from './components/kj-course/kj-course.component';
+import { KjAuthorComponent } from './components/kj-author/kj-author.component';
 
 
 const routes: Routes =
@@ -20,6 +22,8 @@ const routes: Routes =
       path: '',
       component: AdminLayoutComponent,
       children: [
+        { path: 'kjAuthor', component: KjAuthorComponent, data: {title: 'kjAuthor'} }, 
+        { path: 'kjCourse', component: KjCourseComponent, data: {title: 'kjCourse'} }, 
         { path: 'vkcomp', component: VkcompComponent, data: {title: 'Mylist'} },
         { path: 'courses', component: SbCoursesComponent, data: { title: 'SB Courses' } },
         { path: 'dashboard', component: DashboardComponent, data: { title: 'Dashboard' } },

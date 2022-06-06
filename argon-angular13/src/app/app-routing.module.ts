@@ -2,9 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DepartmentsMJComponent } from './components/departments-mj/departments-mj.component';
-import { EmployeesComponent } from './components/employees/employees.component';
 import { MkuserComponent } from './components/mkuser/mkuser.component';
-import { OrganizationsComponent } from './components/organizations/organizations.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { SbCoursesComponent } from './components/sb-courses/sb-courses.component';
 import { UsersComponent } from './components/users/users.component';
@@ -17,6 +15,8 @@ import { KjAuthorComponent } from './components/kj-author/kj-author.component';
 import { KjCompanyComponent } from './components/kj-company/kj-company.component';
 import { KjEventComponent } from './components/kj-event/kj-event.component';
 import { VmQuestionBankComponent } from './components/vm-question-bank/vm-question-bank.component';
+import { AmOrganizationsComponent } from './components/am-organizations/am-organizations.component';
+import { AmEmployeesComponent } from './components/am-employees/am-employees.component';
 
 const routes: Routes =
   [
@@ -35,8 +35,8 @@ const routes: Routes =
         { path: 'users', component: UsersComponent, data: { title: 'Users' } },
         { path: 'mkuser', component: MkuserComponent, data: { title: 'mkuser' } },
         { path: 'projects', component: ProjectsComponent, data: { title: 'Projects' } },
-        { path: 'organizations', component: OrganizationsComponent, data: { title: 'Organizations' } },
-        { path: 'employees', component: EmployeesComponent, data: { title: 'Employees' } },
+        { path: 'amorganizations', component: AmOrganizationsComponent, data: { title: 'AM-Organizations' } },
+        { path: 'amemployees', component: AmEmployeesComponent, data: { title: 'AM-Employees' } },
         { path: 'salse', component: PksalesComponent, data: { title: 'Salse' } },
         { path: 'departmentMJ', component: DepartmentsMJComponent, data: { title: 'departmentMJ' } },
         { path: '', redirectTo: '/dashboard', pathMatch: 'full', data: { title: 'Dashboard' } },

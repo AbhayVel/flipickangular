@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { PopupComponent } from 'src/app/feature/library/popup/popup.component';
+import { PopUpConfig, PopUpConfigFactory } from 'src/app/feature/library/popup/PopUpConfig';
+import { Organization } from 'src/app/models/am-organizations';
 import { SortModel } from 'src/app/models/sort-model';
 import { ColumnsDetails } from 'src/app/models/table-template-model';
 import { OrganizationService } from 'src/app/services/organization.service';
 
 @Component({
-  selector: 'qdn-organizations',
-  templateUrl: './organizations.component.html',
-  styleUrls: ['./organizations.component.css']
+  selector: 'qdn-am-organizations',
+  templateUrl: './am-organizations.component.html',
+  styleUrls: ['./am-organizations.component.css']
 })
-export class OrganizationsComponent implements OnInit {
-
+export class AmOrganizationsComponent implements OnInit {
+  @ViewChild('popup') popup?: PopupComponent;
   organizations: Array<any> =[];
   tempOrganizations : Array<any> =[];
   columns: Array<ColumnsDetails> = [];
@@ -39,7 +42,7 @@ export class OrganizationsComponent implements OnInit {
     pageSize: 5
   }
  
-
+  organization: Organization = new Organization();
   setFilterObjectFilter() {
     //debugger;
     var filters = [];
@@ -54,5 +57,16 @@ export class OrganizationsComponent implements OnInit {
     //console.log('fiterObj: ' + JSON.stringify(this.filterObject.filter));
   }
 
+  popupConfig: PopUpConfig = PopUpConfigFactory.getPopUpConfig({
+    header: 'Organization Edit'
+  });
+
+
+  orgEditP(obj: any) {
+    this.popupConfig.isShowPopup = true;
+    this.popup?.open(this.popupConfig);
+    this.organization = obj;
+  }
+  close($event: boolean) {  }
 
 }

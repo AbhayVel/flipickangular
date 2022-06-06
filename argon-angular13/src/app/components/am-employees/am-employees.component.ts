@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { SortModel } from 'src/app/models/sort-model';
 
 @Component({
-  selector: 'qdn-employees',
-  templateUrl: './employees.component.html',
-  styleUrls: ['./employees.component.css']
+  selector: 'qdn-am-employees',
+  templateUrl: './am-employees.component.html',
+  styleUrls: ['./am-employees.component.css']
 })
-export class EmployeesComponent implements OnInit {
+export class AmEmployeesComponent implements OnInit {
 
   constructor() { }
 
@@ -199,4 +199,5 @@ export class EmployeesComponent implements OnInit {
     this.filterObject.data = this.employeeData;
     this.filterObject.rows = this.employeeData;    
   }
+
 }

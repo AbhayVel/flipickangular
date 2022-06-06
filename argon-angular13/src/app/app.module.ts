@@ -13,15 +13,10 @@ import { ConcatPipe } from './pipes/concat.pipe';
 import { StatusMasterPipe } from './pipes/status-master.pipe';
 import { SortingPipe } from './pipes/sorting.pipe';
 import { LibraryModule } from './feature/library/library.module';
-
 import { UserEditPopupComponent } from './components/user-edit-popup/user-edit-popup.component';
-
 import { ProjectsComponent } from './components/projects/projects.component';
-import { OrganizationsComponent } from './components/organizations/organizations.component';
-import { EmployeesComponent } from './components/employees/employees.component';
 import { FirstService } from './services/first.service';
 import { VkcompComponent } from './vkcomp/vkcomp.component';
-
 import { MkuserComponent } from './components/mkuser/mkuser.component';
 import { SbCoursesComponent } from './components/sb-courses/sb-courses.component';
 import { MkUserEditPopupComponent } from './components/mk-user-edit-popup/mk-user-edit-popup.component';
@@ -33,6 +28,9 @@ import { KjAuthorComponent } from './components/kj-author/kj-author.component';
 import { KjCompanyComponent } from './components/kj-company/kj-company.component';
 import { KjEventComponent } from './components/kj-event/kj-event.component';
 import { VmQuestionBankComponent } from './components/vm-question-bank/vm-question-bank.component';
+import { AmOrganizationsComponent } from './components/am-organizations/am-organizations.component';
+import { AmEmployeesComponent } from './components/am-employees/am-employees.component';
+import { AmOrganizationsEditPopupComponent } from './components/am-organizations-edit-popup/am-organizations-edit-popup.component';
 
 
 @NgModule({
@@ -48,15 +46,12 @@ import { VmQuestionBankComponent } from './components/vm-question-bank/vm-questi
     ConcatPipe,
     StatusMasterPipe,
     SortingPipe,
-
     UserEditPopupComponent,
-
     ProjectsComponent,
-    OrganizationsComponent,
-    EmployeesComponent,
+    AmOrganizationsComponent,
+    AmEmployeesComponent,
     VkcompComponent,
     PksalesComponent,
-
     MkuserComponent,
     SbCoursesComponent,
     MkUserEditPopupComponent,
@@ -66,8 +61,10 @@ import { VmQuestionBankComponent } from './components/vm-question-bank/vm-questi
     KjAuthorComponent,
     KjCompanyComponent,
     KjEventComponent,
-    VmQuestionBankComponent
-
+    VmQuestionBankComponent,
+    AmOrganizationsComponent,
+    AmEmployeesComponent,
+    AmOrganizationsEditPopupComponent
   ],
   imports: [
     BrowserModule,

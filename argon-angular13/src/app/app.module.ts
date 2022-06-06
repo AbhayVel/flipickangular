@@ -31,6 +31,8 @@ import { VmQuestionBankComponent } from './components/vm-question-bank/vm-questi
 import { AmOrganizationsComponent } from './components/am-organizations/am-organizations.component';
 import { AmEmployeesComponent } from './components/am-employees/am-employees.component';
 import { AmOrganizationsEditPopupComponent } from './components/am-organizations-edit-popup/am-organizations-edit-popup.component';
+import { PkSalseAprilComponent } from './components/pk-salse-april/pk-salse-april.component';
+import { PkSalseMayComponent } from './components/pk-salse-may/pk-salse-may.component';
 
 
 @NgModule({
@@ -64,7 +66,9 @@ import { AmOrganizationsEditPopupComponent } from './components/am-organizations
     VmQuestionBankComponent,
     AmOrganizationsComponent,
     AmEmployeesComponent,
-    AmOrganizationsEditPopupComponent
+    AmOrganizationsEditPopupComponent,
+    PkSalseAprilComponent,
+    PkSalseMayComponent
   ],
   imports: [
     BrowserModule,

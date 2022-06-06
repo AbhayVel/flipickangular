@@ -16,6 +16,7 @@ import { KjCourseComponent } from './components/kj-course/kj-course.component';
 import { KjAuthorComponent } from './components/kj-author/kj-author.component';
 import { KjCompanyComponent } from './components/kj-company/kj-company.component';
 import { KjEventComponent } from './components/kj-event/kj-event.component';
+import { VmQuestionBankComponent } from './components/vm-question-bank/vm-question-bank.component';
 
 const routes: Routes =
   [
@@ -23,6 +24,7 @@ const routes: Routes =
       path: '',
       component: AdminLayoutComponent,
       children: [
+        { path: 'vmquestionbank', component: VmQuestionBankComponent, data: {title: 'QuestionBank'} },
         { path: 'kjEvent', component: KjEventComponent, data: { title: 'kjEvent' } },
         { path: 'kjCompany', component: KjCompanyComponent, data: { title: 'kjCompany' } },
         { path: 'kjAuthor', component: KjAuthorComponent, data: { title: 'kjAuthor' } },

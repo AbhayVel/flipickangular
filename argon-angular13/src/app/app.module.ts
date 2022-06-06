@@ -33,6 +33,9 @@ import { KjAuthorComponent } from './components/kj-author/kj-author.component';
 import { KjCompanyComponent } from './components/kj-company/kj-company.component';
 import { KjEventComponent } from './components/kj-event/kj-event.component';
 import { VmQuestionBankComponent } from './components/vm-question-bank/vm-question-bank.component';
+import { PkSalseAprilComponent } from './components/pk-salse-april/pk-salse-april.component';
+import { PkSalseMayComponent } from './components/pk-salse-may/pk-salse-may.component';
+
 
 
 @NgModule({
@@ -66,8 +69,9 @@ import { VmQuestionBankComponent } from './components/vm-question-bank/vm-questi
     KjAuthorComponent,
     KjCompanyComponent,
     KjEventComponent,
-    VmQuestionBankComponent
-
+    VmQuestionBankComponent,
+    PkSalseAprilComponent,
+    PkSalseMayComponent,
   ],
   imports: [
     BrowserModule,

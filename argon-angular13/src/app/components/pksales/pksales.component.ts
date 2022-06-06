@@ -15,109 +15,92 @@ export class PksalesComponent implements OnInit {
   constructor() { }
 
   project: Project = new Project()
-  users: Array<any> = [
+  salse: Array<any> = [
     {
       id: 1,
-      icon: "../assets/img/small-logos/logo-spotify.svg",
       salseman: "Bill",
       month: "Jan",
       region: "West",
       orders: 2500,
       status: 1,
-      users: "av",
     },
     {
       id: 2,
-      icon: "../assets/img/small-logos/logo-invision.svg",
       salseman: "Frank",
       month: "March",
       region: "East",
       orders: 7500,
       status: 2,
-      users: "av",
     },
     {
       id: 3,
-      icon: "../assets/img/small-logos/logo-jira.svg",
       salseman: "Harry",
       month: "Jun",
       region: "Central",
       orders: 3500,
       status: 3,
-      users: "av",
     },
     {
       id: 4,
-      icon: "../assets/img/theme/bootstrap.jpg",
       salseman: "Janet",
       month: "Feb",
       region: "West",
       orders: 4500,
       status: 4,
-      users: "av",
     },
     {
       id: 5,
-      icon: "../assets/img/theme/bootstrap.jpg",
       salseman: "Joe",
       month: "Sep",
       region: "North",
       orders: 4500,
       status: 4,
-      users: "av",
     },
     {
       id: 6,
-      icon: "../assets/img/theme/bootstrap.jpg",
       salseman: "Martha",
       month: "Nov",
       region: "west",
       orders: 4500,
       status: 4,
-      users: "av",
     },
     {
       id: 7,
-      icon: "../assets/img/theme/bootstrap.jpg",
       salseman: "Mary",
       month: "Dec",
       region: "Central",
       orders: 4500,
       status: 4,
-      users: "av",
     },
     {
       id: 8,
-      icon: "../assets/img/theme/bootstrap.jpg",
       salseman: "ralph",
       month: "Jan",
       region: "North",
       orders: 4500,
       status: 4,
-      users: "av",
     },
     {
       id: 9,
-      icon: "../assets/img/theme/bootstrap.jpg",
       salseman: "Central",
       month: "March",
       region: "West",
       orders: 4500,
       status: 4,
-      users: "av",
     }  
   ]
+
   filterObject: any = {
     data: [],
     rows: [],
     filter: {
-      id: {
-        columnName: 'id',
+      salseman: {
+        columnName: 'salseman',
         value: '',
-        type: 'num'
+        type: 'cs'
       },
-      project: {
-        columnName: 'project',
+      region: {
+        columnName: 'region',
         value: '',
         type: 'cs'
       },
@@ -135,7 +118,7 @@ export class PksalesComponent implements OnInit {
         columnName: 'order',
         value: '',
         type: 'numGte'
-      },
+      },     
       orderTo: {
         columnName: 'order',
         value: '',
@@ -193,8 +176,8 @@ export class PksalesComponent implements OnInit {
       filter: {
         isFiltering: true,
         filterType: 'range',
-        filterFrom: 'budgetFrom',
-        filterTo: 'budgetTo'
+        filterFrom: 'orderFrom',
+        filterTo: 'orderTo'
       }
     },
     {
@@ -244,7 +227,7 @@ export class PksalesComponent implements OnInit {
   }
 
   popupConfig: PopUpConfig = PopUpConfigFactory.getPopUpConfig({
-    header: 'Project Edit'
+    header: 'Salse Edit'
   });
 
   userDelete(obj: any) {
@@ -266,12 +249,8 @@ export class PksalesComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.users.forEach((e) => {
-      e.projectDIsplay = `(${e.Id})-${e.Project}`;
-    })
-
-    this.filterObject.data = this.users;
-    this.filterObject.rows = this.users;
+    this.filterObject.data = this.salse;
+    this.filterObject.rows = this.salse;
   }
 
 }

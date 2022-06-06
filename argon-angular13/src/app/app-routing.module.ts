@@ -9,6 +9,8 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { SbCoursesComponent } from './components/sb-courses/sb-courses.component';
 import { UsersComponent } from './components/users/users.component';
 import { PksalesComponent } from './components/pksales/pksales.component';
+import { PkSalseAprilComponent } from './components/pk-salse-april/pk-salse-april.component';
+import { PkSalseMayComponent } from './components/pk-salse-may/pk-salse-may.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { VkcompComponent } from './vkcomp/vkcomp.component';
 import { DepartmentMJ } from './models/DepartmentsMJ';
@@ -37,7 +39,9 @@ const routes: Routes =
         { path: 'projects', component: ProjectsComponent, data: { title: 'Projects' } },
         { path: 'organizations', component: OrganizationsComponent, data: { title: 'Organizations' } },
         { path: 'employees', component: EmployeesComponent, data: { title: 'Employees' } },
-        { path: 'salse', component: PksalesComponent, data: { title: 'Salse' } },
+        { path: 'pksalse', component: PksalesComponent, data: { title: 'pksalse' } },
+        { path: 'pksalseapril', component: PkSalseAprilComponent, data: { title: 'pksalseapril' } },
+        { path: 'pksalsemay', component: PkSalseMayComponent, data: { title: 'pksalsemay' } },
         { path: 'departmentMJ', component: DepartmentsMJComponent, data: { title: 'departmentMJ' } },
         { path: '', redirectTo: '/dashboard', pathMatch: 'full', data: { title: 'Dashboard' } },
       ]

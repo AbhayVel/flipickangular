@@ -33,6 +33,8 @@ import { AmEmployeesComponent } from './components/am-employees/am-employees.com
 import { AmOrganizationsEditPopupComponent } from './components/am-organizations-edit-popup/am-organizations-edit-popup.component';
 import { PkSalseAprilComponent } from './components/pk-salse-april/pk-salse-april.component';
 import { PkSalseMayComponent } from './components/pk-salse-may/pk-salse-may.component';
+import { MJEmployeeComponent } from './components/mj-employee/mj-employee.component';
+import { EmployeeEditPopupComponent } from './components/employee-edit-popup/employee-edit-popup.component';
 
 
 @NgModule({
@@ -68,7 +70,9 @@ import { PkSalseMayComponent } from './components/pk-salse-may/pk-salse-may.comp
     AmEmployeesComponent,
     AmOrganizationsEditPopupComponent,
     PkSalseAprilComponent,
-    PkSalseMayComponent
+    PkSalseMayComponent,
+    MJEmployeeComponent,
+    EmployeeEditPopupComponent
   ],
   imports: [
     BrowserModule,

@@ -19,6 +19,7 @@ import { KjEventComponent } from './components/kj-event/kj-event.component';
 import { VmQuestionBankComponent } from './components/vm-question-bank/vm-question-bank.component';
 import { AmOrganizationsComponent } from './components/am-organizations/am-organizations.component';
 import { AmEmployeesComponent } from './components/am-employees/am-employees.component';
+import { MJEmployeeComponent } from './components/mj-employee/mj-employee.component';
 
 const routes: Routes =
   [
@@ -44,6 +45,7 @@ const routes: Routes =
         { path: 'pksalseapril', component: PkSalseAprilComponent, data: { title: 'pksalseapril' } },
         { path: 'pksalsemay', component: PkSalseMayComponent, data: { title: 'pksalsemay' } },
         { path: 'departmentMJ', component: DepartmentsMJComponent, data: { title: 'departmentMJ' } },
+        { path: 'mjemployee', component: MJEmployeeComponent, data: { title: 'mjemployee' } },
         { path: '', redirectTo: '/dashboard', pathMatch: 'full', data: { title: 'Dashboard' } },
       ]
     },

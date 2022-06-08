@@ -21,6 +21,7 @@ import { AmOrganizationsComponent } from './components/am-organizations/am-organ
 import { AmEmployeesComponent } from './components/am-employees/am-employees.component';
 import { MJEmployeeComponent } from './components/mj-employee/mj-employee.component';
 import { MkEmployeeDetailsComponent } from './components/mk-employee-details/mk-employee-details.component';
+import { MkProductsComponent } from './components/mk-products/mk-products.component';
 
 
 const routes: Routes =
@@ -49,6 +50,7 @@ const routes: Routes =
         { path: 'pksalsemay', component: PkSalseMayComponent, data: { title: 'pksalsemay' } },
         { path: 'departmentMJ', component: DepartmentsMJComponent, data: { title: 'departmentMJ' } },
         { path: 'mjemployee', component: MJEmployeeComponent, data: { title: 'mjemployee' } },
+        { path: 'mkproducts', component: MkProductsComponent, data: { title: 'Mk-Products' } },
         { path: '', redirectTo: '/dashboard', pathMatch: 'full', data: { title: 'Dashboard' } },
       ]
     },

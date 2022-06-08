@@ -37,8 +37,7 @@ import { MJEmployeeComponent } from './components/mj-employee/mj-employee.compon
 import { EmployeeEditPopupComponent } from './components/employee-edit-popup/employee-edit-popup.component';
 import { MkEmployeeDetailsComponent } from './components/mk-employee-details/mk-employee-details.component';
 import { MkemployeeEditPopupComponent } from './components/mkemployee-edit-popup/mkemployee-edit-popup.component';
-
-
+import { MkProductsComponent } from './components/mk-products/mk-products.component';
 
 
 @NgModule({
@@ -79,6 +78,7 @@ import { MkemployeeEditPopupComponent } from './components/mkemployee-edit-popup
     EmployeeEditPopupComponent,
     MkEmployeeDetailsComponent,
     MkemployeeEditPopupComponent,
+    MkProductsComponent,
     
 
   ],

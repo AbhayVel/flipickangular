@@ -20,6 +20,8 @@ import { VmQuestionBankComponent } from './components/vm-question-bank/vm-questi
 import { AmOrganizationsComponent } from './components/am-organizations/am-organizations.component';
 import { AmEmployeesComponent } from './components/am-employees/am-employees.component';
 import { MJEmployeeComponent } from './components/mj-employee/mj-employee.component';
+import { MkEmployeeDetailsComponent } from './components/mk-employee-details/mk-employee-details.component';
+
 
 const routes: Routes =
   [
@@ -37,6 +39,7 @@ const routes: Routes =
         { path: 'dashboard', component: DashboardComponent, data: { title: 'Dashboard' } },
         { path: 'users', component: UsersComponent, data: { title: 'Users' } },
         { path: 'mkuser', component: MkuserComponent, data: { title: 'mkuser' } },
+        { path: 'mkemployeedetails', component: MkEmployeeDetailsComponent, data: { title: 'MK-EmployeeDetails' } },
         { path: 'projects', component: ProjectsComponent, data: { title: 'Projects' } },
         { path: 'amorganizations', component: AmOrganizationsComponent, data: { title: 'AM-Organizations' } },
         { path: 'amemployees', component: AmEmployeesComponent, data: { title: 'AM-Employees' } },

@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <div class="row mt-2">
+        <div class="col-12">
+          <div class="card mb-4 shadow">
+            <div class="card-header pb-0">
+              <h6>Organization</h6>
+            </div>
+            <qdn-table [filterObject]="filterObject" [sortObj]="sortObj" [columns]="columns"> 
+                <ng-template qdnTable name="Action" let-data="data">
+             
+                    <button type="button" class="btn btn-primary" (click)="orgEditP(data)">Edit P</button>      
+                   
+      
+                  </ng-template>
+            </qdn-table>
+          </div>
+        </div>
+    </div> 
+</div>
+<qdn-popup  #popup [isShowPopup]="popupConfig.isShowPopup" (CloseEvent)="close($event)"  >
+
+    <qdn-am-organizations-edit-popup [organization]="organization"></qdn-am-organizations-edit-popup>
+ </qdn-popup>

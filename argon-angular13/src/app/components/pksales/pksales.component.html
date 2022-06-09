@@ -1,0 +1,45 @@
+<div class="container-fluid mt--7">
+    <!-- Table -->
+    <div class="row">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-header border-0">
+            <h3 class="mb-0">Salse</h3>
+          </div>
+          <qdn-table [filterObject]="filterObject" [sortObj]="sortObj" [columns]="columns">
+
+            <ng-template qdnTable name="status" let-GridChanges="GridChanges">
+
+                <select (change)="statusChange(GridChanges, $event)">
+                  <option value=""></option>
+                  <option value="1">Pending</option>
+                  <option value="2">Completed</option>
+                  <option value="3">Inprogress</option>
+                  <option value="4">Other</option>
+                </select>
+              </ng-template>
+              <ng-template qdnTable name="Action" let-data="data">
+                <button type="button" class="btn btn-primary" (click)="userEdit(data)">Edit</button>
+              </ng-template>
+  
+              <ng-template qdnTable name="Delete" let-data="data">
+                <button type="button" class="btn btn-primary" (click)="userDelete(data)">Delete</button>
+              </ng-template>
+  
+              <ng-template qdnTable name="Status" let-data="data">
+                <span>{{data.status |  statusMaster}}</span>
+              </ng-template>
+          </qdn-table>
+
+        </div>
+      </div>
+    </div>
+</div>
+
+<qdn-popup  #popup [isShowPopup]="popupConfig.isShowPopup" (CloseEvent)="close($event)"  >
+
+    <qdn-user-edit-popup  [project]="project"></qdn-user-edit-popup>
+  </qdn-popup>
+  
+
+

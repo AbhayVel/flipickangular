@@ -12,6 +12,7 @@ import { PksalesComponent } from './components/pksales/pksales.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { VkcompComponent } from './vkcomp/vkcomp.component';
 import { DepartmentMJ } from './models/DepartmentsMJ';
+import { EventsComponent } from './components/events/events.component';
 
 
 const routes: Routes =
@@ -20,6 +21,7 @@ const routes: Routes =
       path: '',
       component: AdminLayoutComponent,
       children: [
+        { path: 'vkevent', component: EventsComponent , data: {title: 'Events'} },
         { path: 'vkcomp', component: VkcompComponent, data: {title: 'Mylist'} },
         { path: 'courses', component: SbCoursesComponent, data: { title: 'SB Courses' } },
         { path: 'dashboard', component: DashboardComponent, data: { title: 'Dashboard' } },

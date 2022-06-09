@@ -6,10 +6,7 @@
     "\\argon-angular13\\src\\app",
     "\\argon-angular13\\src\\app\\components",
     "\\argon-angular13\\src\\app\\services",
-    "\\demo",
-    "\\demo\\src",
-    "\\demo\\src\\app",
-    "\\demo\\src\\app\\Samples"
+    "\\demo"
   ],
   "SelectedNode": "\\argon-angular13\\src\\app\\services\\first.service.ts",
   "PreviewInSolutionExplorer": false

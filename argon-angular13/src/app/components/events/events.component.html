@@ -1,0 +1,25 @@
+<div class="container-fluid mt--7">
+    <!-- Table -->
+    <div class="row">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-header border-0">
+            <h3 class="mb-0">Events</h3>
+          </div>
+          <qdn-table [filterObject]="filterObject" [sortObj]="sortObj" [columns]="columns">
+            
+            <ng-template qdnTable name="Revenue" let-data="data">
+
+              <span>{{data.revenue |  currency}}</span>
+
+            </ng-template>
+
+          </qdn-table>
+         
+        </div>
+      </div>
+    </div>
+        
+</div>
+
+

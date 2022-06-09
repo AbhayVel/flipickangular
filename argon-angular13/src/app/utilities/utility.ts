@@ -23,14 +23,16 @@ export function sort(list: Array<any>, columnName: any, orderBy: number , column
 export function filterFun(filterObject: any, ) {
   let rows = filterObject.data;
   for (var key in filterObject.filter) {
-    let val = filterObject.filter[key].value;
+    //let val = filterObject.filter[key].value;
+    let val = filterObject.filter[key].value.toLowerCase();
     let col = filterObject.filter[key].columnName;
     if (val == '') {
       continue;
     }
     rows = rows.filter((e: any) => {
       if (filterObject.filter[key].type == 'cs') {
-        return e[col].indexOf(val) > -1;
+        //return e[col].indexOf(val) > -1;
+        return e[col].toLowerCase().indexOf(val) > -1;
       } else if (filterObject.filter[key].type == 'numGte') {
         return e[col] >= val;
       } else if (filterObject.filter[key].type == 'numLte') {

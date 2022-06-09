@@ -401,7 +401,7 @@ export class MkuserComponent implements OnInit {
 
 
   userEditP(obj: any) {
-    debugger;
+    //debugger;
     this.popupConfig.isShowPopup = true;
 
   //  let user: UsersComponent = new UsersComponent();
@@ -419,7 +419,7 @@ export class MkuserComponent implements OnInit {
     /*this.mkUsers.forEach((e) => {
       e.projectDIsplay = `(${e.Id})-${e.Project}`;
     })*/
-    debugger;
+    //debugger;
     this.filterObject.data = this.mkUsers;
     this.filterObject.rows = this.mkUsers;
   }

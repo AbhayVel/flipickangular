@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { SortModel } from 'src/app/models/sort-model';
-import { filterFun, sort } from 'src/app/utilities/utility';
+
 import { PopupComponent } from '../../feature/library/popup/popup.component';
 import { PopUpConfig, PopUpConfigFactory } from '../../feature/library/popup/PopUpConfig';
 import { Project } from '../../models/Project';
+import { SortModel } from '../../models/sort-model';
 import { ConcatPipe } from '../../pipes/concat.pipe';
 import { FirstService } from '../../services/first.service';
 import { SecondService } from '../../services/second.service';
@@ -392,11 +392,12 @@ export class UsersComponent implements OnInit {
     
   }
   close($event: boolean) {
-
+    this.popupConfig.isShowPopup = false;
   }
 
   popupConfig: PopUpConfig = PopUpConfigFactory.getPopUpConfig({
-    header: 'Project Edit'
+    header: 'Project Edit',
+    isShowPopup: false
   });
 
 

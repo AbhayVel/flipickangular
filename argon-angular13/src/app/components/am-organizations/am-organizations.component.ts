@@ -44,7 +44,7 @@ export class AmOrganizationsComponent implements OnInit {
  
   organization: Organization = new Organization();
   setFilterObjectFilter() {
-    //debugger;
+    ////debugger;
     var filters = [];
     for(var i= 0; i< this.columns.length; i++)
     {

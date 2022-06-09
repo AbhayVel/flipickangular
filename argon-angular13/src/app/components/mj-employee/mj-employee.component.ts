@@ -365,17 +365,17 @@ export class MJEmployeeComponent implements OnInit {
   }
   
   userEditP(data:any){
-    debugger;  
+    //debugger;  
     this.oMJEmployee=data;
     this.popupConfig.isShowPopup=true;
     this.popup?.open(this.popupConfig);
 
   }
   userEditR(data:any){
-    debugger;
+    //debugger;
   }
   userDelete(data:any){
-    debugger;
+    //debugger;
   }
   officeChange(gridChanges:any,eve:any){
     var value=eve.target.value;

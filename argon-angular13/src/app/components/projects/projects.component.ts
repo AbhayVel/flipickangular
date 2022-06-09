@@ -375,10 +375,10 @@ statusChange(GridChanges: any, $event: any) {
   GridChanges(this.filterObject, this.sortObj);
 }
 userDelete(obj: any) {
-  debugger;
+  //debugger;
 }
 userEdit(obj: any) {
-  debugger;
+  //debugger;
 }
 ngOnInit(): void {
   this.users.forEach((e) => {

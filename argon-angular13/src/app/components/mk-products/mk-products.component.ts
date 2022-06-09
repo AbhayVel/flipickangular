@@ -2029,7 +2029,7 @@ export class MkProductsComponent implements OnInit {
   });
   
   userEditP(obj: any) {
-    debugger;
+    //debugger;
     this.popupConfig.isShowPopup = true;
 
   //  let user: UsersComponent = new UsersComponent();

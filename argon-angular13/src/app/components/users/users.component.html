@@ -54,7 +54,8 @@
 </div>
 
 <qdn-popup  #popup [isShowPopup]="popupConfig.isShowPopup" (CloseEvent)="close($event)"  >
-  <qdn-user-edit-popup  [project]="project"></qdn-user-edit-popup>
+
+  <qdn-user-edit-popup *ngIf="popupConfig.isShowPopup"  [project]="project"></qdn-user-edit-popup>
 </qdn-popup>
 
 <!--<qdn-popup [config]="popupConfig" #popup [isShowPopup]="popupConfig.isShowPopup" (CloseEvent)="close($event)"></qdn-popup>-->

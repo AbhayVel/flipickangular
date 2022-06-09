@@ -196,12 +196,12 @@ popupConfig: PopUpConfig = PopUpConfigFactory.getPopUpConfig({
 
 courseDelete(obj: any) {
 
-  debugger;
+  //debugger;
 }
 
 courseEdit(obj: any) {
 
-  //debugger;
+  ////debugger;
   this.popupConfig.isShowPopup = true;
   this.popup?.open(this.popupConfig);
   this.project = obj;

@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ConcatPipe implements PipeTransform {
 
   transform(value: string, id: any): string {
-debugger;
+//debugger;
     return `(${id})-${value}` ;
   }
 

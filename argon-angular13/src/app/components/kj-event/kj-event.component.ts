@@ -203,12 +203,12 @@ export class KjEventComponent implements OnInit {
 
   deleteEvent(obj: any) {
 
-    debugger;
+    //debugger;
   }
 
   editEvent(obj: any) {
 
-    //debugger;
+    ////debugger;
     this.popupConfig.isShowPopup = true;
     this.popup?.open(this.popupConfig);
     this.project = obj;

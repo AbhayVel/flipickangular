@@ -167,7 +167,7 @@ export class SbCoursesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    debugger;
+    //debugger;
     this.filterObject.data = this.courses;
     this.filterObject.rows = this.courses;
 

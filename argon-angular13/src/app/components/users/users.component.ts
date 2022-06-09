@@ -392,11 +392,12 @@ export class UsersComponent implements OnInit {
     
   }
   close($event: boolean) {
-
+    this.popupConfig.isShowPopup = false;
   }
 
   popupConfig: PopUpConfig = PopUpConfigFactory.getPopUpConfig({
-    header: 'Project Edit'
+    header: 'Project Edit',
+    isShowPopup: false
   });
 
 

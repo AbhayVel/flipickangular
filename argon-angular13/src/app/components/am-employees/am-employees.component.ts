@@ -236,10 +236,10 @@ export class AmEmployeesComponent implements OnInit {
     GridChanges(this.filterObject, this.sortObj);
   }
   userDelete(obj: any) {
-    debugger;
+     
   }
   userEdit(obj: any) {
-    debugger;
+     
   }
   ngOnInit(): void {
   

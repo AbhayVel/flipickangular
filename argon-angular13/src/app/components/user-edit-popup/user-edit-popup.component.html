@@ -1,2 +1,32 @@
 <p>user-edit-popup works!</p>
 {{project | json}}
+
+
+<form #form role="form">
+  <div class="form-group">
+    <div class="mb-3">
+      <div>
+        <label class="form-control-label" for="id">Id</label>
+      </div>
+      <input class="form-control" id="Id" name="id" (input)="binderEvent($event)" required  qdn-model="" (blur)="validate($event)" min=3 value="{{project.id}}" placeholder="Id" type="text">
+      <div  id="id-required" *ngIf="error?.id" style="display:block">
+        <span *ngFor="let m of error?.id?.message" class="alert-danger"> {{m}} <br /> </span>
+      </div>       
+    </div>
+  </div>
+
+  <div class="input-group input-group-alternative mb-3">
+    <div>
+      <label class="form-control-label" for="id">Project</label>
+    </div>
+    <input class="form-control" id="project" required (blur)="validate($event)" qdn-model="" name="project" [value]="project.project" placeholder="Id" type="text">
+    <div *ngIf="error?.project?.requried" style="display:block">
+      <span class="alert-danger">project is required.  </span>
+    </div>
+  </div>
+   
+
+  <div class="text-center">
+    <button type="button" (click)="save()"  class="btn btn-primary mt-4">Create account</button>
+  </div>
+</form>

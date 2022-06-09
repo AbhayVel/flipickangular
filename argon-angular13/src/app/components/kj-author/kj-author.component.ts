@@ -225,12 +225,12 @@ popupConfig: PopUpConfig = PopUpConfigFactory.getPopUpConfig({
 
 authorDelete(obj: any) {
 
-  debugger;
+   
 }
 
 authorEdit(obj: any) {
 
-  //debugger;
+  ////debugger;
   this.popupConfig.isShowPopup = true;
   this.popup?.open(this.popupConfig);
   this.project = obj;

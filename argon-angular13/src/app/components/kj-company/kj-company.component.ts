@@ -223,12 +223,12 @@ export class KjCompanyComponent implements OnInit {
 
   deleteCompany(obj: any) {
 
-    debugger;
+    //debugger;
   }
 
   editCompany(obj: any) {
 
-    //debugger;
+    ////debugger;
     this.popupConfig.isShowPopup = true;
     this.popup?.open(this.popupConfig);
     this.project = obj;

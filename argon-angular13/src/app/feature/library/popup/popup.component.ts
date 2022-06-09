@@ -25,7 +25,7 @@ export class PopupComponent implements OnInit, OnChanges {
   }
   constructor() { }
     ngOnChanges(changes: any): void {
-      debugger;
+      //debugger;
 
       if (changes.config != null && changes.config.currentValue.isShowPopup) {
         setTimeout(() => {
@@ -36,14 +36,14 @@ export class PopupComponent implements OnInit, OnChanges {
     }
 
   public open(config: PopUpConfig) {
-    debugger;
+    //debugger;
     this.config = config;
     setTimeout(() => {
       this.config.isShowLeft = true;
     }, 10)
   }
   ngOnInit(): void {
-    debugger;
+    //debugger;
   }
 
 }

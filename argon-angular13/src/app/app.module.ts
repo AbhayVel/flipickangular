@@ -39,6 +39,9 @@ import { MkEmployeeDetailsComponent } from './components/mk-employee-details/mk-
 import { MkemployeeEditPopupComponent } from './components/mkemployee-edit-popup/mkemployee-edit-popup.component';
 import { MkProductsComponent } from './components/mk-products/mk-products.component';
 
+import { UAUsersComponent } from './components/uausers/uausers.component';
+import { UAEmployeesComponent } from './components/uaemployees/uaemployees.component';
+import { UaEmployeeEditPopupComponent } from './components/ua-employee-edit-popup/ua-employee-edit-popup.component';
 
 @NgModule({
   declarations: [
@@ -79,8 +82,10 @@ import { MkProductsComponent } from './components/mk-products/mk-products.compon
     MkEmployeeDetailsComponent,
     MkemployeeEditPopupComponent,
     MkProductsComponent,
-    
 
+    UAUsersComponent,
+    UAEmployeesComponent,
+    UaEmployeeEditPopupComponent
   ],
   imports: [
     BrowserModule,

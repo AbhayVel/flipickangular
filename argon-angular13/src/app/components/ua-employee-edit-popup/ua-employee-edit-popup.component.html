@@ -1,30 +1,30 @@
 <div>
   <!-- Name input -->
-
+  {{uaEmployee | json}}
   <div class="form-outline mb-4">
     <label class="form-label" for="txtFirstName">First Name</label>
-    <input type="text" id="txtFirstName" [(ngModel)]="uaEmployee.first_name" class="form-control" />
+    <input type="text" id="txtFirstName" (input)="uaEmployee.first_name" class="form-control" />
   </div>
 
   <div class="form-outline mb-4">
     <label class="form-label" for="form4Example1">Last Name</label>
-    <input type="text" id="txtLastName" [(ngModel)]="uaEmployee.last_name" class="form-control" />
+    <input type="text" id="txtLastName" (input)="uaEmployee.last_name" class="form-control" />
   </div>
 
   <!-- Email input -->
   <div class="form-outline mb-4">
     <label class="form-label" for="txtEmail">Email address</label>
-    <input type="email" id="txtEmail" [(ngModel)]="uaEmployee.email"class="form-control" />
+    <input type="email" id="txtEmail" (input)="uaEmployee.email" class="form-control" />
   </div>
 
   <div class="form-outline mb-4">
     <label class="form-label" for="txtHireDate">Hire Date</label>
-    <input type="text" id="txtHireDate" [(ngModel)]="uaEmployee.hire_date" class="form-control" />
+    <input type="text" id="txtHireDate" (input)="uaEmployee.hire_date" class="form-control" />
   </div>
 
   <div class="form-outline mb-4">
     <label class="form-label" for="txtSalary">Salary</label>
-    <input type="text" id="txtSalary" [(ngModel)]="uaEmployee.salary" class="form-control" />
+    <input type="text" id="txtSalary" (input)="uaEmployee.salary" class="form-control" />
   </div>
 
   <!-- Submit button -->

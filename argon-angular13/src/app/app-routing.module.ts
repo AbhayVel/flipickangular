@@ -23,6 +23,9 @@ import { MJEmployeeComponent } from './components/mj-employee/mj-employee.compon
 import { MkEmployeeDetailsComponent } from './components/mk-employee-details/mk-employee-details.component';
 import { MkProductsComponent } from './components/mk-products/mk-products.component';
 
+import { UAEmployeesComponent } from './components/uaemployees/uaemployees.component';
+import { UAUsersComponent } from './components/uausers/uausers.component';
+
 
 const routes: Routes =
   [
@@ -52,6 +55,10 @@ const routes: Routes =
         { path: 'mjemployee', component: MJEmployeeComponent, data: { title: 'mjemployee' } },
         { path: 'mkproducts', component: MkProductsComponent, data: { title: 'Mk-Products' } },
         { path: '', redirectTo: '/dashboard', pathMatch: 'full', data: { title: 'Dashboard' } },
+
+        { path: 'uaemployees', component: UAEmployeesComponent, data: { title: 'UAEmployees' } },
+        { path: 'uausers', component: UAUsersComponent, data: { title: 'UAUsers' } },
+
       ]
     },
   ];

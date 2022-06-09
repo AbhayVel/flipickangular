@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, NgModule } from '@angular/core';
 import { SortModel } from '../../models/sort-model';
 import { PopupComponent } from '../../feature/library/popup/popup.component';
 import { PopUpConfigFactory, PopUpConfig } from '../../feature/library/popup/PopUpConfig';
@@ -489,13 +489,14 @@ export class UAEmployeesComponent implements OnInit {
 
   close($event: boolean) {
     debugger;
+    this.popupConfig.isShowPopup = false;
     console.log(this.uaEmployee.first_name);
   }
 
   userEditP(obj: any) {
+    this.uaEmployee = obj;
     this.popupConfig.isShowPopup = true;
     this.popup?.open(this.popupConfig);
-    this.uaEmployee = obj;
   }
 
   userEditR(obj: any) {

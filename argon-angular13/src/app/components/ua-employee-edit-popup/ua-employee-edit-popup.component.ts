@@ -13,6 +13,8 @@ export class UaEmployeeEditPopupComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    debugger;
+    let tt = 11;
     //this.uaTempEmployee = this.uaEmployee;
   }
 

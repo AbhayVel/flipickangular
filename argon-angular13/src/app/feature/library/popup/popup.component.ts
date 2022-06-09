@@ -23,6 +23,7 @@ export class PopupComponent implements OnInit, OnChanges {
       this.CloseEvent.next(false);
     }, 100)
   }
+  saveChanges() { }
   constructor() { }
     ngOnChanges(changes: any): void {
       //debugger;

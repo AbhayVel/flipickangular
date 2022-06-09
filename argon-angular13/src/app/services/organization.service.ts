@@ -147,6 +147,15 @@ export class OrganizationService {
               type: "num",
               isSorting: false,
               filter: { isFiltering: false, filterType: "input", filterName: "trialStudentLabelConfig", filterFrom: "", filterTo: ""}
+            },
+            {
+              name: "id",
+              displayName: "Action",
+              html: true,
+              htmlName: "Action",
+              type: 'num',
+              isSorting: false,
+              filter: {isFiltering: false, filterType: "input", filterName:"id", filterFrom: "", filterTo: ""}              
             }
           ];
 

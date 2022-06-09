@@ -1,2 +1,4 @@
 .vs
 node_module
+.vc
+.vscode

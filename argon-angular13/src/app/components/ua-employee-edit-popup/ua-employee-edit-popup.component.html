@@ -1,0 +1,32 @@
+<div>
+  <!-- Name input -->
+
+  <div class="form-outline mb-4">
+    <label class="form-label" for="txtFirstName">First Name</label>
+    <input type="text" id="txtFirstName" [(ngModel)]="uaEmployee.first_name" class="form-control" />
+  </div>
+
+  <div class="form-outline mb-4">
+    <label class="form-label" for="form4Example1">Last Name</label>
+    <input type="text" id="txtLastName" [(ngModel)]="uaEmployee.last_name" class="form-control" />
+  </div>
+
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+    <label class="form-label" for="txtEmail">Email address</label>
+    <input type="email" id="txtEmail" [(ngModel)]="uaEmployee.email"class="form-control" />
+  </div>
+
+  <div class="form-outline mb-4">
+    <label class="form-label" for="txtHireDate">Hire Date</label>
+    <input type="text" id="txtHireDate" [(ngModel)]="uaEmployee.hire_date" class="form-control" />
+  </div>
+
+  <div class="form-outline mb-4">
+    <label class="form-label" for="txtSalary">Salary</label>
+    <input type="text" id="txtSalary" [(ngModel)]="uaEmployee.salary" class="form-control" />
+  </div>
+
+  <!-- Submit button -->
+  <!--<button type="button" class="btn btn-primary btn-block mb-4">Send</button>-->
+</div>

@@ -7,6 +7,7 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { UsersComponent } from './components/users/users.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { UAUsersComponent } from './components/uausers/uausers.component';
+import { UAEmployeesComponent } from './components/uaemployees/uaemployees.component';
 
 const routes: Routes = 
 [   
@@ -14,7 +15,7 @@ const routes: Routes =
     path: '',
     component: AdminLayoutComponent,
     children: [
-      
+      { path: 'uaemployees', component: UAEmployeesComponent, data: { title: 'UAEmployees' } }, 
       { path: 'uausers', component: UAUsersComponent, data: { title: 'UAUsers' } }, 
       { path: 'dashboard', component: DashboardComponent, data: {title: 'Dashboard'} }, 
       { path: 'users', component: UsersComponent, data: {title: 'Users'} }, 

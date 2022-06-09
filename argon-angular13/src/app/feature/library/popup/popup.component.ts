@@ -21,11 +21,13 @@ export class PopupComponent implements OnInit, OnChanges {
     setTimeout(() => {
       this.config.isShowPopup = false;
       this.CloseEvent.next(false);
-    }, 5000)
+    }, 1000)
+  }
+  saveChanges() {
+    this.close();
   }
   constructor() { }
     ngOnChanges(changes: any): void {
-      debugger;
 
       if (changes.config != null && changes.config.currentValue.isShowPopup) {
         setTimeout(() => {
@@ -42,7 +44,7 @@ export class PopupComponent implements OnInit, OnChanges {
     }, 10)
   }
   ngOnInit(): void {
-    debugger;
+    
   }
 
 }

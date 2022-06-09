@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,8 @@ import { OrganizationsComponent } from './components/organizations/organizations
 import { EmployeesComponent } from './components/employees/employees.component';
 import { FirstService } from './services/first.service';
 import { UAUsersComponent } from './components/uausers/uausers.component';
+import { UAEmployeesComponent } from './components/uaemployees/uaemployees.component';
+import { UaEmployeeEditPopupComponent } from './components/ua-employee-edit-popup/ua-employee-edit-popup.component';
 
 @NgModule({
   declarations: [
@@ -41,13 +44,16 @@ import { UAUsersComponent } from './components/uausers/uausers.component';
     ProjectsComponent,
     OrganizationsComponent,
     EmployeesComponent,
-    UAUsersComponent
+    UAUsersComponent,
+    UAEmployeesComponent,
+    UaEmployeeEditPopupComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LibraryModule
+    LibraryModule,
+    FormsModule
   ],
   providers: [Title, FirstService],
   bootstrap: [AppComponent]

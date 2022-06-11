@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, NgModule  } from '@angular/core';
+import { Component, OnInit, Input, NgModule, ElementRef, ViewChild  } from '@angular/core';
 import { UAEmployee } from '../../models/UAEmployee';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'qdn-ua-employee-edit-popup',
@@ -9,13 +10,16 @@ import { UAEmployee } from '../../models/UAEmployee';
 export class UaEmployeeEditPopupComponent implements OnInit {
 
   @Input() uaEmployee: UAEmployee = new UAEmployee();
-  //uaTempEmployee: UAEmployee = new UAEmployee();
+  @ViewChild('uaEmployeeForm') uaEmployeeForm: any; 
+
   constructor() { }
 
+  onSubmit(obj:any) {
+    console.log(obj.value);
+  }
+
   ngOnInit(): void {
-    debugger;
-    let tt = 11;
-    //this.uaTempEmployee = this.uaEmployee;
+    //debugger;
   }
 
 }

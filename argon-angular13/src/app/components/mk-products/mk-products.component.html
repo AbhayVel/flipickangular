@@ -11,8 +11,8 @@
             <ng-template qdnTable name="category" let-GridChanges="GridChanges">
                 <select (change)="categoryChanges(GridChanges,$event)">
                     <option value=""></option>
-                    <option (value)="oCategory.category" *ngFor="let oCategory of filterObject.category">
-                           {{oCategory.category}} 
+                    <option (value)="oCategory" *ngFor="let oCategory of filterObject.category">
+                           {{oCategory}} 
                     </option>
                 </select>
             </ng-template>

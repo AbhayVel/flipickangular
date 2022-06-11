@@ -42,7 +42,8 @@
     </div>
     <qdn-popup  #popup [isShowPopup]="popupConfig.isShowPopup" (CloseEvent)="close($event)"  >
         <!-- <qdn-mk-user-edit-popup [oMkUser]="oMkUser"></qdn-mk-user-edit-popup> -->
-        <qdn-mkemployee-edit-popup [oEmployee]="oEmployee"></qdn-mkemployee-edit-popup>
+        <qdn-mkemployee-edit-popup [oEmployee]="oEmployee" [employessDetails]="employessDetails" ></qdn-mkemployee-edit-popup>
+       
       </qdn-popup>        
 </div>
 

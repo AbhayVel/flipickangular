@@ -459,11 +459,12 @@ export class MkEmployeeDetailsComponent implements OnInit {
   }
 
   close($event: boolean) {
-
+    this.popupConfig.isShowPopup = false;
   }
 
   popupConfig: PopUpConfig = PopUpConfigFactory.getPopUpConfig({
-    header: 'Project Edit'
+    header: 'Edit Employee Details',
+    isShowPopup: false
   });
 
 
@@ -476,6 +477,7 @@ export class MkEmployeeDetailsComponent implements OnInit {
 
     this.popup?.open(this.popupConfig);
     this.oEmployee = obj;
+    this.employessDetails
   }
 
   userEditR(obj: any) {

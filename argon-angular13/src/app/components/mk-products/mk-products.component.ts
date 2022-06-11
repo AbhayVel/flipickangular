@@ -1934,14 +1934,27 @@ export class MkProductsComponent implements OnInit {
         filterType: 'input',
       }
     },
+    // {
+    //   name: 'category',
+    //   displayName: 'Category',
+    //   type: 'cs',
+    //   isSorting: true,
+    //   filter: {
+    //     isFiltering: true,
+    //     filterType: 'input',
+    //   }
+    // },
     {
       name: 'category',
       displayName: 'Category',
+      html: true,
+      htmlName: "Category",
       type: 'cs',
       isSorting: true,
       filter: {
         isFiltering: true,
-        filterType: 'input',
+        filterType: 'template',
+        fiterName: 'category'
       }
     },
     {

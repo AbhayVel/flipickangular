@@ -63,17 +63,16 @@ export class UserEditReactiveFormComponent implements OnInit {
     this.isCallBackStop = true;
   }
 
-  calculate_obs(a: any, b: any) {
-   var out= this.ca.calculatObservable(a, b);
-
-    out.subscribe((res: any) => {
+  calculate_o(a: any, b: any) {
+   this.ca.calculatObservable(a, b).subscribe((res: any) => {
+      console.log("I am inside Obs res");
       this.result = res;
       this.message = '';
     },(err) => {
       this.result = '';
       this.message = err;
     })
-
+    console.log("I am after Obs");
     //this.ca.calculatObservable(a, b).toPromise()
     //.then((res: any) => {
     //  this.result = res;
@@ -85,16 +84,21 @@ export class UserEditReactiveFormComponent implements OnInit {
   }
 
 
-  calculate(a: any, b: any) {
-    this.ca.calculatPromise(a, b)
-
+ async calculate(a: any, b: any) {
+    //this.ca.calculatPromise(a, b)
+    
     //  .then((res: any) => {
+    //    console.log("I am inside Promise res");
     //  this.result = res;
     //  this.message = '';
     //}).catch((err) => {
     //  this.result = '';
     //  this.message = err;
     //})
+
+    this.result =await this.ca.calculatPromise(a, b);
+
+    console.log("I am after Promise");
   }
 
   calculateCallBack(a: any, b: any) {  

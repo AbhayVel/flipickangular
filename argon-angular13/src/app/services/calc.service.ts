@@ -38,7 +38,7 @@ export class CalcService {
 
 
     return new Observable((o: Observer<any>) => {
-      debugger;
+      console.log("I am inside Obs");
       if (b == 0) {
         o.error("b should not be zero");
       } else {
@@ -58,7 +58,7 @@ export class CalcService {
 
     
     return new Promise((success, error) => {
-      debugger;
+      console.log("I am in Promise");
       if (b == 0) {
         error("b should not be zero");
       } else {

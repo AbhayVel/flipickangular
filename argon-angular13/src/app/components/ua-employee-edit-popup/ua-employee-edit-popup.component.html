@@ -1,32 +1,67 @@
 <div>
-  <!-- Name input -->
-  {{uaEmployee | json}}
-  <div class="form-outline mb-4">
-    <label class="form-label" for="txtFirstName">First Name</label>
-    <input type="text" id="txtFirstName" (input)="uaEmployee.first_name" class="form-control" />
-  </div>
+  <form #uaEmployeeForm="ngForm" (ngSubmit)="onSubmit(uaEmployeeForm)" novalidate>
+    <!-- Name input -->
+    {{uaEmployee | json}}
+    <div class="form-outline mb-4">
+      <label class="form-label" for="txtFirstName">First Name</label>
+      <input type="text" id="txtFirstName" name="txtFirstName"
+             required
+             minlength="5"
+             pattern="^[a-zA-Z]+$" 
+             #txtFirstName="ngModel" [(ngModel)]="uaEmployee.first_name"  class="form-control" />
+      <!--<div *ngIf="!txtFirstName?.valid && (txtFirstName?.dirty || txtFirstName?.touched)">
+        Invalid First Name
+        <div *ngIf="first_name.errors.required">
+          First Name is required
+        </div>
+        <div *ngIf="first_name.errors.minlength">
+          First Name Minimum Length is {{first_name.errors.minlength?.requiredLength}}
+        </div>
+      </div>-->
+    </div>
 
-  <div class="form-outline mb-4">
-    <label class="form-label" for="form4Example1">Last Name</label>
-    <input type="text" id="txtLastName" (input)="uaEmployee.last_name" class="form-control" />
-  </div>
+    <div class="form-outline mb-4">
+      <label class="form-label" for="form4Example1">Last Name</label>
+      <input type="text" id="txtLastName" name="txtLastName" [(ngModel)]="uaEmployee.last_name"  required minlength="5" class="form-control" />
+      <!--<div *ngIf="!last_name?.valid && (last_name?.dirty || txtLastName?.touched)">
+        Invalid First Name
+        <div *ngIf="last_name.errors.required">
+          First Name is required
+        </div>
+        <div *ngIf="last_name.errors.minlength">
+          First Name Minimum Length is {{last_name.errors.minlength?.requiredLength}}
+        </div>
+      </div>-->
+    </div>
 
-  <!-- Email input -->
-  <div class="form-outline mb-4">
-    <label class="form-label" for="txtEmail">Email address</label>
-    <input type="email" id="txtEmail" (input)="uaEmployee.email" class="form-control" />
-  </div>
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+      <label class="form-label" for="txtEmail">Email address</label>
+      <input type="email" id="txtEmail" name="txtEmail" [(ngModel)]="uaEmployee.email" required email class="form-control" />
+      <!--<div *ngIf="!email?.valid && (email?.dirty || email?.touched)" class="error">
+        <div *ngIf="email.errors.required">
+          Email is required
+        </div>
+        <div *ngIf="email.errors.email">
+          Invalid Email Address
+        </div>
+      </div>-->
+    </div>
 
-  <div class="form-outline mb-4">
-    <label class="form-label" for="txtHireDate">Hire Date</label>
-    <input type="text" id="txtHireDate" (input)="uaEmployee.hire_date" class="form-control" />
-  </div>
+    <div class="form-outline mb-4">
+      <label class="form-label" for="txtHireDate">Hire Date</label>
+      <input type="text" id="txtHireDate" name="txtHireDate" [(ngModel)]="uaEmployee.hire_date" class="form-control" />
+    </div>
 
-  <div class="form-outline mb-4">
-    <label class="form-label" for="txtSalary">Salary</label>
-    <input type="text" id="txtSalary" (input)="uaEmployee.salary" class="form-control" />
-  </div>
+    <div class="form-outline mb-4">
+      <label class="form-label" for="txtSalary">Salary</label>
+      <input type="text" id="txtSalary" name="txtSalary" [(ngModel)]="uaEmployee.salary" class="form-control" />
+    </div>
 
-  <!-- Submit button -->
-  <!--<button type="button" class="btn btn-primary btn-block mb-4">Send</button>-->
+    <!-- Submit button -->
+    <!--<button type="button" class="btn btn-primary btn-block mb-4">Send</button>-->
+    <p>
+      <button type="submit" [disabled]="!uaEmployeeForm.valid">Submit</button>
+    </p>
+  </form>
 </div>

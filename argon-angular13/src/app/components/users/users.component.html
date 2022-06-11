@@ -53,9 +53,11 @@
     </div>          
 </div>
 
-<qdn-popup  #popup [isShowPopup]="popupConfig.isShowPopup" (CloseEvent)="close($event)"  >
+<qdn-popup  #popup [isShowPopup]="popupConfig.isShowPopup" (saveEvent)="saveP($event)" (CloseEvent)="close($event)"  >
 
-  <qdn-user-edit-popup *ngIf="popupConfig.isShowPopup"  [project]="project"></qdn-user-edit-popup>
+ <qdn-user-edit-template-pop-up #tempPop *ngIf="popupConfig.isShowPopup" (saveEvent)="save($event)"  [project]="project"></qdn-user-edit-template-pop-up>
+
+ <!--<qdn-user-edit-popup *ngIf="popupConfig.isShowPopup"  [project]="project"></qdn-user-edit-popup>-->
 </qdn-popup>
 
 <!--<qdn-popup [config]="popupConfig" #popup [isShowPopup]="popupConfig.isShowPopup" (CloseEvent)="close($event)"></qdn-popup>-->

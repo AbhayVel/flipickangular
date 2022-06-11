@@ -2,16 +2,19 @@
 {{project | json}}
 
 
-<form #form role="form">
+<form #form="qdnForm" qdnForm role="form">
   <div class="form-group">
     <div class="mb-3">
       <div>
         <label class="form-control-label" for="id">Id</label>
       </div>
-      <input class="form-control" id="Id" name="id" (input)="binderEvent($event)" required  qdn-model="" (blur)="validate($event)" min=3 value="{{project.id}}" placeholder="Id" type="text">
-      <div  id="id-required" *ngIf="error?.id" style="display:block">
-        <span *ngFor="let m of error?.id?.message" class="alert-danger"> {{m}} <br /> </span>
-      </div>       
+      <input class="form-control" id="Id" name="id"  #id="qdnModel" [qdnModel]="project" required  min=3  placeholder="Id" type="text">
+      {{id.isValid | json}}
+
+      {{id?.error?.message?.length | json}}
+      <div id="id-required" *ngIf="id?.error?.message?.length > 0" style="display:block">
+        <span *ngFor="let m of id?.error?.message" class="alert-danger"> {{m}} <br /> </span>
+      </div>
     </div>
   </div>
 
@@ -19,8 +22,8 @@
     <div>
       <label class="form-control-label" for="id">Project</label>
     </div>
-    <input class="form-control" id="project" required (blur)="validate($event)" qdn-model="" name="project" [value]="project.project" placeholder="Id" type="text">
-    <div *ngIf="error?.project?.requried" style="display:block">
+    <input class="form-control" id="project" required  [qdnModel]="project" #projectele="qdnModel" qdnModel qdn-model="" name="project"  placeholder="Id" type="text">
+    <div *ngIf="projectele?.error?.requried" style="display:block">
       <span class="alert-danger">project is required.  </span>
     </div>
   </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { PopupComponent } from '../../feature/library/popup/popup.component';
 import { PopUpConfig, PopUpConfigFactory } from '../../feature/library/popup/PopUpConfig';
@@ -7,6 +8,8 @@ import { SortModel } from '../../models/sort-model';
 import { ConcatPipe } from '../../pipes/concat.pipe';
 import { FirstService } from '../../services/first.service';
 import { SecondService } from '../../services/second.service';
+import { deepCopy } from '../../utilities/utility';
+import { UserEditTemplatePopUpComponent } from '../user-edit-template-pop-up/user-edit-template-pop-up.component';
 
 @Component({
   selector: 'app-users',
@@ -16,9 +19,10 @@ import { SecondService } from '../../services/second.service';
 export class UsersComponent implements OnInit {
 
   @ViewChild('popup') popup?: PopupComponent;
+  @ViewChild('tempPop') tempPop?: UserEditTemplatePopUpComponent;
   fs?: FirstService;
  // mm?: SecondService;
-  constructor(fs: FirstService,private mm: SecondService) {
+  constructor(fs: FirstService,private mm: SecondService,private router: Router ) {
     this.fs = fs;
     //this.mm = mm;
   }
@@ -397,9 +401,19 @@ export class UsersComponent implements OnInit {
 
   popupConfig: PopUpConfig = PopUpConfigFactory.getPopUpConfig({
     header: 'Project Edit',
-    isShowPopup: false
+    isShowPopup: false,
+    isShowButton: true
   });
 
+  saveP($event: any) {
+    this.tempPop?.save();
+  }
+
+ save($event: any) {
+    debugger;
+    this.popupConfig.isShowPopup = false;
+    this.popup?.close();
+  }
 
   userEditP(obj: any) {
     this.popupConfig.isShowPopup = true;
@@ -409,10 +423,12 @@ export class UsersComponent implements OnInit {
     //  this.popupConfig = { ...this.popupConfig };
 
     this.popup?.open(this.popupConfig);
-    this.project = obj;
+    this.project = deepCopy(obj);
+   
   }
 
   userEditR(obj: any) {
+    this.router.navigate(['user', 'edit', obj.id]);
     
   }
   ngOnInit(): void {

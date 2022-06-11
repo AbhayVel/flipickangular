@@ -25,6 +25,7 @@ import { MkProductsComponent } from './components/mk-products/mk-products.compon
 
 import { UAEmployeesComponent } from './components/uaemployees/uaemployees.component';
 import { UAUsersComponent } from './components/uausers/uausers.component';
+import { UserEditReactiveFormComponent } from './components/user-edit-reactive-form/user-edit-reactive-form.component';
 
 
 const routes: Routes =
@@ -33,6 +34,7 @@ const routes: Routes =
       path: '',
       component: AdminLayoutComponent,
       children: [
+        { path: 'user/edit/:id', component: UserEditReactiveFormComponent, data: { title: 'Users' } },
         { path: 'vmquestionbank', component: VmQuestionBankComponent, data: {title: 'QuestionBank'} },
         { path: 'kjEvent', component: KjEventComponent, data: { title: 'kjEvent' } },
         { path: 'kjCompany', component: KjCompanyComponent, data: { title: 'kjCompany' } },

@@ -42,6 +42,9 @@ import { MkProductsComponent } from './components/mk-products/mk-products.compon
 import { UAUsersComponent } from './components/uausers/uausers.component';
 import { UAEmployeesComponent } from './components/uaemployees/uaemployees.component';
 import { UaEmployeeEditPopupComponent } from './components/ua-employee-edit-popup/ua-employee-edit-popup.component';
+import { UserEditTemplatePopUpComponent } from './components/user-edit-template-pop-up/user-edit-template-pop-up.component';
+import { FormsModule } from '@angular/forms';
+import { UserEditReactiveFormComponent } from './components/user-edit-reactive-form/user-edit-reactive-form.component';
 
 @NgModule({
   declarations: [
@@ -85,12 +88,15 @@ import { UaEmployeeEditPopupComponent } from './components/ua-employee-edit-popu
 
     UAUsersComponent,
     UAEmployeesComponent,
-    UaEmployeeEditPopupComponent
+    UaEmployeeEditPopupComponent,
+    UserEditTemplatePopUpComponent,
+    UserEditReactiveFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LibraryModule
+    LibraryModule,
+    FormsModule
   ],
   providers: [Title, FirstService],
   bootstrap: [AppComponent]

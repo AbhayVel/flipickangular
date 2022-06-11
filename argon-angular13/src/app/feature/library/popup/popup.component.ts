@@ -16,6 +16,8 @@ export class PopupComponent implements OnInit, OnChanges {
 
   @Output() CloseEvent: EventEmitter<any> = new EventEmitter<any>();
 
+  @Output() saveEvent: EventEmitter<any> = new EventEmitter<any>();
+
   close() {
     this.config.isShowLeft = false;
     setTimeout(() => {
@@ -23,7 +25,12 @@ export class PopupComponent implements OnInit, OnChanges {
       this.CloseEvent.next(false);
     }, 100)
   }
-  saveChanges() { }
+  saveChanges() {
+    this.saveEvent.next(false);
+    
+
+    
+  }
   constructor() { }
     ngOnChanges(changes: any): void {
       //debugger;

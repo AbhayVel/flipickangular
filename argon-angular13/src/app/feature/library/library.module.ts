@@ -4,6 +4,8 @@ import { PagingComponent } from './paging/paging.component';
 import { TableComponent } from './table/table.component';
 import { TableDirective } from './table.directive';
 import { PopupComponent } from './popup/popup.component';
+import { QdnFormDirective } from './forms/qdn-form.directive';
+import { QdnModelDirective } from './forms/qdn-model.directive';
 
 
 
@@ -12,7 +14,9 @@ import { PopupComponent } from './popup/popup.component';
     PagingComponent,
     TableComponent,
     TableDirective,
-    PopupComponent
+    PopupComponent,
+    QdnFormDirective,
+    QdnModelDirective
   ],
   imports: [
     CommonModule
@@ -21,7 +25,9 @@ import { PopupComponent } from './popup/popup.component';
     PagingComponent,
     TableComponent,
     TableDirective,
-    PopupComponent
+    PopupComponent,
+    QdnFormDirective,
+    QdnModelDirective
   ]
 })
 export class LibraryModule { }

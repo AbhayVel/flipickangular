@@ -1,0 +1,56 @@
+<p>user-edit-popup works!</p>
+{{project | json}}
+
+
+<form #projectForm="ngForm" role="form">
+  <div class="form-group">
+    <div class="mb-3">
+      <div>
+        <label class="form-control-label" for="id">Id</label>
+      </div>
+      <input class="form-control" id="Id" name="id" #id="ngModel" [(ngModel)]="project.id" required min="3" placeholder="Id" type="text">
+
+
+      <div *ngIf="id?.errors && id?.errors?.['required']" style="display:block">
+        <span class="alert-danger">Id is required.  </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-group input-group-alternative mb-3">
+    <div>
+      <label class="form-control-label" for="id">Project</label>
+    </div>
+    <input class="form-control" id="project" required #projectele="ngModel" pattern="[A-Z][a-z]{3, 20}" [(ngModel)]="project.project" name="project" placeholder="Id" type="text">
+    <div *ngIf="projectele?.dirty && projectele?.errors?.['required']" style="display:block">
+      <span class="alert-danger">project is required.  </span>
+    </div>
+
+    <div *ngIf="projectele?.dirty && projectele?.errors?.['pattern']" style="display:block">
+      <span class="alert-danger">project pattern is mismatch.  </span>
+    </div>
+  </div>
+
+  <div>
+    {{message}}
+  </div>
+  <input type="text" #a />
+  <input type="text" #b />
+  = <label>{{result}}</label>
+
+  <div class="text-center">
+    <button type="button" (click)="calculate(a.value, b.value)" class="btn btn-primary mt-4">calc</button>
+  </div>
+
+  <br />
+
+  <button type="button" (click)="start()" class="btn btn-primary mt-4">Start</button>
+  <button type="button" (click)="stop()" class="btn btn-primary mt-4">Stop</button>
+  <br />
+  <label>Show time by promise {{showTimePromise}}</label> <br />
+  <label>Show time by ObserValble {{showTimeObservable}}</label> <br />
+  <label>Show time by Callback {{showTimeCallBack}}</label> <br />
+  <div class="text-center">
+    <button type="button" (click)="save()" class="btn btn-primary mt-4">Create account</button>
+  </div>
+</form>

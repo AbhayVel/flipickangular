@@ -5,7 +5,7 @@ export class PopUpConfig {
   isClose: boolean = true;
   isCrossIcon: boolean = true;
   isShowLeft: boolean = false;
-    
+  isShowButton: boolean = true;
 }
 
 

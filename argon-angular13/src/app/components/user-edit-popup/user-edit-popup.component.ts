@@ -15,10 +15,10 @@ export class UserEditPopupComponent implements OnInit, AfterContentInit, AfterVi
   @Input() project: Project = new Project();
   constructor() { }
     ngAfterViewInit(): void {
-      debugger;
+      
     }
     ngAfterContentInit(): void {
-      debugger;
+      
     }
 
   error: any = {
@@ -26,27 +26,14 @@ export class UserEditPopupComponent implements OnInit, AfterContentInit, AfterVi
   }
 
   ngOnInit(): void {
-    debugger;
+   
   }
 
-  binderEvent($event: any) {
-    this.binder($event.target, this.project);
-  }
+ 
 
-  validate($event :any) {
-    let value = $event.target;
-    //debugger;
+ 
 
-    this.validateFormElement($event.target, this.error);
-    
-  }
-
-  binder(element: any,currentObject: any) {
-    let value = element.value;
-    let name = element.name
-    currentObject[name] = value;
-
-  }
+ 
 
   validateForm(form: any, error: any) {
     let allElement = form.querySelectorAll("[qdn-model]");

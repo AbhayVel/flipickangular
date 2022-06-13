@@ -4,11 +4,20 @@
           <div class="card mb-4 shadow">
             <div class="card-header pb-0">
               <h6>Emploayee Details</h6>
+              <button type="button" class="btn btn-primary" style="float: right;" (click)="addEmpPopup()">Add New Employee</button>     
             </div>
             <qdn-table [filterObject]="filterObject" [sortObj]="sortObj" [columns]="columns">
-
-            </qdn-table>
+              <ng-template qdnTable name="Action" let-data="data">             
+                <button type="button" class="btn btn-primary" (click)="empEditP(data)">Edit P</button>             
+              </ng-template>             
+            </qdn-table>            
           </div>
         </div>
     </div> 
+    <qdn-popup  #popup [isShowPopup]="popupConfig.isShowPopup" (CloseEvent)="close($event)">
+      <qdn-am-employees-edit-popup [amemployee]="amemployee"></qdn-am-employees-edit-popup>
+   </qdn-popup>-
+   <qdn-popup  #popupadd [isShowPopup]="addPopupConfig.isShowPopup" (CloseEvent)="close($event)">
+    <qdn-am-employees-add-popup></qdn-am-employees-add-popup>
+ </qdn-popup>
 </div>

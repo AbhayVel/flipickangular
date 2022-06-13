@@ -30,7 +30,7 @@ import { KjEventComponent } from './components/kj-event/kj-event.component';
 import { VmQuestionBankComponent } from './components/vm-question-bank/vm-question-bank.component';
 import { AmOrganizationsComponent } from './components/am-organizations/am-organizations.component';
 import { AmEmployeesComponent } from './components/am-employees/am-employees.component';
-import { AmOrganizationsEditPopupComponent } from './components/am-organizations-edit-popup/am-organizations-edit-popup.component';
+import { AmOrganizationsEditPopupComponent } from './components/am-popup/am-organizations-edit-popup/am-organizations-edit-popup.component';
 import { PkSalseAprilComponent } from './components/pk-salse-april/pk-salse-april.component';
 import { PkSalseMayComponent } from './components/pk-salse-may/pk-salse-may.component';
 import { MJEmployeeComponent } from './components/mj-employee/mj-employee.component';
@@ -45,6 +45,8 @@ import { UaEmployeeEditPopupComponent } from './components/ua-employee-edit-popu
 import { UserEditTemplatePopUpComponent } from './components/user-edit-template-pop-up/user-edit-template-pop-up.component';
 import { FormsModule } from '@angular/forms';
 import { UserEditReactiveFormComponent } from './components/user-edit-reactive-form/user-edit-reactive-form.component';
+import { AmEmployeesEditPopupComponent } from './components/am-popup/am-employees-edit-popup/am-employees-edit-popup.component';
+import { AmEmployeesAddPopupComponent } from './components/am-popup/am-employees-add-popup/am-employees-add-popup.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +92,9 @@ import { UserEditReactiveFormComponent } from './components/user-edit-reactive-f
     UAEmployeesComponent,
     UaEmployeeEditPopupComponent,
     UserEditTemplatePopUpComponent,
-    UserEditReactiveFormComponent
+    UserEditReactiveFormComponent,
+    AmEmployeesEditPopupComponent,
+    AmEmployeesAddPopupComponent
   ],
   imports: [
     BrowserModule,

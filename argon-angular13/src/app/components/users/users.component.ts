@@ -7,6 +7,7 @@ import { Project } from '../../models/Project';
 import { SortModel } from '../../models/sort-model';
 import { ConcatPipe } from '../../pipes/concat.pipe';
 import { FirstService } from '../../services/first.service';
+import { ProductService } from '../../services/product.service';
 import { SecondService } from '../../services/second.service';
 import { deepCopy } from '../../utilities/utility';
 import { UserEditTemplatePopUpComponent } from '../user-edit-template-pop-up/user-edit-template-pop-up.component';
@@ -22,265 +23,12 @@ export class UsersComponent implements OnInit {
   @ViewChild('tempPop') tempPop?: UserEditTemplatePopUpComponent;
   fs?: FirstService;
  // mm?: SecondService;
-  constructor(fs: FirstService,private mm: SecondService,private router: Router ) {
+  constructor(fs: FirstService, private mm: SecondService, private router: Router, private productService:  ProductService ) {
     this.fs = fs;
     //this.mm = mm;
   }
   project: Project = new Project()
-  users: Array<any> = [
-    {
-      id: 1,
-      icon: "../assets/img/small-logos/logo-spotify.svg",
-      project: "Argon Design System",
-      budget: 2500,
-      status: 1,
-      users: "av",
-      completion: 60
-    },
-    {
-      id: 2,
-      icon: "../assets/img/small-logos/logo-invision.svg",
-      project: "de Now UI Kit PRO",
-      budget: 7500,
-      status: 2,
-      users: "av",
-      completion: 70
-    },
-    {
-      id: 3,
-      icon: "../assets/img/small-logos/logo-jira.svg",
-      project: "ZZ Design System",
-      budget: 3500,
-      status: 3,
-      users: "av",
-      completion: 90
-    },
-    {
-      id: 4,
-      icon: "../assets/img/theme/bootstrap.jpg",
-      project: "ke Design System",
-      budget: 4500,
-      status: 4,
-      users: "av",
-      completion: 35
-    },
-    {
-      id: 4,
-      icon: "../assets/img/theme/bootstrap.jpg",
-      project: "ke Design System",
-      budget: 4500,
-      status: 4,
-      users: "av",
-      completion: 35
-    },
-    {
-      id: 4,
-      icon: "../assets/img/theme/bootstrap.jpg",
-      project: "ke Design System",
-      budget: 4500,
-      status: 4,
-      users: "av",
-      completion: 35
-    },
-    {
-      id: 4,
-      icon: "../assets/img/theme/bootstrap.jpg",
-      project: "ke Design System",
-      budget: 4500,
-      status: 4,
-      users: "av",
-      completion: 35
-    },
-    {
-      id: 4,
-      icon: "../assets/img/theme/bootstrap.jpg",
-      project: "ke Design System",
-      budget: 4500,
-      status: 4,
-      users: "av",
-      completion: 35
-    },
-    {
-      id: 4,
-      icon: "../assets/img/theme/bootstrap.jpg",
-      project: "ke Design System",
-      budget: 4500,
-      status: 4,
-      users: "av",
-      completion: 35
-    },
-    {
-      id: 4,
-      icon: "../assets/img/theme/bootstrap.jpg",
-      project: "ke Design System",
-      budget: 4500,
-      status: 4,
-      users: "av",
-      completion: 35
-    },
-    {
-      id: 4,
-      icon: "../assets/img/theme/bootstrap.jpg",
-      project: "ke Design System",
-      budget: 4500,
-      status: 4,
-      users: "av",
-      completion: 35
-    },
-    {
-      id: 4,
-      icon: "../assets/img/theme/bootstrap.jpg",
-      project: "ke Design System",
-      budget: 4500,
-      status: 4,
-      users: "av",
-      completion: 35
-    },
-    {
-      id: 4,
-      icon: "../assets/img/theme/bootstrap.jpg",
-      project: "ke Design System",
-      budget: 4500,
-      status: 4,
-      users: "av",
-      completion: 35
-    },
-    {
-      id: 4,
-      icon: "../assets/img/theme/bootstrap.jpg",
-      project: "ke Design System",
-      budget: 4500,
-      status: 4,
-      users: "av",
-      completion: 35
-    },
-    {
-      id: 4,
-      icon: "../assets/img/theme/bootstrap.jpg",
-      project: "ke Design System",
-      budget: 4500,
-      status: 4,
-      users: "av",
-      completion: 35
-    },
-    {
-      id: 4,
-      icon: "../assets/img/theme/bootstrap.jpg",
-      project: "lke Design System",
-      budget: 34500,
-      status: 4,
-      users: "av",
-      completion: 35
-    },
-    {
-      id: 4,
-      icon: "../assets/img/theme/bootstrap.jpg",
-      project: "mke Design System",
-      budget: 24500,
-      status: 4,
-      users: "av",
-      completion: 35
-    },
-    {
-      id: 4,
-      icon: "../assets/img/theme/bootstrap.jpg",
-      project: "nke Design System",
-      budget: 14500,
-      status: 4,
-      users: "av",
-      completion: 35
-    },
-    {
-      id: 4,
-      icon: "../assets/img/theme/bootstrap.jpg",
-      project: "oke Design System",
-      budget: 6500,
-      status: 4,
-      users: "av",
-      completion: 35
-    },
-    {
-      id: 4,
-      icon: "../assets/img/theme/bootstrap.jpg",
-      project: "pke Design System",
-      budget: 4500,
-      status: 4,
-      users: "av",
-      completion: 35
-    },
-    {
-      id: 4,
-      icon: "../assets/img/theme/bootstrap.jpg",
-      project: "ke Design System",
-      budget: 45001,
-      status: 4,
-      users: "av",
-      completion: 35
-    },
-    {
-      id: 4,
-      icon: "../assets/img/theme/bootstrap.jpg",
-      project: "qke Design System",
-      budget: 4500,
-      status: 4,
-      users: "av",
-      completion: 35
-    },
-    {
-      id: 4,
-      icon: "../assets/img/theme/bootstrap.jpg",
-      project: "rke Design System",
-      budget: 500,
-      status: 4,
-      users: "av",
-      completion: 35
-    },
-    {
-      id: 4,
-      icon: "../assets/img/theme/bootstrap.jpg",
-      project: "ske Design System",
-      budget: 4500,
-      status: 4,
-      users: "av",
-      completion: 35
-    },
-    {
-      id: 4,
-      icon: "../assets/img/theme/bootstrap.jpg",
-      project: "tke Design System",
-      budget: 4500,
-      status: 4,
-      users: "av",
-      completion: 35
-    },
-    {
-      id: 4,
-      icon: "../assets/img/theme/bootstrap.jpg",
-      project: "uke Design System",
-      budget: 4500,
-      status: 4,
-      users: "av",
-      completion: 35
-    },
-    {
-      id: 4,
-      icon: "../assets/img/theme/bootstrap.jpg",
-      project: "vke Design System",
-      budget: 4500,
-      status: 4,
-      users: "av",
-      completion: 35
-    },
-    {
-      id: 4,
-      icon: "../assets/img/theme/bootstrap.jpg",
-      project: "wke Design System",
-      budget: 4500,
-      status: 4,
-      users: "av",
-      completion: 35
-    }
-  ]
+  
   filterObject: any = {
     data: [],
     rows: [],
@@ -432,12 +180,17 @@ export class UsersComponent implements OnInit {
     
   }
   ngOnInit(): void {
-    this.users.forEach((e) => {
-      e.projectDIsplay = `(${e.Id})-${e.Project}`;
-    })
 
-    this.filterObject.data = this.users;
-    this.filterObject.rows = this.users;
+    this.productService.getAll().then((users: any) => {
+      users.forEach((e: any) => {
+        e.projectDIsplay = `(${e.Id})-${e.Project}`;
+      })
+
+      this.filterObject.data = users;
+      this.filterObject.rows = users;
+
+    })
+   
   }
 
 }

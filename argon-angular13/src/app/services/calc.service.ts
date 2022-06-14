@@ -11,8 +11,15 @@ export class CalcService {
 
   getObsTime() {
     return new Observable((o: Observer<any>) => {
+      let i = 0;
       setInterval(() => {
         o.next(new Date())
+        
+        i++;
+        if (i > 5) {
+         
+          o.complete();
+        }
       }, 1000);
     });
   }
@@ -31,6 +38,26 @@ export class CalcService {
         succsess(new Date())
       }, 1000);
   
+  }
+
+  myInterval(intr: number) {
+    let i = 0;
+    return new Observable((o: Observer<number>) => {
+      setInterval(() => {
+        o.next(i++);
+
+      }, intr);
+    })
+  }
+
+  myOf(...args: Array<any>) {
+    let i = 0;
+    return new Observable((o: Observer<any>) => {
+      for (var i = 0; i < args.length; i++) {
+        o.next(args[i])
+      }
+      o.complete();
+    })
   }
 
 

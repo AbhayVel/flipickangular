@@ -43,7 +43,7 @@ import { UAUsersComponent } from './components/uausers/uausers.component';
 import { UAEmployeesComponent } from './components/uaemployees/uaemployees.component';
 import { UaEmployeeEditPopupComponent } from './components/ua-employee-edit-popup/ua-employee-edit-popup.component';
 import { UserEditTemplatePopUpComponent } from './components/user-edit-template-pop-up/user-edit-template-pop-up.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserEditReactiveFormComponent } from './components/user-edit-reactive-form/user-edit-reactive-form.component';
 import { AmEmployeesEditPopupComponent } from './components/am-popup/am-employees-edit-popup/am-employees-edit-popup.component';
 import { AmEmployeesAddPopupComponent } from './components/am-popup/am-employees-add-popup/am-employees-add-popup.component';
@@ -100,7 +100,8 @@ import { AmEmployeesAddPopupComponent } from './components/am-popup/am-employees
     BrowserModule,
     AppRoutingModule,
     LibraryModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [Title, FirstService],
   bootstrap: [AppComponent]

@@ -1,10 +1,16 @@
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
-import { NgModel } from '@angular/forms';
+import { FormControl, FormGroup, NgModel, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import {   Observable, Observer, Subscription } from 'rxjs';
 import { Project } from '../../models/Project';
 import { CalcService } from '../../services/calc.service';
 
+import { interval, of } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
+import { Call } from '@angular/compiler/src/expression_parser/ast';
+import { ProductService } from '../../services/product.service';
+
+ 
 @Component({
   selector: 'qdn-user-edit-reactive-form',
   templateUrl: './user-edit-reactive-form.component.html',
@@ -12,23 +18,47 @@ import { CalcService } from '../../services/calc.service';
 })
 export class UserEditReactiveFormComponent implements OnInit {
 
+  ProjectFormGroup?: FormGroup;
+
   @ViewChild('id') idText?: NgModel;
   project: Project = new Project();
 
   sub?: Subscription;
   constructor(private ac: ActivatedRoute, private router: Router, private ca: CalcService,
 
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef, private productServce: ProductService
 
     
   ) { }
-  idData?: string='1';
+  idData?: number;
   ngOnInit(): void {
     debugger;
     this.ac.params.subscribe((e) => {
-      this.idData = e["id"];
+      this.idData = +e["id"];
+      this.productServce.getById(this.idData).subscribe((project) => {
+        this.project = project;
+        this.setForm(project);
+      })
     })
 
+  }
+
+
+  setForm(project: Project) {
+   
+    this.ProjectFormGroup = new FormGroup({
+      id: new FormControl(project.id, [Validators.required, Validators.min(3)]),
+      project: new FormControl({value: project.project, disabled: true }, [Validators.required])
+    })
+  }
+
+  removeValidator() {
+    this.ProjectFormGroup?.get("id")?.clearValidators();
+    this.ProjectFormGroup?.get("id")?.markAsPristine();
+  }
+  addValidator() {
+    this.ProjectFormGroup?.get("id")?.addValidators([Validators.required, Validators.min(3)])
+    this.ProjectFormGroup?.get("id")?.markAsDirty();
   }
   result?: any = ''
   message?: any = ''
@@ -53,8 +83,21 @@ export class UserEditReactiveFormComponent implements OnInit {
 
  this.sub=   this.ca.getObsTime().subscribe((r: any) => {
       this.showTimeObservable = r;
-    })
+ }, (error) => {
 
+ }, () => {
+   console.log("I am in complete");
+ })
+
+  }
+
+  intervalCall() {
+ //this.ca.myInterval(1000).subscribe((r) => {
+ //     console.log(r);
+ //})
+    this.ca.myOf(1, 3, 5, 9, 8, 19).pipe(map((t) => t * 2), filter((x: number) => x < 15)).subscribe((r: number) => {
+      console.log(r);
+    })
   }
 
 
@@ -126,7 +169,8 @@ export class UserEditReactiveFormComponent implements OnInit {
   }
 
   save() {
-    this.router.navigate(['user', 'edit', this.idText?.value]);
+    debugger;
+   // this.router.navigate(['user', 'edit', this.idText?.value]);
   }
 
 }

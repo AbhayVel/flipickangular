@@ -28,6 +28,7 @@ export class QdnModelDirective implements OnInit {
 
   @HostListener('input', ['$event'])
   binderEvent($event: any) {
+    this.validateFormElement($event.target, this.error);
     this.binder($event.target, this.model);
   }
 

@@ -428,7 +428,7 @@ export class UsersComponent implements OnInit {
   }
 
   userEditR(obj: any) {
-    this.router.navigate(['user', 'edit', obj.id]);
+    this.router.navigate(['user', 'edit', obj.id], {  });
     
   }
   ngOnInit(): void {

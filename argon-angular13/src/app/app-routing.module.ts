@@ -34,7 +34,7 @@ const routes: Routes =
       path: '',
       component: AdminLayoutComponent,
       children: [
-        { path: 'user/edit/:id', component: UserEditReactiveFormComponent, data: { title: 'Users' } },
+        { path: 'user/edit/:id', component: UserEditReactiveFormComponent,  data: { title: 'Users' } },
         { path: 'vmquestionbank', component: VmQuestionBankComponent, data: {title: 'QuestionBank'} },
         { path: 'kjEvent', component: KjEventComponent, data: { title: 'kjEvent' } },
         { path: 'kjCompany', component: KjCompanyComponent, data: { title: 'kjCompany' } },
@@ -69,7 +69,9 @@ const routes: Routes =
 export const routes1 = routes;
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+   
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

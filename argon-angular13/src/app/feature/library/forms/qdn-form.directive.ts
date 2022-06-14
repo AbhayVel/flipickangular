@@ -9,18 +9,27 @@ import { QdnModelDirective } from './qdn-model.directive';
 })
 export class QdnFormDirective implements AfterContentInit, AfterViewInit {
 
-  @ContentChildren(QdnModelDirective) controls?: QueryList<QdnModelDirective>
+  @ContentChildren(QdnModelDirective, { descendants: true }) private _control?: QueryList<QdnModelDirective>
 
-  @ContentChildren("[qdnModel]") controls2?: QueryList<QdnModelDirective>
-
-  @ViewChildren(QdnModelDirective) controlView?: QueryList<QdnModelDirective>
+  public controls?: any = {};
 
   constructor(public ele: ElementRef<any>) { }
     ngAfterViewInit(): void {
        
-    }
+  }
+
+  get isValid() {
+    let valid = true;
+    this._control?.forEach((e) => {
+      valid = valid && e.isValid;
+    })
+    return valid;
+  }
     ngAfterContentInit(): void {
-      debugger;
+      this._control?.forEach((e) => {
+        let name = e.name;
+        this.controls[name] = e;
+      })
 
     }
   ngOnInit(): void {

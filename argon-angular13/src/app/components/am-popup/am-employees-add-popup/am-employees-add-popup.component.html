@@ -1,0 +1,126 @@
+<form #empaddform="ngForm" role="form">
+  <!-- {{empaddform.value | json}} -->
+    <div class="card">
+        <div class="card-body">    
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="example-text-input"class="form-control-label">First Name</label>
+                <input class="form-control" type="text" [(ngModel)]="employeeModel.firstName"  name="firstName" #firstName="ngModel" [class.is-invalid]="(firstName.invalid && firstName.touched)  && (firstName.errors || submitted)" required>
+                <div *ngIf="submitted && firstName.errors && (firstName.invalid || firstName.untouched)">
+                  <small class="text-danger" *ngIf="firstName.errors?.['required']">First Name is required</small>                
+                </div>                                
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="example-text-input" class="form-control-label" >Last Name</label>
+                <input class="form-control"  type="text" [(ngModel)]="employeeModel.lastName" name="lastName"  #lastName="ngModel" [class.is-invalid]="(lastName.invalid && lastName.touched)  && (lastName.errors || submitted)" required>
+                <div *ngIf="submitted && lastName.errors && (lastName.invalid || lastName.untouched)">
+                  <small class="text-danger" *ngIf="lastName.errors?.['required']">Last Name is required</small>                
+                </div>  
+              </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                  <label for="example-text-input"  class="form-control-label">Email Address</label>
+                  <input class="form-control" type="email" pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$" [(ngModel)]="employeeModel.email" name="email" #email="ngModel" [class.is-invalid]="(email.invalid && email.touched)  && (email.errors || submitted)" required>
+                  <div *ngIf="submitted && email.errors && (email.invalid || email.untouched)">
+                    <small class="text-danger" *ngIf="email.errors?.['required']">Email is required</small>                
+                    <small class="text-danger" *ngIf="email.errors?.['pattern']">Invalid email</small>                
+                  </div>  
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="example-text-input"  class="form-control-label">Phone</label>
+                  <input class="form-control" type="phone"  pattern="^\d{10}$" [(ngModel)]="employeeModel.phone" name="phone" #phone="ngModel" [class.is-invalid]="(phone.invalid && phone.touched)  && (phone.errors || submitted)" required>
+                  <div *ngIf="submitted && phone.errors && (phone.invalid || phone.untouched)">
+                    <small class="text-danger" *ngIf="phone.errors?.['required']">phone is required</small> 
+                    <small class="text-danger" *ngIf="phone.errors?.['pattern']">Phone number must be 10 digits</small>                
+                  </div>  
+                </div>
+              </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                  <label for="example-text-input"  class="form-control-label" >Birth Date</label>
+                  <input class="form-control"  type="date" [(ngModel)]="employeeModel.dob" name="dob" #dob="ngModel" [class.is-invalid]="(dob.invalid && lastName.touched)  && (dob.errors || submitted)" required>
+                  <div *ngIf="submitted && dob.errors && (dob.invalid || dob.untouched)">
+                    <small class="text-danger" *ngIf="dob.errors?.['required']">Birth Date is required</small>                
+                  </div>  
+                </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="row">
+                <label>Gender</label>
+                <div class="col-6">
+                  <div class="form-check">
+                     <input class="form-check-input" type="radio" name="gender" value="male" [(ngModel)]="employeeModel.gender">
+                    <label class="form-check-label">Male</label>
+                   </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gender" value="female" [(ngModel)]="employeeModel.gender">
+                      <label class="form-check-label">Female</label>
+                   </div>
+                </div>     
+              </div>     
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="example-text-input" class="form-control-label">Address</label>
+                <input class="form-control"  type="text" [(ngModel)]="employeeModel.address" name="address"  #address="ngModel" [class.is-invalid]="(address.invalid && address.touched)  && (address.errors || submitted)" required>
+                <div *ngIf="submitted && address.errors && (address.invalid || address.untouched)">
+                  <small class="text-danger" *ngIf="address.errors?.['required']">Address is required</small>                
+                </div> 
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="example-text-input" class="form-control-label">City</label>
+                <input class="form-control" name="city" type="text" [(ngModel)]="employeeModel.city">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="example-text-input"   class="form-control-label">Country</label>
+                <select class="form-control" name="country" required [(ngModel)]="model.select"  #country="ngModel" (change)="validateCountry(country.value)"  >
+                    <option [value]="null">Select</option>
+                    <option [value]="item.id"  *ngFor="let item of countryData"> {{item.name}}</option>
+                 </select> 
+                 <div *ngIf="country.invalid && submitted">
+                  <small class="text-danger">Please choose a country</small>  
+                 </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="example-text-input" class="form-control-label">Postal code</label>
+                <input class="form-control" name="zip" #zip="ngModel" type="text" pattern="^\d{5}$" [(ngModel)]="employeeModel.zip">
+                <div *ngIf="submitted && zip.errors && (zip.invalid || zip.untouched)">
+                  <small class="text-danger" *ngIf="zip.errors?.['pattern']">Postal code must be 5 digits</small>                
+                </div>  
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" name="term" [(ngModel)]="employeeModel.term">
+                <label class="form-check-label">
+                  Accept Terms & Conditions
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <button type="button"  class="btn btn-primary mt-4" (click)="onSubmit()">Save</button>
+      </div>
+    </form>

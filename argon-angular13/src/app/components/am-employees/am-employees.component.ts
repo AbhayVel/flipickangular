@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { PopupComponent } from 'src/app/feature/library/popup/popup.component';
+import { PopUpConfig, PopUpConfigFactory } from 'src/app/feature/library/popup/PopUpConfig';
+import { AMEmployee } from 'src/app/models/am-employee';
 import { SortModel } from 'src/app/models/sort-model';
 
 @Component({
@@ -8,7 +11,13 @@ import { SortModel } from 'src/app/models/sort-model';
 })
 export class AmEmployeesComponent implements OnInit {
 
+  @ViewChild('popup') popup?: PopupComponent;
+  @ViewChild('popupadd') popupadd?: PopupComponent;
+  amemployee: AMEmployee = new AMEmployee()
+
   constructor() { }
+ 
+
 
   employeeData: Array<any> = [
     {
@@ -17,10 +26,15 @@ export class AmEmployeesComponent implements OnInit {
       firstName: 'Leanne',
       lastName: 'Graham',
       email: 'Sincere@april.biz',
+      phone: 8787654545,
       address: '7687 Jadon Port',
+      countryId: 1,
+      city: "Phoenix",
+      zip: "41201",
       dob:'16 Apr 1970',
       jod: '12 Apr 2001',
-      completion: 50
+      term: true,
+      gender: 'male'
     },
     {
       id: 2,
@@ -28,10 +42,15 @@ export class AmEmployeesComponent implements OnInit {
       firstName: 'Ervin',
       lastName: 'Howell',
       email: 'Shanna@melissa.tv',
+      phone: 8787654545,
       address: '156 Streich Ports',
+      countryId: 2,
+      city: "Atlanta",
+      zip: "41201",
       dob:'12 Apr 1971',
       jod: '11 Apr 2003',
-      completion: 20
+      term: true,
+      gender: 'male'
     },
     {
       id: 3,
@@ -39,10 +58,15 @@ export class AmEmployeesComponent implements OnInit {
       firstName: 'Patricia',
       lastName: 'Lebsack',
       email: 'Julianne.OConner@kory.org',
+      phone: 8787654545,
       address: '5203 Jordon Center',
+      countryId: 3,
+      city: "Portland",
+      zip: "41170",
       dob:'12 Jan 2022',
       jod: '11 Apr 2017',
-      completion: 40
+      term: true,
+      gender: 'female'
     },
     {
       id: 4,
@@ -50,10 +74,15 @@ export class AmEmployeesComponent implements OnInit {
       firstName: 'Chelsey',
       lastName: 'Dietrich',
       email: 'Lucio_Hettinger@annie.ca',
+      phone: 8787654545,
       address: '91057 Davion Club',
+      countryId: 4,
+      city: "Boston",
+      zip: "54323",
       dob:'15 Feb 2022',
       jod: '11 May 2014',
-      completion: 67
+      term: true,
+      gender: 'female'
     },
     {
       id: 5,
@@ -61,10 +90,15 @@ export class AmEmployeesComponent implements OnInit {
       firstName: 'Dennis',
       lastName: 'Schulist',
       email: 'Karley_Dach@jasper.info',
+      phone: 8787654545,
       address: '1280 Jon Club',
+      countryId: 5,
+      city: "Wichita",
+      zip: "5654",
       dob:'16 March 2022',
       jod: '11 Jun 2013',
-      completion: 67
+      term: true,
+      gender: 'female'
     },
     {
       id: 6,
@@ -72,10 +106,15 @@ export class AmEmployeesComponent implements OnInit {
       firstName: 'Kurtis',
       lastName: 'Weissnat',
       email: 'Telly.Hoeger@billy.biz',
+      phone: 8787654545,
       address: '1670 Denver Club',
+      countryId: 4,
+      city: "Boston",
+      zip: "54323",
       dob:'17 March 2022',
       jod: '30 May 2013',
-      completion: 67
+      term: true,
+      gender: 'male'
     },
     {
       id: 7,
@@ -83,10 +122,15 @@ export class AmEmployeesComponent implements OnInit {
       firstName: 'Nicholas',
       lastName: 'Runolfsdottir',
       email: 'Sherwood@rosamond.me',
+      phone: 8787654545,
       address: '91057 Mark Club',
+      countryId: 2,
+      city: "Atlanta",
+      zip: "41201",
       dob:'20 March 2022',
       jod: '29 Jan 2000',
-      completion: 67
+      term: true,
+      gender: 'male'
     },
     {
       id: 8,
@@ -94,10 +138,15 @@ export class AmEmployeesComponent implements OnInit {
       firstName: 'Glenna',
       lastName: 'Reichert',
       email: 'Chaim_McDermott@dana.io',
+      phone: 8787654545,
       address: '1122 Sam Club',
+      countryId: 4,
+      city: "Boston",
+      zip: "54323",
       dob:'06 Jun 2022',
       jod: '29 April 2022',
-      completion: 67
+      term: true,
+      gender: 'male'
     },
     {
       id: 9,
@@ -105,10 +154,15 @@ export class AmEmployeesComponent implements OnInit {
       firstName: 'Clementina',
       lastName: 'DuBuque',
       email: 'Rey.Padberg@karina.biz',
+      phone: 8787654545,
       address: '1567 Davion Club',
+      countryId: 2,
+      city: "Atlanta",
+      zip: "41201",
       dob:'12 Jan 1990',
       jod: '15 May 2022',
-      completion: 67
+      term: true,
+      gender: 'male'
     },
     {
       id: 10,
@@ -116,10 +170,15 @@ export class AmEmployeesComponent implements OnInit {
       firstName: 'Lucious',
       lastName: 'Leuschke',
       email: 'Leuschke.Leuschke@g.biz',
+      phone: 8787654545,
       address: '16288 Reichel Harbor',
+      countryId: 4,
+      city: "Boston",
+      zip: "54323",
       dob:'12 Jan 1990',
       jod: '01 Jun 2022',
-      completion: 67
+      term: true,
+      gender: 'male'
     }
   ];
 
@@ -227,6 +286,15 @@ export class AmEmployeesComponent implements OnInit {
         filterFrom: 'jodFrom',
         filterTo: 'jodTo'
       }
+    },
+    {
+      name: "id",
+      displayName: "Action",
+      html: true,
+      htmlName: "Action",
+      type: 'num',
+      isSorting: false,
+      filter: {isFiltering: false, filterType: "input", filterName:"id", filterFrom: "", filterTo: ""}              
     }
   ]
   
@@ -245,6 +313,29 @@ export class AmEmployeesComponent implements OnInit {
   
     this.filterObject.data = this.employeeData;
     this.filterObject.rows = this.employeeData;    
+  }
+
+  popupConfig: PopUpConfig = PopUpConfigFactory.getPopUpConfig({
+    header: 'Edit Employee'
+  });
+
+
+  empEditP(obj: any) {
+    debugger;
+    this.popupConfig.isShowPopup = true;
+    this.popup?.open(this.popupConfig);
+    this.amemployee = obj;
+  }
+  close($event: boolean) {  }
+
+  addPopupConfig: PopUpConfig = PopUpConfigFactory.getPopUpConfig({
+    header: 'Add Employee'
+  });
+
+  addEmpPopup(): void
+  {
+    this.addPopupConfig.isShowPopup = true;
+    this.popupadd?.open(this.addPopupConfig);
   }
 
 }

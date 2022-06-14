@@ -9,49 +9,22 @@ import { PopUpConfig } from './PopUpConfig';
   styleUrls: ['./popup.component.css']
 })
 export class PopupComponent implements OnInit, OnChanges {
-
   @Input() isShowPopup: boolean = false;
-
   @Input() config: PopUpConfig=new PopUpConfig();
-
   @Output() CloseEvent: EventEmitter<any> = new EventEmitter<any>();
-
   @Output() saveEvent: EventEmitter<any> = new EventEmitter<any>();
+  constructor() { }
+  ngOnChanges(changes: any): void {}
+  ngOnInit(): void {  }
 
   close() {
     this.config.isShowLeft = false;
-    setTimeout(() => {
-      this.config.isShowPopup = false;
-      this.CloseEvent.next(false);
-    }, 100)
+    this.config.isShowPopup = false;
+    this.CloseEvent.next(false);
   }
-  saveChanges() {
-    this.saveEvent.next(false);
-    
-
-    
-  }
-  constructor() { }
-    ngOnChanges(changes: any): void {
-      //debugger;
-
-      if (changes.config != null && changes.config.currentValue.isShowPopup) {
-        setTimeout(() => {
-          this.config.isShowLeft = true;
-        }, 10)
-        
-      }
-    }
-
   public open(config: PopUpConfig) {
-    //debugger;
-    this.config = config;
-    setTimeout(() => {
-      this.config.isShowLeft = true;
-    }, 10)
-  }
-  ngOnInit(): void {
-    //debugger;
-  }
+    this.config = config;  } 
+
+  saveChanges() {   this.saveEvent.next(false); }   
 
 }

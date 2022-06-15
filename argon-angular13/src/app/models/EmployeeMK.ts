@@ -4,6 +4,7 @@ export class EmployeeMK {
     position: string = '';
     office: string = '';
     age: number = 0;
-    startdate: string = '';
+    email:string='';
+    startdate: Date | undefined ;
     salary: number = 0;
 }

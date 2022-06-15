@@ -1,4 +1,4 @@
-import { AfterContentInit, AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { max } from 'rxjs';
 import { EmployeeMK } from 'src/app/models/EmployeeMK';
 
@@ -8,11 +8,18 @@ import { EmployeeMK } from 'src/app/models/EmployeeMK';
   styleUrls: ['./mkemployee-edit-popup.component.css']
 })
 export class MkemployeeEditPopupComponent implements OnInit, AfterContentInit, AfterViewInit {
+  @ViewChild("empmkeditform") form: any;
+
   @Input() oEmployee: EmployeeMK = new EmployeeMK();
-  @Input()
-  employessDetails: any[] = [];
+
+  @Input() employessDetails: any[] = [];
+  @Output() saveEvent: EventEmitter<any> = new EventEmitter<any>();
   officeCategory: any[] = [];
+  //model = { select: null };
+
   constructor() { }
+  submitted = false;
+  errorMsg = '';
 
   error: any = {
     invalid: false
@@ -30,6 +37,14 @@ export class MkemployeeEditPopupComponent implements OnInit, AfterContentInit, A
     console.log(this.employessDetails);
     this.officeCategory = [...new Set(this.employessDetails.map(item => item.office))];
   }
+
+  validateOffice(value: any) {
+    debugger; 
+    if (value === "null") {
+      this.oEmployee.office = "";
+    }
+  }
+
 
   binderEvent($event: any) {
     debugger;
@@ -51,6 +66,21 @@ export class MkemployeeEditPopupComponent implements OnInit, AfterContentInit, A
     let eName = element.name;
     currentObject[eName] = value;
   }
+  onSubmit() {
+    debugger;
+    this.submitted = true;
+    //if (this.form?.invalid) { return; }
+    if (this.form?.valid) {
+      this.saveEvent.next(this.oEmployee);
+    } else {
+      for (var key in this.form?.controls) {
+        this.form?.controls[key].markAsDirty();
+      }
+    }
+    // console.log("isValid EDIT Form: " + this.form?.valid);
+    // console.log(this.form?.value)
+  }
+
 
   validateForm(element: any) {
     let value = element.value;

@@ -47,6 +47,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserEditReactiveFormComponent } from './components/user-edit-reactive-form/user-edit-reactive-form.component';
 import { AmEmployeesEditPopupComponent } from './components/am-popup/am-employees-edit-popup/am-employees-edit-popup.component';
 import { AmEmployeesAddPopupComponent } from './components/am-popup/am-employees-add-popup/am-employees-add-popup.component';
+import { MkProductEditPopupComponent } from './components/mk-popup/mk-product-edit-popup/mk-product-edit-popup.component';
+import { MkProductReactiveFormComponent } from './components/mk-forms/mk-product-reactive-form/mk-product-reactive-form.component';
+import { MkProductTemplateFormComponent } from './components/mk-forms/mk-product-template-form/mk-product-template-form.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +97,10 @@ import { AmEmployeesAddPopupComponent } from './components/am-popup/am-employees
     UserEditTemplatePopUpComponent,
     UserEditReactiveFormComponent,
     AmEmployeesEditPopupComponent,
-    AmEmployeesAddPopupComponent
+    AmEmployeesAddPopupComponent,
+    MkProductEditPopupComponent,
+    MkProductReactiveFormComponent,
+    MkProductTemplateFormComponent
   ],
   imports: [
     BrowserModule,

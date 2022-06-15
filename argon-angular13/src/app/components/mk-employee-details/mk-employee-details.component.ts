@@ -3,6 +3,7 @@ import { PopupComponent } from 'src/app/feature/library/popup/popup.component';
 import { PopUpConfig, PopUpConfigFactory } from 'src/app/feature/library/popup/PopUpConfig';
 import { EmployeeMK } from 'src/app/models/EmployeeMK';
 import { SortModel } from 'src/app/models/sort-model';
+import { deepCopy } from 'src/app/utilities/utility';
 
 
 @Component({
@@ -24,7 +25,8 @@ export class MkEmployeeDetailsComponent implements OnInit {
       position: "System Architect",
       office: "Edinburgh",
       age: 61,
-      startdate: "2011/04/25",
+      email: "tigernixon@flipick.com",
+      startdate: "04/25/2011",
       salary: 320800
     },
     {
@@ -33,7 +35,8 @@ export class MkEmployeeDetailsComponent implements OnInit {
       position: "Accountant",
       office: "Tokyo",
       age: 63,
-      startdate: "2011/07/25",
+      email: "GarrettWinters@flipick.com",
+      startdate: "07/25/2011",
       salary: 170750
     },
     {
@@ -42,16 +45,18 @@ export class MkEmployeeDetailsComponent implements OnInit {
       position: "Junior Technical Author",
       office: "San Francisco",
       age: 66,
-      startdate: "2009/01/12",
+      email: "AshtonCox@flipick.com",
+      startdate: "01/12/2009",
       salary: 86000
     },
     {
       id: 4,
-      name: "Senior Javascript Developer",
+      name: "Wick John",
       position: "Junior Technical Author",
       office: "Edinburgh",
       age: 22,
-      startdate: "2012/03/29",
+      email: "WickJohn@flipick.com",
+      startdate: "03/29/2012",
       salary: 433060
     },
     {
@@ -60,7 +65,8 @@ export class MkEmployeeDetailsComponent implements OnInit {
       position: "Accountant",
       office: "Tokyo",
       age: 33,
-      startdate: "2008/11/28",
+      email: "AiriSatou@flipick.com",
+      startdate: "11/28/2008",
       salary: 162700
     },
     {
@@ -69,7 +75,8 @@ export class MkEmployeeDetailsComponent implements OnInit {
       position: "Integration Specialist",
       office: "New York",
       age: 61,
-      startdate: "2012/12/02",
+      email: "BrielleWilliamson@flipick.com",
+      startdate: "12/02/2012",
       salary: 372000
     },
     {
@@ -78,7 +85,8 @@ export class MkEmployeeDetailsComponent implements OnInit {
       position: "Sales Assistant",
       office: "San Francisco",
       age: 59,
-      startdate: "2012/08/06",
+      email: "HerrodChandler@flipick.com",
+      startdate: "08/06/2012",
       salary: 137500
     },
     {
@@ -87,7 +95,8 @@ export class MkEmployeeDetailsComponent implements OnInit {
       position: "Integration Specialist",
       office: "Tokyo",
       age: 55,
-      startdate: "2010/10/14",
+      email: "RhonaDavidson@flipick.com",
+      startdate: "10/14/2010",
       salary: 327900
     },
     {
@@ -96,7 +105,8 @@ export class MkEmployeeDetailsComponent implements OnInit {
       position: "Javascript Developer",
       office: "San Francisco",
       age: 39,
-      startdate: "2009/09/15",
+      email: "ColleenHurst@flipick.com",
+      startdate: "09/15/2009",
       salary: 205500
     },
     {
@@ -105,7 +115,8 @@ export class MkEmployeeDetailsComponent implements OnInit {
       position: "Javascript Developer",
       office: "San Francisco",
       age: 39,
-      startdate: "2009/09/15",
+      email: "ColleenHurst@flipick.com",
+      startdate: "09/15/2009",
       salary: 205500
     },
     {
@@ -114,7 +125,8 @@ export class MkEmployeeDetailsComponent implements OnInit {
       position: "Software Engineer",
       office: "Edinburgh",
       age: 23,
-      startdate: "2008/12/13",
+      email: "SonyaFrost@flipick.com",
+      startdate: "12/13/2008",
       salary: 103600
     },
     {
@@ -123,6 +135,7 @@ export class MkEmployeeDetailsComponent implements OnInit {
       position: "Office Manager",
       office: "London",
       age: 30,
+      email: "tigernixon@flipick.com",
       startdate: "2008/12/19",
       salary: 90560
     },
@@ -132,6 +145,7 @@ export class MkEmployeeDetailsComponent implements OnInit {
       position: "Office Manager",
       office: "Edinburgh",
       age: 22,
+      email: "tigernixon@flipick.com",
       startdate: "2013/03/03",
       salary: 342000
     },
@@ -141,6 +155,7 @@ export class MkEmployeeDetailsComponent implements OnInit {
       position: "Regional Director",
       office: "San Francisco",
       age: 36,
+      email: "tigernixon@flipick.com",
       startdate: "2008/10/16",
       salary: 470600
     },
@@ -150,6 +165,7 @@ export class MkEmployeeDetailsComponent implements OnInit {
       position: "Senior Marketing Designer",
       office: "London",
       age: 43,
+      email: "tigernixon@flipick.com",
       startdate: "2012/12/18",
       salary: 313500
     },
@@ -159,8 +175,9 @@ export class MkEmployeeDetailsComponent implements OnInit {
       position: "Regional Director",
       office: "London",
       age: 19,
+      email: "tigernixon@flipick.com",
       startdate: "2010/03/17",
-      salary:385750
+      salary: 385750
     },
     {
       id: 17,
@@ -168,8 +185,9 @@ export class MkEmployeeDetailsComponent implements OnInit {
       position: "Marketing Designer",
       office: "London",
       age: 66,
+      email: "tigernixon@flipick.com",
       startdate: "2012/11/27",
-      salary:198500
+      salary: 198500
     },
     {
       id: 18,
@@ -177,8 +195,9 @@ export class MkEmployeeDetailsComponent implements OnInit {
       position: "Marketing Designer",
       office: "London",
       age: 66,
+      email: "tigernixon@flipick.com",
       startdate: "2012/11/27",
-      salary:198500
+      salary: 198500
     },
     {
       id: 19,
@@ -186,8 +205,9 @@ export class MkEmployeeDetailsComponent implements OnInit {
       position: "Chief Financial Officer (CFO)",
       office: "New York",
       age: 64,
+      email: "tigernixon@flipick.com",
       startdate: "2010/06/09",
-      salary:725000
+      salary: 725000
     },
     {
       id: 20,
@@ -195,8 +215,9 @@ export class MkEmployeeDetailsComponent implements OnInit {
       position: "Systems Administrator",
       office: "New York",
       age: 59,
+      email: "tigernixon@flipick.com",
       startdate: "2009/04/10",
-      salary:237500
+      salary: 237500
     },
     {
       id: 21,
@@ -204,8 +225,9 @@ export class MkEmployeeDetailsComponent implements OnInit {
       position: "Systems Administrator",
       office: "New York",
       age: 59,
+      email: "tigernixon@flipick.com",
       startdate: "2009/04/10",
-      salary:237500
+      salary: 237500
     },
     {
       id: 22,
@@ -213,8 +235,9 @@ export class MkEmployeeDetailsComponent implements OnInit {
       position: "Personnel Lead",
       office: "Edinburgh",
       age: 35,
+      email: "tigernixon@flipick.com",
       startdate: "2012/09/26",
-      salary:217500
+      salary: 217500
     },
     {
       id: 23,
@@ -222,8 +245,9 @@ export class MkEmployeeDetailsComponent implements OnInit {
       position: "Development Lead",
       office: "New York",
       age: 30,
+      email: "tigernixon@flipick.com",
       startdate: "2011/09/03",
-      salary:345000
+      salary: 345000
     },
     {
       id: 24,
@@ -231,8 +255,9 @@ export class MkEmployeeDetailsComponent implements OnInit {
       position: "Chief Marketing Officer (CMO)",
       office: "New York",
       age: 40,
+      email: "tigernixon@flipick.com",
       startdate: "2009/06/25",
-      salary:675000
+      salary: 675000
     },
     {
       id: 25,
@@ -240,8 +265,9 @@ export class MkEmployeeDetailsComponent implements OnInit {
       position: "Pre-Sales Support",
       office: "New York",
       age: 21,
+      email: "tigernixon@flipick.com",
       startdate: "2011/12/12",
-      salary:106450
+      salary: 106450
     },
     {
       id: 26,
@@ -249,8 +275,9 @@ export class MkEmployeeDetailsComponent implements OnInit {
       position: "Sales Assistant",
       office: "Sidney",
       age: 23,
+      email: "tigernixon@flipick.com",
       startdate: "2010/09/20",
-      salary:85600
+      salary: 85600
     },
     {
       id: 27,
@@ -258,8 +285,9 @@ export class MkEmployeeDetailsComponent implements OnInit {
       position: "Chief Executive Officer (CEO)",
       office: "London",
       age: 47,
+      email: "tigernixon@flipick.com",
       startdate: "2009/10/09",
-      salary:1200000
+      salary: 1200000
     },
     {
       id: 28,
@@ -267,8 +295,9 @@ export class MkEmployeeDetailsComponent implements OnInit {
       position: "Developer",
       office: "Edinburgh",
       age: 42,
+      email: "tigernixon@flipick.com",
       startdate: "2010/12/22",
-      salary:92575
+      salary: 92575
     },
     {
       id: 29,
@@ -276,17 +305,19 @@ export class MkEmployeeDetailsComponent implements OnInit {
       position: "Regional Director",
       office: "Singapore",
       age: 28,
+      email: "tigernixon@flipick.com",
       startdate: "2010/11/14",
-      salary:92575
+      salary: 92575
     },
     {
       id: 30,
       name: "Brenden Wagner",
       position: "Software Engineer",
       office: "San Francisco",
-      age: 28,
+      age: 33,
+      email: "tigernixon@flipick.com",
       startdate: "2011/06/07",
-      salary:206850
+      salary: 206850
     }
   ]
 
@@ -322,6 +353,17 @@ export class MkEmployeeDetailsComponent implements OnInit {
       }
     },
     {
+      name: 'email',
+      displayName: 'Email',
+      type: 'cs',
+      isSorting: true,
+      filter: {
+        isFiltering: true,
+        filterType: 'input',
+
+      }
+    },
+    {
       name: 'office',
       displayName: 'Office',
       type: 'cs',
@@ -333,7 +375,7 @@ export class MkEmployeeDetailsComponent implements OnInit {
     },
     {
       name: 'age',
-      displayName: 'Age',      
+      displayName: 'Age',
       htmlName: "Age",
       type: 'num',
       isSorting: true,
@@ -345,7 +387,7 @@ export class MkEmployeeDetailsComponent implements OnInit {
     },
     {
       name: 'startdate',
-      displayName: 'Start date',      
+      displayName: 'Joining Date',
       htmlName: "Start date",
       type: 'num',
       isSorting: true,
@@ -380,19 +422,19 @@ export class MkEmployeeDetailsComponent implements OnInit {
         filterType: 'input'
       },
     },
-    {
-      name: 'id',
-      displayName: 'Delete',
-      html: true,
-      htmlName: "Delete",
-      type: 'num',
-      isSorting: false,
-      filter: {
-        isFiltering: false,
-        filterType: 'input'
-      }
+    // {
+    //   name: 'id',
+    //   displayName: 'Delete',
+    //   html: true,
+    //   htmlName: "Delete",
+    //   type: 'num',
+    //   isSorting: false,
+    //   filter: {
+    //     isFiltering: false,
+    //     filterType: 'input'
+    //   }
 
-    },
+    // },
   ]
 
 
@@ -405,31 +447,36 @@ export class MkEmployeeDetailsComponent implements OnInit {
         value: '',
         type: 'num'
       },
-      name:{
+      name: {
         columnName: 'name',
         value: '',
         type: 'cs'
       },
-      position:{
+      position: {
         columnName: 'position',
         value: '',
         type: 'cs'
       },
-      office:{
+      email: {
+        columnName: 'email',
+        value: '',
+        type: 'cs'
+      },
+      office: {
         columnName: 'office',
         value: '',
         type: 'cs'
       },
-      age:{
+      age: {
         columnName: 'age',
         value: '',
         type: 'num'
       },
-      startdate:{
+      startdate: {
         columnName: 'startdate',
         value: '',
         type: 'num'
-      },     
+      },
       salaryFrom: {
         columnName: 'salary',
         value: '',
@@ -453,12 +500,31 @@ export class MkEmployeeDetailsComponent implements OnInit {
     sortType: 'num',
     condition: null
   }
-  
+
   userDelete(obj: any) {
-    
+
   }
 
   close($event: boolean) {
+    this.popupConfig.isShowPopup = false;
+  }
+
+  saveUpdateEmployee($event: any) {
+    debugger;
+    console.log($event);
+    for (var i = 0; 1 < this.employessDetails.length; i++) {
+
+      if ($event.id == this.employessDetails[i].id) {
+        this.employessDetails[i].name = $event.name;
+        this.employessDetails[i].position = $event.position;
+        this.employessDetails[i].office = $event.office;
+        this.employessDetails[i].age = $event.age;
+        this.employessDetails[i].email = $event.email;
+        this.employessDetails[i].startdate = $event.startdate;
+        this.employessDetails[i].salary = $event.salary;
+        break;
+      }
+    }
     this.popupConfig.isShowPopup = false;
   }
 
@@ -471,19 +537,22 @@ export class MkEmployeeDetailsComponent implements OnInit {
   userEditP(obj: any) {
     this.popupConfig.isShowPopup = true;
 
-  //  let user: UsersComponent = new UsersComponent();
+    //  let user: UsersComponent = new UsersComponent();
 
     //  this.popupConfig = { ...this.popupConfig };
 
     this.popup?.open(this.popupConfig);
-    this.oEmployee = obj;
+    debugger;
+    //obj.startdate = new Date(obj.startdate);
+    this.oEmployee = deepCopy(obj);
+    //this.project = deepCopy(obj);
     this.employessDetails
   }
 
   userEditR(obj: any) {
-    
+
   }
-  
+
   ngOnInit(): void {
     this.employessDetails.forEach((e) => {
       e.projectDIsplay = `(${e.Id})-${e.Project}`;

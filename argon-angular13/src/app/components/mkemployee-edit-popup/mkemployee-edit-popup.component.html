@@ -1,70 +1,73 @@
-<p>mkemployee-edit-popup works!</p>
-{{oEmployee | json}}
-<form role="form">
-    <div class="mb-3">
-        <input type="text" id="id" name="id" min=3 max=6 (input)="binderEvent($event)" (blur)="validate($event)" required value="{{oEmployee.id}}" class="form-control"
-            placeholder="Id" aria-label="Id">
-    </div>
-    <!-- <div *ngIf="error?.id?.required" class="mb-3" style="display:block">
-        <span class="alert-danger">Id is mandotory.</span>
-    </div> -->
-
-    <!--Start Added Error divs -->
-    <div *ngIf="error?.invalid" class="alert">
-    
-        <div *ngIf="error?.id?.required">
-            Id is required.
-        </div>
-        <div *ngIf="error?.id?.min">
-            Id must be at least 4 characters long.
-        </div>
-        <div *ngIf="error?.id?.max">
-            Id should not be more than 6.
-        </div>
-    
-    </div>
-    <!--End Added Error divs -->
-
-    <div class="form-group select-box">
-        <select class="form-control select_style1" >
-          <option value="" >Select Office</option>
-          <!-- <option *ngIf="officeCategory" (value)="office" *ngFor="let office of this.officeCategory">
-            {{office}} 
-     </option> -->
-          <option  (value)="office" *ngFor="let office of this.officeCategory">
-            {{office}} 
-     </option>
-        </select>
-        <!-- <select (change)="officeChanges($event)">
-            <option value=""></option>
-            
-        </select> -->
-        <!-- <span *ngIf="modelForm.get('model').hasError('required') && modelForm.get('model').touched" class='error' padding>Model is a required field.</span> -->
-      </div>
-
-    <div class="mb-3">
-        <input type="text" id="name" name="name" min=3 (blur)="validate($event)" required value={{oEmployee.name}} class="form-control"
-            placeholder="Name" aria-label="Name">
-    </div>
-    <div *ngIf="error?.min?.required" class="mb-3" style="display:block">
-        <span class="alert-danger">Project is mandotory.</span>
-    </div>
-    <div class="mb-3">
-        <input type="text" id="position" (blur)="validate($event)" name="position" required value={{oEmployee.position}} class="form-control"
-            placeholder="Postion" aria-label="Postion">
-    </div>
-    <div *ngIf="error?.position?.required" class="mb-3" style="display:block">
-        <span class="alert-danger">Position is mandotory.</span>
-    </div>
-    <div class="form-check form-check-info text-start">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault">
-            Are you sure you want to <a href="javascript:;" class="text-dark font-weight-bolder">update this
-                record</a>.?
-        </label>
-    </div>
-
-    <div class="text-center">
-        <button type="button" (click)="save" class="btn btn-primary mt-4">Apply Changes</button>
-    </div>
-</form>
+<form #empmkeditform="ngForm" role="form">
+    <!-- {{empeditform.value | json}}-->
+       <div class="card">
+           <div class="card-body">    
+             <div class="row">
+               <div class="col-md-6">
+                 <div class="form-group">
+                   <label for="example-text-input"class="form-control-label">Name</label>
+                   <input class="form-control" type="text" [(ngModel)]="oEmployee.name"  name="name" #name="ngModel" [class.is-invalid]="(name.invalid && name.touched)  && (name.errors || submitted)" required>
+                   <div *ngIf="submitted && name.errors && (name.invalid || name.untouched)">
+                     <small class="text-danger" *ngIf="name.errors?.['required']">Name is required</small>                
+                   </div>                                
+                 </div>
+               </div>
+               <div class="col-md-6">
+                <div class="form-group">
+                  <label for="example-text-input"  class="form-control-label">Position</label>
+                  <input class="form-control" type="text" [(ngModel)]="oEmployee.position"  name="position" #position="ngModel" [class.is-invalid]="(position.invalid && position.touched)  && (position.errors || submitted)" required>
+                  <div *ngIf="submitted && position.errors && (position.invalid || position.untouched)">
+                    <small class="text-danger" *ngIf="position.errors?.['required']">Position is required</small>
+                  </div>  
+                </div>
+              </div>
+               <div class="col-md-6">
+                   <div class="form-group">
+                     <label for="example-text-input"  class="form-control-label">Email Address</label>
+                     <input class="form-control" type="email" pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$" [(ngModel)]="oEmployee.email" name="email" #email="ngModel" [class.is-invalid]="(email.invalid && email.touched)  && (email.errors || submitted)" required>
+                     <div *ngIf="submitted && email.errors && (email.invalid || email.untouched)">
+                       <small class="text-danger" *ngIf="email.errors?.['required']">Email is required</small>                
+                       <small class="text-danger" *ngIf="email.errors?.['pattern']">Invalid email</small>                
+                     </div>  
+                   </div>
+                 </div>
+                 <div class="col-md-6">
+                   <div class="form-group">
+                     <label for="example-text-input"  class="form-control-label">Age</label>
+                     <input class="form-control" type="number"   [(ngModel)]="oEmployee.age" name="age" #age="ngModel" [class.is-invalid]="(age.invalid && age.touched)  && (age.errors || submitted)" required>
+                     <div *ngIf="submitted && age.errors && (age.invalid || age.dirty  || age.untouched)">
+                       <small class="text-danger" *ngIf="age.errors?.['required']">Age is required</small>                                    
+                     </div>  
+                   </div>
+                 </div>
+               <div class="col-md-6">
+                   <div class="form-group">
+                     <label for="example-text-input"  class="form-control-label" >Joining Date</label>
+                     <input class="form-control"  type="date" [(ngModel)]="oEmployee.startdate" [value]="oEmployee.startdate | date:'MM/dd/yyyy'" name="joiningdate" #joiningdate="ngModel" [class.is-invalid]="(joiningdate.invalid && joiningdate.touched)  && (joiningdate.errors || submitted)" required>
+                     <div *ngIf="submitted && joiningdate.errors && (joiningdate.invalid || joiningdate.untouched)">
+                       <small class="text-danger" *ngIf="joiningdate.errors?.['required']">Joining date is required</small>                
+                     </div>  
+                   </div>
+               </div>
+             </div>             
+             <div class="row">               
+               <div class="col-md-4">
+                 <div class="form-group">
+                   <label for="example-text-input" class="form-control-label">Office</label>
+                   <select class="form-control" name="office" required [(ngModel)]="oEmployee.office"  #office="ngModel" (change)="validateOffice(office.value)"  >
+                       <option [value]="null">Select Office</option> 
+                       <option [value]="item"  *ngFor="let item of this.officeCategory" [selected]="item === oEmployee.office"> {{item}}</option>
+                    </select> 
+                    <div *ngIf="office.invalid && submitted && office.dirty">
+                     <small class="text-danger">Please choose a office</small>  
+                    </div>
+                 </div>
+               </div>              
+             </div>            
+           </div>
+         </div>
+         <div class="text-center">
+            <button type="button"  class="btn btn-primary mt-4" (click)="onSubmit()">Save</button>
+          </div>
+       </form>
+   

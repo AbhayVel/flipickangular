@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { PopupComponent } from 'src/app/feature/library/popup/popup.component';
 import { PopUpConfig, PopUpConfigFactory } from 'src/app/feature/library/popup/PopUpConfig';
+import { mkProducts } from 'src/app/models/mkProducts';
 import { SortModel } from 'src/app/models/sort-model';
 
 @Component({
@@ -10,6 +11,15 @@ import { SortModel } from 'src/app/models/sort-model';
 })
 export class MkProductsComponent implements OnInit {
   @ViewChild('popup') popup?: PopupComponent;
+  
+  // fs?: FirstService;
+ 
+  // constructor(fs: FirstService,private mm: SecondService) {
+  //   this.fs = fs;
+    
+  // }
+  
+  oMkProducts: mkProducts = new mkProducts()
   constructor() { }
   products: Array<any> = [
     {
@@ -1855,6 +1865,18 @@ export class MkProductsComponent implements OnInit {
 
   columns = [
     {
+      name: 'thumbnail',
+      displayName: 'Images',
+      html: true,
+      htmlName: "Images",
+      type: 'cs',
+      isSorting: false,
+      filter: {
+        isFiltering: false,
+        filterType: 'input',
+      }     
+    },
+    {
       name: 'title',
       displayName: 'Title',
       type: 'cs',
@@ -1865,17 +1887,17 @@ export class MkProductsComponent implements OnInit {
 
       }
     },
-    {
-      name: 'description',
-      displayName: 'Description',
-      type: 'cs',
-      isSorting: false,
-      filter: {
-        isFiltering: false,
-        filterType: 'input',
+    // {
+    //   name: 'description',
+    //   displayName: 'Description',
+    //   type: 'cs',
+    //   isSorting: false,
+    //   filter: {
+    //     isFiltering: false,
+    //     filterType: 'input',
 
-      }
-    },
+    //   }
+    // },
     {
       name: 'price',
       displayName: 'Price',      
@@ -1890,7 +1912,7 @@ export class MkProductsComponent implements OnInit {
     },
     {
       name: 'discountPercentage',
-      displayName: 'DiscountPercentage',      
+      displayName: 'Discount',      
       htmlName: "DiscountPercentage",
       type: 'num',
       isSorting: true,
@@ -1947,7 +1969,7 @@ export class MkProductsComponent implements OnInit {
     {
       name: 'category',
       displayName: 'Category',
-      html: true,
+      html: false,
       htmlName: "Category",
       type: 'cs',
       isSorting: true,
@@ -1969,16 +1991,7 @@ export class MkProductsComponent implements OnInit {
         filterType: 'input'
       },
     },
-    {
-      name: 'thumbnail',
-      displayName: 'Images',
-      type: 'cs',
-      isSorting: false,
-      filter: {
-        isFiltering: false,
-        filterType: 'input',
-      }     
-    }    
+      
   ]
 
   filterObject: any = {
@@ -2037,11 +2050,17 @@ export class MkProductsComponent implements OnInit {
     this.filterObject.filter['category'].value = value;
     gridChanges(this.filterObject,this.sortObj);
   }
+ 
+  close($event: boolean) {
+    this.popupConfig.isShowPopup = false;
+  }
+
   popupConfig: PopUpConfig = PopUpConfigFactory.getPopUpConfig({
-    header: 'Project Edit'
+    header: 'Edit Employee Details',
+    isShowPopup: false
   });
-  
-  userEditP(obj: any) {
+
+  productEdit(obj: any) {
     //debugger;
     this.popupConfig.isShowPopup = true;
 
@@ -2050,7 +2069,7 @@ export class MkProductsComponent implements OnInit {
     //  this.popupConfig = { ...this.popupConfig };
 
     this.popup?.open(this.popupConfig);
-    //this.oMkUser = obj;
+    this.oMkProducts = obj;
   }
   ngOnInit(): void {
     this.filterObject.data = this.products;

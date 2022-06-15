@@ -1,0 +1,128 @@
+<form [formGroup]="EmployeeFormGroup">
+    <!-- {{empaddform.value | json}} -->
+      <div class="card">
+          <div class="card-body">    
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="example-text-input"class="form-control-label">First Name</label>
+                  <input class="form-control" type="text"   name="firstName" formControlName="firstName">
+                  <div *ngIf="EmployeeFormGroup?.get('firstName')?.untouched && EmployeeFormGroup?.get('firstName')?.errors" style="display:block">
+                    <span class="text-danger" *ngIf="submitted && EmployeeFormGroup?.get('firstName')?.errors?.['required']">First Name is required.  </span>
+                  </div>                               
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="example-text-input" class="form-control-label" >Last Name</label>
+                  <input class="form-control"  type="text" name="lastName"  formControlName="lastName">
+                  <div *ngIf="submitted && EmployeeFormGroup?.get('lastName')?.untouched && EmployeeFormGroup?.get('lastName')?.errors" style="display:block">
+                    <span class="text-danger" *ngIf="EmployeeFormGroup?.get('lastName')?.errors?.['required']">Last Name is required.  </span>
+                  </div>  
+                </div>
+              </div>
+              <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input"  class="form-control-label">Email Address</label>
+                    <input class="form-control" type="email" formControlName="email">
+                    <div *ngIf="submitted && EmployeeFormGroup?.get('email')?.untouched && EmployeeFormGroup?.get('email')?.errors" style="display:block">
+                        <span class="text-danger" *ngIf="EmployeeFormGroup?.get('email')?.errors?.['required']">Last Name is required.  </span>
+                        <small class="text-danger" *ngIf="EmployeeFormGroup?.get('email')?.errors?.['pattern']">Invalid email</small> 
+                    </div>  
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input"  class="form-control-label">Phone</label>
+                    <input class="form-control" type="phone"  formControlName="phone">
+                    <div *ngIf="submitted && EmployeeFormGroup?.get('phone')?.untouched && EmployeeFormGroup?.get('phone')?.errors" style="display:block">
+                        <span class="text-danger" *ngIf="EmployeeFormGroup?.get('phone')?.errors?.['required']">Phone is required.  </span>
+                        <small class="text-danger" *ngIf="EmployeeFormGroup?.get('phone')?.errors?.['pattern']">Phone number must be 10 digits</small> 
+                    </div>  
+                  </div>
+                </div>
+              <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input"  class="form-control-label" >Birth Date</label>
+                    <input class="form-control"  type="date" formControlName="dob">
+                    <div *ngIf="submitted && EmployeeFormGroup?.get('dob')?.untouched && EmployeeFormGroup?.get('dob')?.errors" style="display:block">
+                        <span class="text-danger" *ngIf="EmployeeFormGroup?.get('dob')?.errors?.['required']">Birth Date is required.  </span>                        
+                    </div>  
+                  </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="row">
+                  <label>Gender</label>
+                  <div class="col-6">
+                    <div class="form-check">
+                       <input class="form-check-input" type="radio" name="gender" value="male" formControlName="gender">
+                      <label class="form-check-label">Male</label>
+                     </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" value="female" formControlName="gender">
+                        <label class="form-check-label">Female</label>
+                     </div>
+                  </div>     
+                </div>     
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="example-text-input" class="form-control-label">Address</label>
+                  <input class="form-control"  type="text" formControlName="address">
+                  <div *ngIf="submitted && EmployeeFormGroup?.get('address')?.untouched && EmployeeFormGroup?.get('address')?.errors" style="display:block">
+                    <span class="text-danger" *ngIf="EmployeeFormGroup?.get('address')?.errors?.['required']">Address is required.  </span>                        
+                  </div>  
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="example-text-input" class="form-control-label">City</label>
+                  <input class="form-control" name="city" type="text" formControlName="city">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="example-text-input"   class="form-control-label">Country</label>
+                  <select class="form-control" name="country"  formControlName="country" [(ngModel)]="countrymodel.select">
+                      <option [value]="null">Select</option>
+                      <option [value]="item.id"  *ngFor="let item of countryData"> {{item.name}}</option>
+                   </select> 
+                   <div *ngIf="submitted && EmployeeFormGroup?.get('country')?.untouched && EmployeeFormGroup?.get('country')?.errors" style="display:block">
+                    <span class="text-danger">Please choose a country</span>                        
+                   </div> 
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="example-text-input" class="form-control-label">Postal code</label>
+                  <input class="form-control" name="zip"  formControlName="zip">
+                  <div *ngIf="submitted && EmployeeFormGroup?.get('zip')?.untouched && EmployeeFormGroup?.get('zip')?.errors" style="display:block">
+                    <span class="text-danger" *ngIf="EmployeeFormGroup?.get('zip')?.errors?.['required']">Postal code is required.  </span>
+                    <small class="text-danger" *ngIf="EmployeeFormGroup?.get('zip')?.errors?.['pattern']">Postal code must be 5 digits</small>                                        
+                  </div>  
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-check mb-3">
+                  <input class="form-check-input" type="checkbox" name="term" formControlName="term" >
+                  <label class="form-check-label">
+                    Accept Terms & Conditions
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <button type="button"  class="btn btn-primary mt-4" (click)="onSubmit()">Save</button>
+        </div>
+      </form>
+  

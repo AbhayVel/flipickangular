@@ -50,6 +50,8 @@ import { AmEmployeesAddPopupComponent } from './components/am-popup/am-employees
 import { MkProductEditPopupComponent } from './components/mk-popup/mk-product-edit-popup/mk-product-edit-popup.component';
 import { MkProductReactiveFormComponent } from './components/mk-forms/mk-product-reactive-form/mk-product-reactive-form.component';
 import { MkProductTemplateFormComponent } from './components/mk-forms/mk-product-template-form/mk-product-template-form.component';
+import { AmEmployeesReactAddPopupComponent } from './components/am-popup/am-employees-react-add-popup/am-employees-react-add-popup.component';
+import { AmEmployeesEditReactiveFormComponent } from './components/am-employees-edit-reactive-form/am-employees-edit-reactive-form.component';
 
 @NgModule({
   declarations: [
@@ -100,7 +102,9 @@ import { MkProductTemplateFormComponent } from './components/mk-forms/mk-product
     AmEmployeesAddPopupComponent,
     MkProductEditPopupComponent,
     MkProductReactiveFormComponent,
-    MkProductTemplateFormComponent
+    MkProductTemplateFormComponent,
+    AmEmployeesReactAddPopupComponent,
+    AmEmployeesEditReactiveFormComponent
   ],
   imports: [
     BrowserModule,

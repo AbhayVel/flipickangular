@@ -1,8 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { PopupComponent } from 'src/app/feature/library/popup/popup.component';
 import { PopUpConfig, PopUpConfigFactory } from 'src/app/feature/library/popup/PopUpConfig';
+import { TableComponent } from 'src/app/feature/library/table/table.component';
 import { AMEmployee } from 'src/app/models/am-employee';
 import { SortModel } from 'src/app/models/sort-model';
+import { AMEmployeeService } from 'src/app/services/amemployee.service';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'qdn-am-employees',
@@ -10,177 +14,14 @@ import { SortModel } from 'src/app/models/sort-model';
   styleUrls: ['./am-employees.component.css']
 })
 export class AmEmployeesComponent implements OnInit {
-
+  @ViewChild(TableComponent) child?: TableComponent;
   @ViewChild('popup') popup?: PopupComponent;
   @ViewChild('popupadd') popupadd?: PopupComponent;
   amemployee: AMEmployee = new AMEmployee()
 
-  constructor() { }
+  constructor(private router: Router, private amEmployeeService:  AMEmployeeService) { }
  
-
-
-  employeeData: Array<any> = [
-    {
-      id: 1,
-      icon: "../assets/dist/img/avatar.png",
-      firstName: 'Leanne',
-      lastName: 'Graham',
-      email: 'Sincere@april.biz',
-      phone: 8787654545,
-      address: '7687 Jadon Port',
-      countryId: 1,
-      city: "Phoenix",
-      zip: "41201",
-      dob:'16 Apr 1970',
-      jod: '12 Apr 2001',
-      term: true,
-      gender: 'male'
-    },
-    {
-      id: 2,
-      icon: "../assets/dist/img/avatar5.png",
-      firstName: 'Ervin',
-      lastName: 'Howell',
-      email: 'Shanna@melissa.tv',
-      phone: 8787654545,
-      address: '156 Streich Ports',
-      countryId: 2,
-      city: "Atlanta",
-      zip: "41201",
-      dob:'12 Apr 1971',
-      jod: '11 Apr 2003',
-      term: true,
-      gender: 'male'
-    },
-    {
-      id: 3,
-      icon: "../assets/dist/img/avatar3.png",
-      firstName: 'Patricia',
-      lastName: 'Lebsack',
-      email: 'Julianne.OConner@kory.org',
-      phone: 8787654545,
-      address: '5203 Jordon Center',
-      countryId: 3,
-      city: "Portland",
-      zip: "41170",
-      dob:'12 Jan 2022',
-      jod: '11 Apr 2017',
-      term: true,
-      gender: 'female'
-    },
-    {
-      id: 4,
-      icon: "../assets/dist/img/avatar4.png",
-      firstName: 'Chelsey',
-      lastName: 'Dietrich',
-      email: 'Lucio_Hettinger@annie.ca',
-      phone: 8787654545,
-      address: '91057 Davion Club',
-      countryId: 4,
-      city: "Boston",
-      zip: "54323",
-      dob:'15 Feb 2022',
-      jod: '11 May 2014',
-      term: true,
-      gender: 'female'
-    },
-    {
-      id: 5,
-      icon: "../assets/dist/img/avatar5.png",
-      firstName: 'Dennis',
-      lastName: 'Schulist',
-      email: 'Karley_Dach@jasper.info',
-      phone: 8787654545,
-      address: '1280 Jon Club',
-      countryId: 5,
-      city: "Wichita",
-      zip: "5654",
-      dob:'16 March 2022',
-      jod: '11 Jun 2013',
-      term: true,
-      gender: 'female'
-    },
-    {
-      id: 6,
-      icon: "../assets/dist/img/avatar3.png",
-      firstName: 'Kurtis',
-      lastName: 'Weissnat',
-      email: 'Telly.Hoeger@billy.biz',
-      phone: 8787654545,
-      address: '1670 Denver Club',
-      countryId: 4,
-      city: "Boston",
-      zip: "54323",
-      dob:'17 March 2022',
-      jod: '30 May 2013',
-      term: true,
-      gender: 'male'
-    },
-    {
-      id: 7,
-      icon: "../assets/dist/img/avatar.png",
-      firstName: 'Nicholas',
-      lastName: 'Runolfsdottir',
-      email: 'Sherwood@rosamond.me',
-      phone: 8787654545,
-      address: '91057 Mark Club',
-      countryId: 2,
-      city: "Atlanta",
-      zip: "41201",
-      dob:'20 March 2022',
-      jod: '29 Jan 2000',
-      term: true,
-      gender: 'male'
-    },
-    {
-      id: 8,
-      icon: "../assets/dist/img/avatar2.png",
-      firstName: 'Glenna',
-      lastName: 'Reichert',
-      email: 'Chaim_McDermott@dana.io',
-      phone: 8787654545,
-      address: '1122 Sam Club',
-      countryId: 4,
-      city: "Boston",
-      zip: "54323",
-      dob:'06 Jun 2022',
-      jod: '29 April 2022',
-      term: true,
-      gender: 'male'
-    },
-    {
-      id: 9,
-      icon: "../assets/dist/img/avatar.png",
-      firstName: 'Clementina',
-      lastName: 'DuBuque',
-      email: 'Rey.Padberg@karina.biz',
-      phone: 8787654545,
-      address: '1567 Davion Club',
-      countryId: 2,
-      city: "Atlanta",
-      zip: "41201",
-      dob:'12 Jan 1990',
-      jod: '15 May 2022',
-      term: true,
-      gender: 'male'
-    },
-    {
-      id: 10,
-      icon: "../assets/dist/img/avatar2.png",
-      firstName: 'Lucious',
-      lastName: 'Leuschke',
-      email: 'Leuschke.Leuschke@g.biz',
-      phone: 8787654545,
-      address: '16288 Reichel Harbor',
-      countryId: 4,
-      city: "Boston",
-      zip: "54323",
-      dob:'12 Jan 1990',
-      jod: '01 Jun 2022',
-      term: true,
-      gender: 'male'
-    }
-  ];
+  
 
   filterObject: any = {
     data: [],
@@ -310,9 +151,11 @@ export class AmEmployeesComponent implements OnInit {
      
   }
   ngOnInit(): void {
-  
-    this.filterObject.data = this.employeeData;
-    this.filterObject.rows = this.employeeData;    
+    this.amEmployeeService.getAll().then((data: any) => {
+      this.filterObject.data = data;
+      this.filterObject.rows = data;
+      this.child?.GridChanges(this.filterObject,this.sortObj);   
+    })
   }
 
   popupConfig: PopUpConfig = PopUpConfigFactory.getPopUpConfig({
@@ -336,6 +179,10 @@ export class AmEmployeesComponent implements OnInit {
   {
     this.addPopupConfig.isShowPopup = true;
     this.popupadd?.open(this.addPopupConfig);
+  }
+
+  empEditR(obj: any) {
+    this.router.navigate(['amemp', 'edit', obj.id], {  });    
   }
 
 }

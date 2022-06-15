@@ -7,7 +7,7 @@ export class AMEmployee
       email?: string;
       phone?: number;
       address?: string;
-      dob?: string;
+      dob: Date = new Date();
       jod?: string;
       completion?: number;
       countryId?: number = 0;

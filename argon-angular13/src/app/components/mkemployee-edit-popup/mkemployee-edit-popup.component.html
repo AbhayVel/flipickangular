@@ -41,13 +41,14 @@
                    </div>
                  </div>
                <div class="col-md-6">
-                   <div class="form-group">
-                     <label for="example-text-input"  class="form-control-label" >Joining Date</label>
-                     <input class="form-control"  type="date" [(ngModel)]="oEmployee.startdate" [value]="oEmployee.startdate | date:'MM/dd/yyyy'" name="joiningdate" #joiningdate="ngModel" [class.is-invalid]="(joiningdate.invalid && joiningdate.touched)  && (joiningdate.errors || submitted)" required>
-                     <div *ngIf="submitted && joiningdate.errors && (joiningdate.invalid || joiningdate.untouched)">
-                       <small class="text-danger" *ngIf="joiningdate.errors?.['required']">Joining date is required</small>                
-                     </div>  
+                 <div class="form-group">
+                   <label for="example-text-input" class="form-control-label">Joining Date</label>
+                   {{oEmployee.startdate | json}}
+                   <input class="form-control" type="date" [(ngModel)]="oEmployee.startdate" name="joiningdate" #joiningdate="ngModel" [class.is-invalid]="(joiningdate.invalid && joiningdate.touched)  && (joiningdate.errors || submitted)" required>
+                   <div *ngIf="submitted && joiningdate.errors && (joiningdate.invalid || joiningdate.untouched)">
+                     <small class="text-danger" *ngIf="joiningdate.errors?.['required']">Joining date is required</small>
                    </div>
+                 </div>
                </div>
              </div>             
              <div class="row">               
@@ -70,4 +71,3 @@
             <button type="button"  class="btn btn-primary mt-4" (click)="onSubmit()">Save</button>
           </div>
        </form>
-   

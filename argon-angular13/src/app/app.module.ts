@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -111,7 +112,8 @@ import { AmEmployeesEditReactiveFormComponent } from './components/am-employees-
     AppRoutingModule,
     LibraryModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [Title, FirstService],
   bootstrap: [AppComponent]

@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { PopupComponent } from 'src/app/feature/library/popup/popup.component';
@@ -151,6 +152,8 @@ export class AmEmployeesComponent implements OnInit {
      
   }
   ngOnInit(): void {
+
+
     this.amEmployeeService.getAll().then((data: any) => {
       this.filterObject.data = data;
       this.filterObject.rows = data;

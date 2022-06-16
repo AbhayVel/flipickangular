@@ -26,7 +26,7 @@ export class MkEmployeeDetailsComponent implements OnInit {
       office: "Edinburgh",
       age: 61,
       email: "tigernixon@flipick.com",
-      startdate: "04/25/2011",
+      startdate: "2011-04-25",
       salary: 320800
     },
     {

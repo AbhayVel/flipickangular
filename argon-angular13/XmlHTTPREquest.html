@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+  <script>
+    function loadData() {
+      var http = new XMLHttpRequest();
+      //Get put post delete ............
+      http.open("get", "https://argon-50195-default-rtdb.firebaseio.com/employees.json");
+
+      http.addEventListener('readystatechange', function () {
+        if (this.readyState == 4) {
+          if (this.status == 200) {
+            debugger;
+            var d = JSON.parse(this.responseText);
+            for (var i = 0; i < d.length; i++) {
+              console.log(d[i].id);
+            }
+            console.log("I am in success")
+          } else {
+            console.log("I am is fail")
+          }
+        }
+      });
+
+      http.send();
+    }
+
+  </script>
+  
+</head>
+<body>
+
+  <button type="button" onclick="loadData()">Load Data</button>
+</body>
+</html>

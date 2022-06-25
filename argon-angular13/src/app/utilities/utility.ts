@@ -1,4 +1,5 @@
 import { formatDate } from "@angular/common";
+import { PagingAccess } from "../models/am-employee";
 
 export function sort(list: Array<any>, columnName: any, orderBy: number , columnType: string, condition : any)
 {
@@ -108,4 +109,73 @@ export function deepCopy<T>(instance: T): T {
   }
   // handling primitive data types
   return instance;
+}
+
+
+export function getFilterForFilterObject(columns: any)
+{
+  var filters = [];
+  for(var i= 0; i< columns.length; i++)
+  {
+    //debugger
+    var colName = columns[i].name.toString();
+    var filterType = columns[i].filter.filterType;
+    var type = columns[i].type;
+    if(filterType =="range")
+    {
+      if(type == "num")
+      {
+        var filterFrom= columns[i].filter.filterFrom; 
+        let filterobj1= { [filterFrom]: { 'columnName' : colName, 'value' : '', type: 'numGte' }};
+        filters.push(filterobj1);
+        var filterTo= columns[i].filter.filterTo;
+        let filterObj2= { [filterTo]: { 'columnName' : colName, 'value' : '', type: 'numLte' }};
+        filters.push(filterObj2);
+      }
+    }
+    else if(filterType =="daterange")
+    {
+      if(type == "date")
+      {
+        filterFrom= columns[i].filter.filterFrom; 
+        let filterobj1= { [filterFrom]: { 'columnName' : colName, 'value' : '', type: 'dteGte' }};
+        filters.push(filterobj1);
+        filterTo= columns[i].filter.filterTo;
+        let filterObj2= { [filterTo]: { 'columnName' : colName, 'value' : '', type: 'dteLte' }};
+        filters.push(filterObj2);
+      }
+    }
+    else
+    {
+      let filter= { [colName]: { 'columnName' : colName, 'value' : '', type: columns[i].type }};
+      filters.push(filter);
+    }
+  }
+  var obj = filters.reduce((a, b) => Object.assign(a, b), {});  
+ // console.log('fiterObj: ' + JSON.stringify(obj));
+  return  obj;
+}
+
+export function getAccessListFunction(filterObject: any)
+{
+  filterObject.pagingAccessList = [];
+  var totalPages = Math.ceil(filterObject.rows.length / filterObject.pageSize);
+  if (totalPages > 1)
+  {
+      for (var i = 1; i <= totalPages; i++)
+      {
+          var obj = new PagingAccess();
+          obj.key = i;
+          obj.value = i.toString();
+          filterObject.pagingAccessList.push(obj);
+      }
+  }
+  else
+  {
+    var obj = new PagingAccess();
+      obj.key = 1;
+      obj.value = "1";
+      filterObject.pagingAccessList.push(obj);
+  }
+  return filterObject.pagingAccessList;
 }

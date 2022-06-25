@@ -16,3 +16,8 @@ export class AMEmployee
       gender?:string;
       term?: boolean
 }
+
+export class PagingAccess {
+      key?: number;
+      value?: string;   
+    }

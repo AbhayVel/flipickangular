@@ -1,10 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { PopupComponent } from 'src/app/feature/library/popup/popup.component';
 import { PopUpConfig, PopUpConfigFactory } from 'src/app/feature/library/popup/PopUpConfig';
+import { TableComponent } from 'src/app/feature/library/table/table.component';
 import { Organization } from 'src/app/models/am-organizations';
 import { SortModel } from 'src/app/models/sort-model';
 import { ColumnsDetails } from 'src/app/models/table-template-model';
 import { OrganizationService } from 'src/app/services/organization.service';
+import { getAccessListFunction, getFilterForFilterObject } from 'src/app/utilities/utility';
 
 @Component({
   selector: 'qdn-am-organizations',
@@ -13,23 +16,34 @@ import { OrganizationService } from 'src/app/services/organization.service';
 })
 export class AmOrganizationsComponent implements OnInit {
   @ViewChild('popup') popup?: PopupComponent;
-  organizations: Array<any> =[];
-  tempOrganizations : Array<any> =[];
+  @ViewChild(TableComponent) child?: TableComponent;
   columns: Array<ColumnsDetails> = [];
-  constructor(private organizationservice: OrganizationService) { }
-  
+  organizationDropDownList: Organization[] = [];
+  orgDropDownListForm = this.fb.group({ name: [''] });
+  title = ''; 
+  organization: any;
+
+  constructor(private organizationService: OrganizationService, public fb: FormBuilder) { }
   ngOnInit(): void 
-  { 
-    this.organizations = this.organizationservice.organizationsData;
-    this.columns = this.organizationservice.Columns;
-    this.filterObject.data =  this.organizations;
-    this.filterObject.rows =  this.organizations;
-    this.setFilterObjectFilter();   
+  {
+    this.getOrganizationDropDownListData();
+    this.getOrganizationGridData();    
   }
 
+  getOrganizationDropDownListData(): void 
+  {
+    this.organizationService.getOrganizations()
+      .subscribe({next: (data) => {        
+          this.organizationDropDownList = data.result;   
+        }, error: (err) => { console.log(err); }
+      });
+  }
+  onSubmit() {
+    this.getOrganizationGridData();
+  }
   sortObj: SortModel={
     orderBy: -1,
-    columnName:'srNo',
+    columnName:'row',
     sortType: 'num',
     condition: null
   }
@@ -39,22 +53,42 @@ export class AmOrganizationsComponent implements OnInit {
     filter:{},
     paging : [],
     currentPage: 1,
-    pageSize: 5
+    pageSize: 10,
+    totalPages:0,
+    totalRecordsText: '',
+    pageSizeList: [10, 25, 50, 100, 200, 500, 1000],
+    pagingAccessList:[],
+    selectedPageAccess: 1
   }
  
-  organization: Organization = new Organization();
-  setFilterObjectFilter() {
-    ////debugger;
-    var filters = [];
-    for(var i= 0; i< this.columns.length; i++)
-    {
-      var colName = this.columns[i].name.toString();
-      let filter= { [colName]: { 'columnName' : colName, 'value' : '', type: this.columns[i].type }};
-      filters.push(filter);
-    }
-    var obj = filters.reduce((a, b) => Object.assign(a, b), {});
-    this.filterObject.filter = obj;
-    //console.log('fiterObj: ' + JSON.stringify(this.filterObject.filter));
+  getRequestParams(searchTitle: string, page: number, pageSize: number): any {
+    let params: any = {};
+    if (searchTitle) { params[`SearchTitle`] = searchTitle;  }
+    if (page) {params[`PageNumber`] = page; }
+    if (pageSize) { params[`PageSize`] = pageSize; }
+    return params;
+  }
+  
+  getOrganizationGridData(): void 
+  {          
+    const params = this.getRequestParams(this.title, 0, 0);
+    this.organizationService.getOrganizationsData(params)
+      .subscribe({
+        next: (data) => {
+          if(data.isError == false)
+          {
+            //console.log("Organization Data: " + JSON.stringify(data));
+            this.columns = data.result.columns;        
+            this.filterObject.data = data.result.data;
+            this.filterObject.rows = data.result.data;
+            this.filterObject.totalRecordsText = data.result.totalRecordsText;          
+            this.filterObject.filter = getFilterForFilterObject(this.columns); 
+            this.filterObject.pagingAccessList = getAccessListFunction(this.filterObject); 
+            this.child?.GridChanges(this.filterObject,this.sortObj);            
+          } 
+        },
+        error: (err) => {console.log(err); }
+      });
   }
 
   popupConfig: PopUpConfig = PopUpConfigFactory.getPopUpConfig({

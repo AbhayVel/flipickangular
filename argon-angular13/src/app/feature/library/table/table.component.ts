@@ -44,7 +44,7 @@ export class TableComponent implements OnInit, AfterContentInit {
   GridChanges(filterObject: any, sortObj: any) {
     filterFun(this.filterObject);
     sort(this.filterObject.rows, this.sortObj.columnName, this.sortObj.orderBy, this.sortObj.sortType, this.sortObj.condition);
-    let numberOfRecord = this.filterObject.rows.length;
+    /*let numberOfRecord = this.filterObject.rows.length;
     let pages = Math.ceil(numberOfRecord / this.filterObject.pageSize);
     if (this.filterObject.currentPage > pages) {
       this.filterObject.currentPage = 1;
@@ -58,7 +58,50 @@ export class TableComponent implements OnInit, AfterContentInit {
       paging.push(i);
     }
     this.filterObject.paging = paging;
-    this.filterObject.rows = this.filterObject.rows.slice(startIndex, endIndex);
+    this.filterObject.rows = this.filterObject.rows.slice(startIndex, endIndex);*/
+
+    this.filterObject.currentPage = this.filterObject.currentPage || 1;  
+    var defaultPageSize = 5;
+    var totalPages = Math.ceil(this.filterObject.rows.length / this.filterObject.pageSize);
+    if (this.filterObject.currentPage > totalPages) 
+    {
+      this.filterObject.currentPage = 1;
+    }
+    var startPage = 1;  var endPage;
+    if (totalPages <=  defaultPageSize) 
+    {
+      startPage = 1;
+      endPage = totalPages;            
+    } 
+    else 
+    {
+      if (this.filterObject.currentPage <= 3) 
+      {
+        startPage = 1;
+        endPage = defaultPageSize;            
+      } 
+      else if (this.filterObject.currentPage + 2 >= totalPages) 
+      {
+         startPage = totalPages - 4;
+         endPage = totalPages;
+      } 
+      else 
+      {
+        startPage = this.filterObject.currentPage - 2;
+        endPage = this.filterObject.currentPage + 2;
+      }
+    }
+    // calculate start and end item indexes
+    var startIndex = (this.filterObject.currentPage - 1) * this.filterObject.pageSize;
+    var endIndex = Math.min(startIndex + parseInt(this.filterObject.pageSize) - 1, this.filterObject.rows.length - 1);
+    var pages = [...Array((endPage + 1) - startPage).keys()].map(i => startPage + i);
+    
+    this.filterObject.paging = pages;  
+    this.filterObject.totalPages  = totalPages;
+    this.filterObject.totalRecordsText = this.filterObject.rows.length + " Records Found"; 
+    //this.filterObject.pagingAccessList = getAccessListFunction(this.filterObject); 
+    this.filterObject.selectedPageAccess = this.filterObject.currentPage;
+    this.filterObject.rows = this.filterObject.rows.slice(startIndex,endIndex + 1);
   }
 
   pChange(p: number) {

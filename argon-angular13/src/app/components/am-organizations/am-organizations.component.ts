@@ -18,26 +18,16 @@ export class AmOrganizationsComponent implements OnInit {
   @ViewChild('popup') popup?: PopupComponent;
   @ViewChild(TableComponent) child?: TableComponent;
   columns: Array<ColumnsDetails> = [];
-  organizationDropDownList: Organization[] = [];
-  orgDropDownListForm = this.fb.group({ name: [''] });
   title = ''; 
   organization: any;
 
   constructor(private organizationService: OrganizationService, public fb: FormBuilder) { }
   ngOnInit(): void 
   {
-    this.getOrganizationDropDownListData();
+   
     this.getOrganizationGridData();    
   }
 
-  getOrganizationDropDownListData(): void 
-  {
-    this.organizationService.getOrganizations()
-      .subscribe({next: (data) => {        
-          this.organizationDropDownList = data.result;   
-        }, error: (err) => { console.log(err); }
-      });
-  }
   onSubmit() {
     this.getOrganizationGridData();
   }
